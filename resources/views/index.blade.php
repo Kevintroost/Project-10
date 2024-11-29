@@ -72,8 +72,7 @@
                     </a>
                     <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Get to know us</h2>
                     <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">As a concert promoter in the
-                        Netherlands, we have been sharing our love for music with artists and visitors for more than 50
-                        years</p>
+                        Netherlands, we have been sharing our love for music with artists and visitors.</p>
                     <a href="{{ url('/aboutus') }}"
                         class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
                         more
