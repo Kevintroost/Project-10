@@ -28,10 +28,10 @@
     <section class="bg-white">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
             <div
-                class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
-                <a href="#"
+                class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+                <a
                     class="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2">
-                    <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true"
+                    <svg class="w-[12px] h-[12px] text-gray-800 dark:text-blue-400" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                         viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -41,12 +41,12 @@
 
                     Events
                 </a>
-                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">How to quickly deploy
-                    a static website</h1>
+                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Take a look at all
+                    our events</h1>
                 <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to
                     bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
                     both web designers and developers.</p>
-                <a href="#"
+                <a href="{{ url('/events') }}"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                     Read more
                     <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -58,22 +58,23 @@
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <div
-                    class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
-                    <a href="#"
+                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
+                    <a
                         class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-green-400 mb-2">
-                        <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 18 18">
-                            <path
-                                d="M17 11h-2.722L8 17.278a5.512 5.512 0 0 1-.9.722H17a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1ZM6 0H1a1 1 0 0 0-1 1v13.5a3.5 3.5 0 1 0 7 0V1a1 1 0 0 0-1-1ZM3.5 15.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM16.132 4.9 12.6 1.368a1 1 0 0 0-1.414 0L9 3.55v9.9l7.132-7.132a1 1 0 0 0 0-1.418Z" />
+                        <svg class="w-[12px] h-[12px] text-green-800 dark:text-green-500" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
+                                clip-rule="evenodd" />
                         </svg>
-                        Design
+                        About us
                     </a>
-                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Start with Flowbite Design
-                        System</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Static websites are now used to
-                        bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                        both web designers and developers.</p>
-                    <a href="#"
+                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Get to know us</h2>
+                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">As a concert promoter in the
+                        Netherlands, we have been sharing our love for music with artists and visitors for more than 50
+                        years</p>
+                    <a href="{{ url('/aboutus') }}"
                         class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
                         more
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
@@ -84,22 +85,21 @@
                     </a>
                 </div>
                 <div
-                    class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
+                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
                     <a href="#"
                         class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2">
-                        <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 20 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 4 1 8l4 4m10-8 4 4-4 4M11 1 9 15" />
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-purple-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" />
                         </svg>
-                        Code
+
+                        Request
                     </a>
-                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Best react libraries around
-                        the web</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Static websites are now used to
-                        bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                        both web designers and developers.</p>
-                    <a href="#"
+                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">We deliver the best help to
+                        create an event to your liking</h2>
+                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Send your request and receive a quote the same week</p>
+                    <a href="{{ url('/contact') }}"
                         class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
                         more
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
