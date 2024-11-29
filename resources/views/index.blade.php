@@ -7,7 +7,8 @@
         <div class="px-4 mx-auto max-w-screen-xl  py-24 lg:py-56">
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
                 Transform Your Events, Elevate Your Experiences</h1>
-            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl">Whether it's a wedding, corporate event, or
+            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl">Whether it's a concert, wedding, corporate
+                event, or
                 party, we handle the details so you can enjoy the moment.<br> Let’s create something amazing together!
             </p>
             <div class="flex flex-col space-y-4 sm:flex-row  sm:space-y-0">
@@ -43,9 +44,8 @@
                 </a>
                 <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Take a look at all
                     our events</h1>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to
-                    bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                    both web designers and developers.</p>
+                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">We have a wide range of events
+                    coming up, take a look or use the search bar above.</p>
                 <a href="{{ url('/events') }}"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                     Read more
@@ -97,7 +97,8 @@
                     </a>
                     <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">We deliver the best help to
                         create an event to your liking</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Send your request and receive a quote the same week</p>
+                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Send your request and receive a
+                        quote the same week</p>
                     <a href="{{ url('/contact') }}"
                         class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
                         more
@@ -111,6 +112,70 @@
             </div>
         </div>
     </section>
+
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mx-auto max-w-screen-xl p-4">
+        <div class="grid gap-4">
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
+            </div>
+        </div>
+        <div class="grid gap-4">
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
+            </div>
+        </div>
+        <div class="grid gap-4">
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
+            </div>
+        </div>
+        <div class="grid gap-4">
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+
+
 
 
 </x-layout>
