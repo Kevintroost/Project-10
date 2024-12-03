@@ -165,7 +165,7 @@
                 </div>
                 <div>
                     <img class="h-auto max-w-full rounded-lg"
-                        src="{{ Vite::asset('resources/assets/slipknot.jpg') }}" alt="">
+                        src="{{ Vite::asset('resources/assets/wacken.jpg') }}" alt="">
                 </div>
                 <div>
                     <img class="h-auto max-w-full rounded-lg"
