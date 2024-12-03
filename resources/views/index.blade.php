@@ -11,23 +11,27 @@
                 event, or
                 party, we handle the details so you can enjoy the moment.<br> Let’s create something amazing together!
             </p>
-            <div class="flex flex-col space-y-4 sm:flex-row  sm:space-y-0">
-                <a href="#"
-                    class="inline-flex  items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                    Get started
-                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
-            </div>
-        </div>
+
     </section>
 
 
     <section class="bg-white">
+
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+            <div
+                class="flex flex-col md:flex-row items-center bg-neutral-800  p-4 rounded-lg space-y-4 md:space-y-0 md:space-x-4 mb-8">
+                <input type="text" placeholder="Search events"
+                    class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="text" placeholder="Search dates"
+                    class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="text" placeholder="Location"
+                    class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="text" placeholder="Type of event"
+                    class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <button class="bg-blue-700 text-white py-2 px-6 rounded-md hover:bg-blue-600">
+                    Search
+                </button>
+            </div>
             <div
                 class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
                 <a
