@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 <body>
   <nav class="bg-white border-gray-200 dark:bg-neutral-800 p-1">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="{{ url('/index') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <a href="{{ url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="{{ Vite::asset('resources/assets/opuslogo.png') }}" class="h-10" alt="Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
       </a>
@@ -67,13 +67,13 @@ use Illuminate\Support\Facades\Auth;
         <ul
           class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-neutral-800 md:dark:bg-neutral-800 dark:border-gray-700">
           <li>
-            <a href="#"
+            <a href="{{ url('/') }}"
               class="block py-2 px-3 text-blue-700 rounded hover:bg-gray-100 hover:text-blue-700 md:p-0 dark:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white">
               Home
             </a>
           </li>
           <li>
-            <a href=""
+            <a href="{{ url('/Events') }}"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Events</a>
           </li>
           <li>
@@ -81,12 +81,12 @@ use Illuminate\Support\Facades\Auth;
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Request</a>
           </li>
           <li>
-            <a href="#"
+            <a href="{{ url('/aboutus') }}"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-900">About
               us</a>
           </li>
           <li>
-            <a href="#"
+            <a href="{{ url('/contact') }}"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-900">Contact</a>
           </li>
         </ul>
