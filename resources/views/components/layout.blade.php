@@ -23,7 +23,9 @@
           <img class="w-8 h-8 rounded-full" src="{{ Vite::asset('resources/assets/Adminpfp.jpg') }}" alt="user photo">
         </button>
         <!-- Dropdown menu -->
-        <div class="z-50 hidden absolute top-14 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-neutral-900 dark:divide-gray-600" id="user-dropdown">
+        <div
+          class="z-50 hidden absolute top-14 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-neutral-900 dark:divide-gray-600"
+          id="user-dropdown">
 
           <div class="px-4 py-3">
             <span class="block text-sm text-gray-900 dark:text-white">Meneer Opus</span>
@@ -61,11 +63,11 @@
             </a>
           </li>
           <li>
-            <a href="#"
+            <a href=""
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Events</a>
           </li>
           <li>
-            <a href="#"
+            <a href="{{ route('event-requests.create') }}"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Request</a>
           </li>
           <li>
@@ -181,4 +183,3 @@
 </body>
 
 </html>
-
