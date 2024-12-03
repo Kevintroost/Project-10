@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <nav class="bg-white border-gray-200 dark:bg-neutral-800">
+  <nav class="bg-white border-gray-200 dark:bg-neutral-800 p-1">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="{{ url('/index') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="{{ Vite::asset('resources/assets/opuslogo.png') }}" class="h-10" alt="Logo" />
