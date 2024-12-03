@@ -9,7 +9,7 @@
                 Transform Your Events, Elevate Your Experiences</h1>
             <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl">Whether it's a concert, wedding, corporate
                 event, or
-                party, we handle the details so you can enjoy the moment.<br> Let’s create something amazing together!
+                party, we handle the details so you can enjoy the moment.<br> Let's create something amazing together!
             </p>
 
     </section>
