@@ -18,8 +18,11 @@
     <section class="bg-white">
 
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+            <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl">
+                Search for upcoming events</h1>
             <div
                 class="flex flex-col md:flex-row items-center bg-neutral-800  p-4 rounded-lg space-y-4 md:space-y-0 md:space-x-4 mb-8">
+
                 <input type="text" placeholder="Search events"
                     class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                 <input type="text" placeholder="Search dates"
@@ -31,6 +34,92 @@
                 <button class="bg-blue-700 text-white py-2 px-6 rounded-md hover:bg-blue-600">
                     Search
                 </button>
+            </div>
+            <div class="max-w-7xl mx-auto mb-20">
+
+                <!-- Articles Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Article Card -->
+                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
+                        <img src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}" alt="linkin park"
+                            class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold mb-2">Linkin park</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                LINKIN PARK is terug en ze staan klaar om hun fans te trakteren op nieuwe muziek van het
+                                album From Zero, waaronder de krachtige single Emptiness Machine.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Article Card -->
+                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
+                        <img src="{{ Vite::asset('resources/assets/slipknot.jpg') }}" alt="Enterprise design tips"
+                            class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold mb-2">Slipknot</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Nooit eerder was er zo'n unieke band in de nu-metalcore scene als Slipknot. De band is
+                                bekend om hun maskers en hun energieke live shows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Article Card -->
+                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
+                        <img src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}" alt="We partnered with Google"
+                            class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold mb-2">Pinkpop</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Van eendagsfestival op pinkstermaandag in 1970 tot volwaardig weekendfestival met een
+                                groot aanbod (inter)nationaal nieuw talent, toffe areas, een festivalmarkt en allerlei
+                                randactiviteiten.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Article Card -->
+                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
+                        <img src="{{ Vite::asset('resources/assets/babymetal.png') }}"
+                            alt="Our first project with React" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold mb-2">Babymetal</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                De Japanse meiden van BABYMETAL, Su-metal en Moametal, zijn al een metalsensatie sinds
+                                hun 12e en 14e.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-20">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+                </div>
             </div>
             <div
                 class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
@@ -46,7 +135,8 @@
 
                     Events
                 </a>
-                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Take a look at all
+                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Take a look at
+                    all
                     our events</h1>
                 <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">We have a wide range of events
                     coming up, take a look or use the search bar above.</p>
@@ -75,7 +165,8 @@
                         About us
                     </a>
                     <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Get to know us</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">As a concert promoter in the
+                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">As a concert promoter in
+                        the
                         Netherlands, we have been sharing our love for music with artists and visitors.</p>
                     <a href="{{ url('/aboutus') }}"
                         class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
@@ -99,9 +190,11 @@
 
                         Request
                     </a>
-                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">We deliver the best help to
+                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">We deliver the best help
+                        to
                         create an event to your liking</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Send your request and receive a
+                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Send your request and
+                        receive a
                         quote the same week</p>
                     <a href="{{ url('/contact') }}"
                         class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
@@ -118,65 +211,7 @@
     </section>
 
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mx-auto max-w-screen-xl p-4">
-        <div class="grid gap-4">
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
-            </div>
-        </div>
-        <div class="grid gap-4">
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
-            </div>
-        </div>
-        <div class="grid gap-4">
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
-            </div>
-        </div>
-        <div class="grid gap-4">
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
-            </div>
-        </div>
 
-    </div>
 
 
 
