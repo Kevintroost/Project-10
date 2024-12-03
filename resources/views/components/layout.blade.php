@@ -1,3 +1,10 @@
+<p?php
+
+use Illuminate\Support\Facades\Auth;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,13 +27,16 @@
           id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
           data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
+          @auth
           <img class="w-8 h-8 rounded-full" src="{{ Vite::asset('resources/assets/Adminpfp.jpg') }}" alt="user photo">
         </button>
         <!-- Dropdown menu -->
-        <div class="z-50 hidden absolute top-14 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-neutral-900 dark:divide-gray-600" id="user-dropdown">
+        <div
+          class="z-50 hidden absolute top-14 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-neutral-900 dark:divide-gray-600"
+          id="user-dropdown">
 
           <div class="px-4 py-3">
-            <span class="block text-sm text-gray-900 dark:text-white">Meneer Opus</span>
+            <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</span>
             <span class="block text-sm text-gray-500 truncate dark:text-gray-400">OpusEvents</span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
@@ -35,12 +45,14 @@
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
             </li>
             <li>
-              <a href="{{ url('/') }}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                out</a>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <input class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer" type="submit" value="sign out">
+            </form>
             </li>
           </ul>
         </div>
+        @endauth
         <button data-collapse-toggle="navbar-user" type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-user" aria-expanded="false">
@@ -61,11 +73,11 @@
             </a>
           </li>
           <li>
-            <a href="#"
+            <a href=""
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Events</a>
           </li>
           <li>
-            <a href="#"
+            <a href="{{ route('event-requests.create') }}"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Request</a>
           </li>
           <li>
@@ -181,4 +193,3 @@
 </body>
 
 </html>
-
