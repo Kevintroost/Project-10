@@ -45,20 +45,18 @@ class LoginController extends Controller
     }
 
     public function Destroy()
-    {
-       
-        {
-            Session::flush(); 
-    
+    { {
+            Session::flush();
+
             // Log the user out
             Auth::logout();
-    
-          
+
+
             return redirect('/admin');
         }
     }
-    }
-    
+}
+
 
 
 
