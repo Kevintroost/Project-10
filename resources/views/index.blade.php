@@ -2,7 +2,7 @@
 
 
     <section class="bg-center bg-no-repeat" style="
-     background-image: url('{{ Vite::asset('resources/assets/background.jpg') }}');
+     background-image: url('{{ Vite::asset('resources/assets/background.svg') }}');
     ">
         <div class="px-4 mx-auto max-w-screen-xl  py-24 lg:py-56">
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
@@ -35,92 +35,34 @@
                     Search
                 </button>
             </div>
-            <div class="max-w-7xl mx-auto mb-20">
+            
+            <section class="bg-white">
+                <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 ">
 
-                <!-- Articles Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Article Card -->
-                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
-                        <img src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}" alt="linkin park"
-                            class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-lg font-bold mb-2">Linkin park</h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                LINKIN PARK is terug en ze staan klaar om hun fans te trakteren op nieuwe muziek van het
-                                album From Zero, waaronder de krachtige single Emptiness Machine.
-                            </p>
-                        </div>
+                    <div class="mt-4 md:mt-0">
+                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text">Discover, Connect, and Celebrate.
+                        </h2>
+                        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Join us as we explore new
+                            ways to make events more engaging and inclusive. With tools that enhance participation and
+                            ideas that spark innovation, we’re creating opportunities for people to connect with what
+                            they love and with one another.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
+                            Get started
+                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
                     </div>
+                    <img class="w-full " src="{{ Vite::asset('resources/assets/events.jpeg') }}" alt="dashboard image">
 
-                    <!-- Article Card -->
-                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
-                        <img src="{{ Vite::asset('resources/assets/slipknot.jpg') }}" alt="Enterprise design tips"
-                            class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-lg font-bold mb-2">Slipknot</h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Nooit eerder was er zo'n unieke band in de nu-metalcore scene als Slipknot. De band is
-                                bekend om hun maskers en hun energieke live shows.
-                            </p>
-                        </div>
-                    </div>
+                </div>
+            </section>
 
-                    <!-- Article Card -->
-                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
-                        <img src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}" alt="We partnered with Google"
-                            class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-lg font-bold mb-2">Pinkpop</h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Van eendagsfestival op pinkstermaandag in 1970 tot volwaardig weekendfestival met een
-                                groot aanbod (inter)nationaal nieuw talent, toffe areas, een festivalmarkt en allerlei
-                                randactiviteiten.
-                            </p>
-
-                        </div>
-                    </div>
-
-                    <!-- Article Card -->
-                    <div class="bg-neutral-800 text-white rounded-lg overflow-hidden shadow-md">
-                        <img src="{{ Vite::asset('resources/assets/babymetal.png') }}"
-                            alt="Our first project with React" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-lg font-bold mb-2">Babymetal</h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                De Japanse meiden van BABYMETAL, Su-metal en Moametal, zijn al een metalsensatie sinds
-                                hun 12e en 14e.
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-20">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-                </div>
-            </div>
             <div
                 class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
                 <a
@@ -152,7 +94,7 @@
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <div
-                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
+                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-20">
                     <a
                         class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-green-400 mb-2">
                         <svg class="w-[12px] h-[12px] text-green-800 dark:text-green-500" aria-hidden="true"
@@ -179,7 +121,7 @@
                     </a>
                 </div>
                 <div
-                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
+                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-20">
                     <a href="#"
                         class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2">
                         <svg class="w-[12px] h-[12px] text-gray-800 dark:text-purple-400" aria-hidden="true"
@@ -205,6 +147,33 @@
                                 d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                     </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="{{ Vite::asset('resources/assets/slipknot.jpg') }}" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="{{ Vite::asset('resources/assets/wacken.jpg') }}" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}" alt="">
                 </div>
             </div>
         </div>
