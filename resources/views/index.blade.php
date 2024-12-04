@@ -4,13 +4,23 @@
     <section class="bg-center bg-no-repeat" style="
      background-image: url('{{ Vite::asset('resources/assets/background.svg') }}');
     ">
-        <div class="px-4 mx-auto max-w-screen-xl  py-24 lg:py-56">
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                Transform Your Events, Elevate Your Experiences</h1>
-            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl">Whether it's a concert, wedding, corporate
-                event, or
-                party, we handle the details so you can enjoy the moment.<br> Let's create something amazing together!
-            </p>
+
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                <h1
+                    class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                    Transform Your Events, Elevate Your Experiences</h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                    Whether it's a concert, wedding, corporate
+                    event, or
+                    party, we handle the details so you can enjoy the moment.</p>
+
+            </div>
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <img src="{{ Vite::asset('resources/assets/stage.png') }}" alt="mockup">
+            </div>
+        </div>
+
 
     </section>
 
@@ -35,7 +45,7 @@
                     Search
                 </button>
             </div>
-            
+
             <section class="bg-white">
                 <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 ">
 
@@ -139,31 +149,31 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}" alt="">
+                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}"
+                        alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="{{ Vite::asset('resources/assets/slipknot.jpg') }}" alt="">
+                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/slipknot.jpg') }}"
+                        alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}" alt="">
+                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}"
+                        alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="{{ Vite::asset('resources/assets/wacken.jpg') }}" alt="">
+                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/wacken.jpg') }}"
+                        alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}" alt="">
+                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}"
+                        alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}" alt="">
+                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}"
+                        alt="">
                 </div>
             </div>
         </div>
