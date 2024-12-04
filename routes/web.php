@@ -14,22 +14,16 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/admin', function () {
-    return view('auth.login');
-});
 
 
 
 
-Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.admin-dashboard');
         
     });
 
-    Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
-   
-});
+
 
 
 
