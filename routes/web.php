@@ -37,5 +37,5 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 
 // Event Requests 
-Route::get('event-requests/create', [EventRequestController::class, 'create'])->name('event-requests.create');
-Route::post('event-requests/store', [EventRequestController::class, 'store'])->name('event-requests.store');
+Route::get('event-request/create', [EventRequestController::class, 'create'])->name('event-request.create');
+Route::post('event-request/store', [EventRequestController::class, 'store'])->name('event-request.store');

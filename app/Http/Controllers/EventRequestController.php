@@ -9,7 +9,21 @@ class EventRequestController extends Controller
 {
     public function create()
     {
-        return view('event-request.create');
+        $provinces = [
+            'Drenthe',
+            'Flevoland',
+            'Friesland',
+            'Gelderland',
+            'Groningen',
+            'Limburg',
+            'North Brabant',
+            'North Holland',
+            'Overijssel',
+            'South Holland',
+            'Utrecht',
+            'Zeeland',
+        ];
+        return view('event-request.create', compact('provinces'));
     }
 
     public function store(Request $request)
@@ -23,14 +37,11 @@ class EventRequestController extends Controller
             'date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'), // Validates that the date is not in the past
         ], [
             'date.after_or_equal' => 'The event date must be today or in the future.',
-            'details.min' => 'Details must be at least 10 characters long.',
+            // 'details.min' => 'Details must be at least 10 characters long.',
         ]);
 
-        $eventRequest = EventRequest::create($validated);
+        EventRequest::create($validated);
 
-        return response()->json([
-            'message' => 'Event request created successfully!',
-            'data' => $eventRequest,
-        ], 201);
+        return redirect('/')->with('success', 'Event request created successfully!');
     }
 }
