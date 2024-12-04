@@ -9,27 +9,25 @@ class EventRequestController extends Controller
 {
     public function create()
     {
-        return view('event-request.create'); // Your form view
+        return view('event-request.create');
     }
 
     public function store(Request $request)
     {
-        // Validate input
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:15',
             'location' => 'required|string|max:255',
             'details' => 'nullable|string|min:10',
-            'date' => 'required|date|after_or_equal:today', // Ensures the date is valid
+            'date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'), // Validates that the date is not in the past
+        ], [
+            'date.after_or_equal' => 'The event date must be today or in the future.',
+            'details.min' => 'Details must be at least 10 characters long.',
         ]);
 
-        // Create the event request in the database
         $eventRequest = EventRequest::create($validated);
 
-        dd($eventRequest);
-
-        // Return a response
         return response()->json([
             'message' => 'Event request created successfully!',
             'data' => $eventRequest,
