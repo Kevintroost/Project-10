@@ -18,6 +18,10 @@ Route::get('/admin', function () {
     return view('auth.login');
 });
 
+Route::get('/events/index', function () {
+    return view('events.index');
+});
+
 
 
 
