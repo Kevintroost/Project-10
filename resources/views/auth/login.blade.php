@@ -1,6 +1,6 @@
 <x-layout>
 
-<section class="bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/assets/wavebackground.png') }}');">
+<section class="bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/assets/wavebackground.svg') }}');">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <img class="w-[200px] h-[200px] mr-2 mt-[-100px]" src="{{ Vite::asset('resources/assets/Opuswhite.png') }}"
         alt="logo">
