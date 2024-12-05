@@ -1,77 +1,70 @@
 <x-admin-layout>
-<div class="col-span-12 flex flex-wrap items-center justify-between gap-3">
-      <!-- Datepicker built with flatpickr -->
-      <div class="relative">
-        <input
-          class="datepicker w-[120%] rounded border border-stroke bg-white py-2 pl-10 pr-4 text-sm font-medium shadow-card-2 focus-visible:outline-none dark:border-strokedark dark:bg-boxdark"
-          placeholder="Select dates"
-          data-class="flatpickr-right"
-        />
-        <div
-          class="pointer-events-none absolute inset-0 left-4 right-auto flex items-center"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="<http://www.w3.org/2000/svg>"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3.75 3.75C3.33579 3.75 3 4.08579 3 4.5V15C3 15.4142 3.33579 15.75 3.75 15.75H14.25C14.6642 15.75 15 15.4142 15 15V4.5C15 4.08579 14.6642 3.75 14.25 3.75H3.75ZM1.5 4.5C1.5 3.25736 2.50736 2.25 3.75 2.25H14.25C15.4926 2.25 16.5 3.25736 16.5 4.5V15C16.5 16.2426 15.4926 17.25 14.25 17.25H3.75C2.50736 17.25 1.5 16.2426 1.5 15V4.5Z"
-              fill="#64748B"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M12 0.75C12.4142 0.75 12.75 1.08579 12.75 1.5V4.5C12.75 4.91421 12.4142 5.25 12 5.25C11.5858 5.25 11.25 4.91421 11.25 4.5V1.5C11.25 1.08579 11.5858 0.75 12 0.75Z"
-              fill="#64748B"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M6 0.75C6.41421 0.75 6.75 1.08579 6.75 1.5V4.5C6.75 4.91421 6.41421 5.25 6 5.25C5.58579 5.25 5.25 4.91421 5.25 4.5V1.5C5.25 1.08579 5.58579 0.75 6 0.75Z"
-              fill="#64748B"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M1.5 7.5C1.5 7.08579 1.83579 6.75 2.25 6.75H15.75C16.1642 6.75 16.5 7.08579 16.5 7.5C16.5 7.91422 16.1642 8.25 15.75 8.25H2.25C1.83579 8.25 1.5 7.91422 1.5 7.5Z"
-              fill="#64748B"
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        class="relative z-20 inline-block rounded bg-white shadow-card-2 dark:bg-boxdark"
-      >
-        <select
-          name=""
-          id=""
-          class="relative z-20 inline-flex appearance-none rounded border border-stroke bg-transparent py-2 pl-4 pr-9 text-sm outline-none dark:border-strokedark"
-        >
-          <option value="">Yearly</option>
-          <option value="">Monthly</option>
-        </select>
-        <span class="absolute top-1/2 right-3 z-10 -translate-y-1/2">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="<http://www.w3.org/2000/svg>"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3.96967 6.21967C4.26256 5.92678 4.73744 5.92678 5.03033 6.21967L9 10.1893L12.9697 6.21967C13.2626 5.92678 13.7374 5.92678 14.0303 6.21967C14.3232 6.51256 14.3232 6.98744 14.0303 7.28033L9.53033 11.7803C9.23744 12.0732 8.76256 12.0732 8.46967 11.7803L3.96967 7.28033C3.67678 6.98744 3.67678 6.51256 3.96967 6.21967Z"
-              fill="#64748B"
-            />
-          </svg>
-        </span>
-      </div>
-    </div>
-    <include src="./partials/chart-04.html" />
+
+
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 ">
+<!-- Card 1 -->
+<div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-blue-100 p-3 rounded-full">
+<svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553 2.276a2 2 0 010 3.448L15 18m0-8l-4.553-2.276a2 2 0 00-3.448 0L3 10m6 0v8m6 0V10m0 8l-4.553 2.276a2 2 0 01-3.448 0L3 18" />
+</svg>
+</div>
+<div class="ml-4">
+<p class="text-xl font-semibold">$3.456K</p>
+<p class="text-gray-500">Total Views</p>
+</div>
+</div>
+<p class="text-green-500 text-sm">0.43% ↑</p>
+</div>
+ 
+  <!-- Card 2 -->
+<div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-blue-100 p-3 rounded-full">
+<svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21v-7m0 0a4 4 0 118 0v7m0 0H9" />
+</svg>
+</div>
+<div class="ml-4">
+<p class="text-xl font-semibold">$45.2K</p>
+<p class="text-gray-500">Total Profit</p>
+</div>
+</div>
+<p class="text-green-500 text-sm">4.35% ↑</p>
+</div>
+ 
+  <!-- Card 3 -->
+<div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-blue-100 p-3 rounded-full">
+<svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M8 11v10m8-10v10M9 21h6m-6 0a3 3 0 003 3h0a3 3 0 003-3m0 0H9" />
+</svg>
+</div>
+<div class="ml-4">
+<p class="text-xl font-semibold">2.450</p>
+<p class="text-gray-500">Total Product</p>
+</div>
+</div>
+<p class="text-green-500 text-sm">2.59% ↑</p>
+</div>
+ 
+  <!-- Card 4 -->
+<div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-blue-100 p-3 rounded-full">
+<svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-6M6 20H1v-6m5 6v-6m0 0a2 2 0 014 0v6M6 14a4 4 0 10-8 0M8 10a4 4 0 110 8" />
+</svg>
+</div>
+<div class="ml-4">
+<p class="text-xl font-semibold">3.456</p>
+<p class="text-gray-500">Total Users</p>
+</div>
+</div>
+<p class="text-red-500 text-sm">0.95% ↓</p>
+</div>
+</div>
+
 </x-admin-layout>
