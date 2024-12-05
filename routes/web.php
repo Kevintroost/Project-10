@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
 use PHPUnit\Framework\Attributes\Group;
 use App\Http\Controllers\EventRequestController;
+use App\Http\Controllers\FotoGalerieController;
 
 
 Route::get('/', function () {
@@ -24,8 +25,9 @@ Route::get('/admin', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.admin-dashboard');
-
     });
+
+    Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
 
     Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
 
