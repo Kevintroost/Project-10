@@ -4,21 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\FotoGalerie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class FotoGalerieController extends Controller
 {
     public function index()
     {
-        return FotoGalerie::all();
+        
+    }
+
+    public function create()
+    {
+        return view('images.create');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'foto' => 'required|string|max:255',
-            'admin_id' => 'required|exists:admins,id',
-        ]);
-
-        return FotoGalerie::create($request->all());
+      
     }
 }
