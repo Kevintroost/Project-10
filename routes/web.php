@@ -5,14 +5,19 @@ use App\Http\Controllers\auth\LoginController;
 use PHPUnit\Framework\Attributes\Group;
 use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
+use App\Models\FotoGalerie;
 
 
 Route::get('/', function () {
-    return view('index');
+    $fotoGaleries = FotoGalerie::all();
+    $fotoGaleries = FotoGalerie::paginate(9);
+    return view('index', compact('fotoGaleries'));
 });
 
 Route::get('/index', function () {
-    return view('index');
+    $fotoGaleries = FotoGalerie::all();
+    $fotoGaleries = FotoGalerie::paginate(9);
+    return view('index', compact('fotoGaleries'));
 });
 
 Route::get('/admin', function () {
@@ -32,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
+    Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
+    Route::delete('/admin/dashboard/image/destroy', [FotoGalerieController::class, 'Destroy'])->name('destroy');
 
     Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
 

@@ -11,7 +11,7 @@ class CreateFotoGaleriesTable extends Migration
         Schema::create('foto_galeries', function (Blueprint $table) {
             $table->id();
             $table->string('foto');
-            $table->foreignId('admin_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

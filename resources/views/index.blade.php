@@ -95,38 +95,56 @@
 
             </div>
 
-
-
-
-
-
-
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}"
-                        alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/slipknot.jpg') }}"
-                        alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}"
-                        alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/wacken.jpg') }}"
-                        alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/pinkpop.jpg') }}"
-                        alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="{{ Vite::asset('resources/assets/linkinpark.jpg') }}"
-                        alt="">
-                </div>
+                @foreach ($fotoGaleries as $fotoGalerie)
+                    <div class="relative">
+                        <!-- Set a fixed height and make the image cover the container with object-fit -->
+                        <img src="{{ asset('Images/' . $fotoGalerie->foto) }}" alt="foto_galerij"
+                            class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                @endforeach
             </div>
+
+<!-- Custom Pagination -->
+<div class="flex items-center justify-center space-x-2 mt-6">
+    <!-- Previous Button -->
+    @if ($fotoGaleries->onFirstPage())
+        <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+            Previous
+        </button>
+    @else
+        <a href="{{ $fotoGaleries->previousPageUrl() }}" class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+            Previous
+        </a>
+    @endif
+
+    <!-- Page Numbers -->
+    @for ($i = 1; $i <= $fotoGaleries->lastPage(); $i++)
+        @if ($i == $fotoGaleries->currentPage())
+            <button class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                {{ $i }}
+            </button>
+        @else
+            <a href="{{ $fotoGaleries->url($i) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                {{ $i }}
+            </a>
+        @endif
+    @endfor
+
+    <!-- Next Button -->
+    @if ($fotoGaleries->hasMorePages())
+        <a href="{{ $fotoGaleries->nextPageUrl() }}" class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+            Next
+        </a>
+    @else
+        <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+            Next
+        </button>
+    @endif
+</div>
+
+
+
         </div>
     </section>
 
