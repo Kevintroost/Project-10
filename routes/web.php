@@ -29,6 +29,9 @@ Route::get('/events/index', function () {
 });
 
 
+Route::get('/admin/dashboard/events/create', function () {
+    return view('events/create');
+});
 
 
 Route::group(['middleware' => 'auth'], function () {
