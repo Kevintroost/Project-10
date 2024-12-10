@@ -27,6 +27,7 @@ Route::get('/admin', function () {
 
 Route::get('/events/index', function () {
     $events = Event::all();
+    $events = Event::paginate(10);
     return view('events.index' , compact('events'));
 });
 
