@@ -8,11 +8,13 @@ class CreateFotoGaleriesTable extends Migration
 {
     public function up()
     {
-        Schema::create('foto_galeries', function (Blueprint $table) {
+        Schema::create('fotogaleries', function (Blueprint $table) {
             $table->id();
-            $table->string('foto');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('event_id'   )->nullable(); // Foreign key
+            $table->string('gallery_name');
             $table->timestamps();
+
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 
