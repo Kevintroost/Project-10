@@ -42,6 +42,6 @@ class EventRequestController extends Controller
 
         EventRequest::create($validated);
 
-        return redirect('/')->with('success', 'Event request created successfully!');
+        return redirect('/event-request/create')->with('success', 'Event request created successfully!');
     }
 }

@@ -13,7 +13,7 @@
                         <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
                     @enderror
                     
-                    <input type="submit" value="Upload" class="block w-full dark:bg-neutral-800 hover:dark:bg-neutral-900 text-white font-semibold text-sm rounded-lg cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:dark:bg-neutral-900 py-4 px-4 mt-4">
+                    <input type="submit" value="Upload" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:dark:bg-neutral-900 py-4 px-4 mt-4">
                 </form>
             </div>
 

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
 use PHPUnit\Framework\Attributes\Group;
+use App\Models\Event;
 use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
@@ -25,10 +26,18 @@ Route::get('/admin', function () {
 });
 
 Route::get('/events/index', function () {
-    return view('events.index');
+    $events = Event::all();
+    $events = Event::paginate(10);
+    return view('events.index' , compact('events'));
 });
 
 
+Route::get('/admin/dashboard/events/create', function () {
+    $events = Event::all();
+
+
+    return view('events/create', compact('events'));
+});
 
 
 Route::group(['middleware' => 'auth'], function () {
