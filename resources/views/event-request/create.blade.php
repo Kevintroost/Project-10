@@ -1,53 +1,70 @@
 <x-layout>
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-            <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Create Event Request</h2>
+    <section class="flex flex-col items-center justify-center min-h-screen bg-gray-100 bg-cover bg-center"
+        style="background-image: url('{{ Vite::asset('resources/assets/wavebackground.svg') }}');">
+        <!-- Alert Section -->
+        @if(session('success'))
+            <div class="w-full max-w-2xl">
+                <div class="flex items-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
+                    role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium">Success alert!</span>
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        <!-- Form Section -->
+        <div class="w-full max-w-2xl bg-[#1a1a1a] text-white rounded-lg shadow-lg p-8 mt-6">
+            <h2 class="text-2xl font-bold mb-6 text-center">Create Event Request</h2>
             <form action="{{ route('event-request.store') }}" method="POST">
                 @csrf
-                <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                <div class="grid grid-cols-1 gap-6">
                     <!-- Name Field -->
-                    <div class="sm:col-span-2">
-                        <label for="name"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2">Name</label>
                         <input type="text" name="name" id="name" value="{{ old('name') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            class="w-full bg-[#2a2a2a] border border-[#333333] text-white text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Enter your name">
                         @error('name')
-                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
-
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                     <!-- Email Field -->
-                    <div class="w-full">
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2">Email</label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            class="w-full bg-[#2a2a2a] border border-[#333333] text-white text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Enter your email">
                         @error('email')
-                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <!-- Phone Field -->
-                    <div class="w-full">
-                        <label for="phone"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium mb-2">Phone</label>
                         <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            class="w-full bg-[#2a2a2a] border border-[#333333] text-white text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Enter your phone number">
                         @error('phone')
-                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <!-- Location Dropdown -->
-                    <div class="w-full">
-                        <label for="location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Select Province
-                        </label>
+                    <div>
+                        <label for="location" class="block text-sm font-medium mb-2">Select Province</label>
                         <select name="location" id="location" required
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            class="w-full bg-[#2a2a2a] border border-[#333333] text-white text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500">
                             <option value="" disabled selected>Select a province</option>
                             @foreach($provinces as $province)
                                 <option value="{{ $province }}" {{ old('location') === $province ? 'selected' : '' }}>
@@ -56,41 +73,37 @@
                             @endforeach
                         </select>
                         @error('location')
-                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <!-- Date Field -->
-                    <div class="w-full">
-                        <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Event Date
-                        </label>
+                    <div>
+                        <label for="date" class="block text-sm font-medium mb-2">Event Date</label>
                         <input type="datetime-local" name="date" id="date" value="{{ old('date') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            class="w-full bg-[#2a2a2a] border border-[#333333] text-white text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500">
                         @error('date')
-                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
 
                 <!-- Details Field -->
-                <div class="sm:col-span-2">
-                    <label for="details"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Details</label>
+                <div class="mt-4">
+                    <label for="details" class="block text-sm font-medium mb-2">Details</label>
                     <textarea id="details" name="details" rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        class="w-full bg-[#2a2a2a] border border-[#333333] text-white text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Provide details about the event">{{ old('details') }}</textarea>
                     @error('details')
-                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                        <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <button type="submit"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    class="w-full py-2.5 mt-6 bg-blue-600 hover:bg-blue-700 text-sm font-medium rounded-md focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50">
                     Submit Event Request
                 </button>
-        </div>
-        </form>
+            </form>
         </div>
     </section>
 </x-layout>
