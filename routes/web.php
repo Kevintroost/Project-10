@@ -33,7 +33,10 @@ Route::get('/events/index', function () {
 
 
 Route::get('/admin/dashboard/events/create', function () {
-    return view('events/create');
+    $events = Event::all();
+
+
+    return view('events/create', compact('events'));
 });
 
 
