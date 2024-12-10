@@ -1,6 +1,7 @@
 <x-admin-layout>
-  <section class="p-6">
-    <div class="max-w-md   bg-white p-8 shadow-md rounded-md">
+  <section class="p-6 flex flex-row gap-6">
+    <!-- Left: Create Event Form -->
+    <div class="w-1/2 bg-white p-8 shadow-md rounded-md">
       <h2 class="text-2xl font-semibold mb-4">Create a New Event</h2>
       <form>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -18,9 +19,6 @@
               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 h-11 text-gray-700 placeholder-gray-700" />
           </div>
         </div>
-
-
-
 
         <!-- Location -->
         <div class="mt-4">
@@ -74,34 +72,30 @@
         </div>
       </form>
     </div>
-    <div class="flex-1 bg-white border border-gray-200 rounded-lg shadow-md p-6 overflow-y-auto">
+
+    <!-- Right: List of Events -->
+    <div class="w-1/2 bg-white border border-gray-200 rounded-lg shadow-md p-6 overflow-y-auto flex-shrink-0 h-[16rem]">
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)
-      <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between">
+          <img src="{{ asset('images/' . $event->foto) }}" alt="foto_galerij"
+            class="w-16 h-16 object-cover rounded-full">
 
-        <img src="{{ asset('images/' . $event->foto) }}" alt="foto_galerij"
-        class="w-16 h-16 object-cover rounded-full">
+          <div class="flex flex-col items-start ml-4">
+            <p class="text-sm text-gray-700">{{ $event->title }}</p>
+          </div>
 
-
-
-        <div class="flex flex-col items-start ml-4">
-        <p class="text-sm text-gray-700">{{ $event->title }}</p>
-
-
+          <form action="{{ route('destroy') }}" method="POST">
+            @method('DELETE')
+            @csrf
+            <input type="hidden" name="image_id" value="{{ $event->id }}">
+            <button type="submit"
+              class="mt-2 w-full bg-red-600 text-white font-semibold text-sm rounded-lg py-3 px-10 focus:outline-none hover:bg-red-700">
+              Delete
+            </button>
+          </form>
         </div>
-
-        <form action="{{ route('destroy') }}" method="POST">
-        @method('DELETE')
-        @csrf
-        <input type="hidden" name="image_id" value="{{ $event->id }}">
-        <button type="submit"
-          class="mt-2 w-full bg-red-600 text-white font-semibold text-sm rounded-lg py-3 px-10 focus:outline-none hover:bg-red-700">
-          Delete
-        </button>
-        </form>
-
-      </div>
-    @endforeach
+        @endforeach
       </div>
     </div>
   </section>
