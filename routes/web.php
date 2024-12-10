@@ -6,19 +6,20 @@ use PHPUnit\Framework\Attributes\Group;
 use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
+use App\Http\Controllers\NewsletterSubscriberController;
+
 
 
 Route::get('/', function () {
-    $fotoGaleries = FotoGalerie::all();
     $fotoGaleries = FotoGalerie::paginate(9);
     return view('index', compact('fotoGaleries'));
 });
 
 Route::get('/index', function () {
-    $fotoGaleries = FotoGalerie::all();
     $fotoGaleries = FotoGalerie::paginate(9);
-    return view('index', compact('fotoGaleries'));
-});
+        return view('index', compact('fotoGaleries'));
+    })->name('index');
+
 
 Route::get('/admin', function () {
     return view('auth.login');
@@ -27,6 +28,8 @@ Route::get('/admin', function () {
 Route::get('/events/index', function () {
     return view('events.index');
 });
+
+Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
 
