@@ -136,4 +136,4 @@
    <div class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64">{{$slot}}</div>
 
 </body>
-</html>
+</html> 
