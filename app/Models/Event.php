@@ -9,10 +9,15 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'date', 'location', 'is_scraped', 'scrapper_id'];
-
-    public function fotoGaleries()
-    {
-        return $this->hasMany(FotoGalerie::class);
-    }
+    protected $fillable = [
+        'event-name', 
+        'event-date', 
+        'location', 
+        'event-type', 
+        'description',
+        'ticket-link',
+        'event-picture',
+        'is_scraped', 
+        'scrapper_id'
+    ];
 }

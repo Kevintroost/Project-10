@@ -10,10 +10,13 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->string('date');
-            $table->string('location')->nullable();
+$table->string('event-name');
+$table->string('event-date');
+$table->string('location')->nullable();
+$table->string('event-type');
+$table->text('description')->nullable();
+$table->string('ticket-link');
+$table->string('event-picture');
             $table->boolean('is_scraped')->default(false);
             $table->string('foto');
             $table->foreignId('scrapper_id')->nullable()->constrained()->onDelete('set null');
