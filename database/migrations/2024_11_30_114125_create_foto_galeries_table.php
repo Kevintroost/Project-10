@@ -10,7 +10,7 @@ class CreateFotoGaleriesTable extends Migration
     {
         Schema::create('fotogaleries', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('event_id'   )->nullable(); // Foreign key
+            $table->unsignedBigInteger('event_id')->nullable(); // Foreign key
             $table->string('gallery_name');
             $table->timestamps();
 
