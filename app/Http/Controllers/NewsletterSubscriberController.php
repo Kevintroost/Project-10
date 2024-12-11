@@ -28,7 +28,7 @@ class NewsletterSubscriberController extends Controller
 
         
 
-       return redirect('/admin')->with('success', 'You have successfully subscribed to our newsletter');
+      return redirect()->back();
 
 
 
