@@ -6,15 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFotoGaleriesTable extends Migration
 {
+
     public function up()
     {
-        Schema::create('fotogaleries', function (Blueprint $table) {
+        Schema::create('foto_galeries', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('event_id'   )->nullable(); // Foreign key
-            $table->string('gallery_name');
+            $table->string('foto');
+            $table->string('user_id'); 
             $table->timestamps();
-
-            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

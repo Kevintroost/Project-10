@@ -15,6 +15,7 @@ class CreateEventsTable extends Migration
             $table->string('date');
             $table->string('location')->nullable();
             $table->boolean('is_scraped')->default(false);
+            $table->string('foto');
             $table->foreignId('scrapper_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
