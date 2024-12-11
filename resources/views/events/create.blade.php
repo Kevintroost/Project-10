@@ -9,14 +9,14 @@
           <div>
             <label for="event-name" class="block text-sm font-medium text-gray-700">Event/Artist Name</label>
             <input type="text" id="event-name" placeholder="Enter event or artist name"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 h-11" />
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" />
           </div>
 
           <!-- Event Date -->
           <div>
             <label for="event-date" class="block text-sm font-medium text-gray-700">Date</label>
             <input type="datetime-local" name="date" id="event-date" value="{{ old('date') }}"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 h-11 text-gray-700 placeholder-gray-700" />
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11 text-gray-700 placeholder-gray-700" />
           </div>
         </div>
 
@@ -25,14 +25,14 @@
           <label for="location" class="block text-sm font-medium text-gray-700">Location <span
               class="text-red-500">*</span></label>
           <input type="text" id="location" placeholder="Enter event location" required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6" />
         </div>
 
         <!-- Event Type -->
         <div class="mt-4">
           <label for="event-type" class="block text-sm font-medium text-gray-700">Event Type</label>
           <select id="event-type"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 placeholder-gray-700">
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 placeholder-gray-700 py-3 px-6">
             <option value="" disabled selected class="text-gray-400">Event type</option>
             <option>Concert</option>
             <option>Festival</option>
@@ -44,14 +44,14 @@
         <div class="mt-4">
           <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
           <textarea id="description" placeholder="Add event description" rows="2"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6"></textarea>
         </div>
 
         <!-- Link to Tickets -->
         <div class="mt-4">
           <label for="ticket-link" class="block text-sm font-medium text-gray-700">Link to Tickets</label>
           <input type="url" id="ticket-link" placeholder="https://example.com"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6" />
         </div>
 
         <!-- Upload Picture -->
@@ -59,7 +59,7 @@
           <label for="event-picture" class="block text-sm font-medium text-gray-700">Upload Picture</label>
           <div class="mt-1">
             <input type="file" name="picture" id="event-picture" accept="image/*"
-              class="block w-full text-sm text-gray-500 file:py-2 file:px-4 file:rounded-md file:border file:border-gray-300 file:bg-white file:text-blue-600 hover:file:bg-gray-100" />
+              class="block w-full text-sm text-gray-500 file:py-3 file:px-6 file:rounded-md file:border file:border-gray-300 file:bg-white file:text-blue-600 hover:file:bg-gray-100" />
           </div>
         </div>
 
@@ -100,3 +100,4 @@
     </div>
   </section>
 </x-admin-layout>
+

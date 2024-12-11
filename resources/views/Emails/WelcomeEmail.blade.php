@@ -8,7 +8,6 @@
   <meta content="telephone=no" name="format-detection">
   <title>Newsletter</title>
   <style type="text/css">
-    /* General Styles */
     body, table {
       width: 100%;
       margin: 0;
@@ -19,11 +18,20 @@
     body {
       background-color: #F6F6F6;
       display: flex;
-      justify-content: flex-start; /* Align content to the left */
-      align-items: flex-start; /* Align content to the top */
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      text-align: left; /* Ensure all text is aligned to the left */
-      padding: 20px; /* Add some spacing around the content */
+      text-align: left;
+      padding: 20px;
+    }
+    .email-container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      text-align: left;
     }
     h1 {
       font-size: 30px;
@@ -43,14 +51,14 @@
     }
     .es-button {
       display: inline-block;
-      background-color: #2563EB; 
+      background-color: #2563EB;
       color: #FFFFFF !important;
       padding: 10px 20px;
       border-radius: 5px;
       font-size: 18px;
-      text-align: left;
+      text-align: center; 
       width: auto;
-      border: 2px solid #2563EB; 
+      border: 2px solid #2563EB;
     }
     .adapt-img {
       width: 100%;
@@ -67,9 +75,9 @@
   </style>
 </head>
 <body>
-  <div style="max-width: 600px; width: 100%; background-color: #FFFFFF; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); overflow: hidden; text-align: left;">
+  <div class="email-container">
     
-    <table text-align="left" style="max-height: 300px; width: 100%; background-color: #262626; padding: 20px; text-align: left;">
+    <table style="max-height: 300px; width: 100%; background-color: #262626; padding: 20px; text-align: left;">
       <tr>
         <td>
           <img src="https://fpyvetl.stripocdn.email/content/guids/CABINET_9e07405ee8a4d5c60f782581acf595720b8aa9275ce916d442012a564d1e460d/images/opus.png" 
@@ -80,8 +88,8 @@
       </tr>
     </table>
 
-    <!-- Newsletter Content -->
-    <table text-align="left" style="width: 100%; background-color: #ffffff; padding: 20px; text-align: left;">
+    
+    <table style="width: 100%; background-color: #ffffff; padding: 20px; text-align: left;">
       <tr>
         <td>
           <h1>Welcome to Our Newsletter!</h1>
@@ -96,17 +104,17 @@
         </td>
       </tr>
       <tr>
-        <td style="text-align: left;">
+        <td style="text-align: center;">
           <a href="{{ $url }}" target="_blank" class="es-button">View More on Our Webpage</a>
         </td>
       </tr>
     </table>
 
-    <!-- Footer Section -->
-    <table text-align="left" style="width: 100%; background-color: #F6F6F6; text-align: left; padding: 10px;">
+    
+    <table style="width: 100%; background-color: #F6F6F6; text-align: left; padding: 10px;">
       <tr>
         <td>
-          <p style="font-size: 12px; color: #a0aec0;">© {{ now()->year }} OpusEvents. All rights reserved.</p>
+          <p style="font-size: 12px; color: #a0aec0; text-align: center;">© {{ now()->year }} OpusEvents. All rights reserved.</p>
         </td>
       </tr>
     </table>
