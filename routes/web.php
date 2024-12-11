@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactFormController;
+use App\Models\ContactForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
 use PHPUnit\Framework\Attributes\Group;
@@ -59,9 +61,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-
 Auth::routes();
 
 // Event Requests 
 Route::get('event-request/create', [EventRequestController::class, 'create'])->name('event-request.create');
 Route::post('event-request/store', [EventRequestController::class, 'store'])->name('event-request.store');
+
+Route::get('contact/create', [ContactFormController::class, 'create'])->name('contact.create');
+Route::post('contact/store', [ContactFormController::class, 'store'])->name('contact.store');
