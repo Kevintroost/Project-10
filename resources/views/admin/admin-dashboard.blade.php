@@ -75,35 +75,48 @@
     </div>
   </div>
   <section class="p-6">
-    <!-- Left: Create Event Form -->
+
     <div class="bg-white p-8 shadow-md rounded-md w-full max-w-2xl" style="max-width: 600px;">
       <h2 class="text-2xl font-semibold mb-4">Create a Newsletter</h2>
-      <form>
+      <form action="{{ route('newsletter.create') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="grid grid-cols-1 gap-4">
-          <!-- Event/Artist Name -->
+
           <div>
-            <label for="event-name" class="block text-sm font-medium text-gray-700">Event/Artist Name</label>
-            <input type="text" id="event-name" placeholder="Enter event or artist name"
+            <label for="event-name" class="block text-sm font-medium text-gray-700">Titel</label>
+            <input type="text" name="title" id="event-name" placeholder="Enter event or artist name"
+              value="{{ old('title') }}"
               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" />
           </div>
+          @error('title')
+        <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
+      @enderror
 
-          <!-- Description -->
+
           <div class="mt-4">
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea id="description" placeholder="Add event description" rows="2"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6"></textarea>
+            <textarea id="description" placeholder="Add event description" rows="2" name="description"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6">{{ old('description') }}</textarea>
           </div>
+          @error('description')
+        <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
+      @enderror
 
-          <!-- Upload Picture -->
+
           <div class="mt-4">
-            <label for="event-picture" class="block text-sm font-medium text-gray-700">Upload Picture</label>
+            <label for="image-url" class="block text-sm font-medium text-gray-700"> Provide a Image URL</label>
             <div class="mt-1">
-              <input type="file" name="picture" id="event-picture" accept="image/*"
-                class="block w-full text-sm text-gray-500 file:py-3 file:px-6 file:rounded-md file:border file:border-gray-300 file:bg-white file:text-blue-600 hover:file:bg-gray-100" />
+              <input type="url" name="image_url" id="image-url" placeholder="Enter image URL"
+                value="{{ old('image') }}"
+                class="block w-full text-sm text-gray-500 py-3 px-6 rounded-md border border-gray-300 bg-white" />
             </div>
           </div>
 
-          <!-- Submit Button -->
+          @error('image')
+        <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
+      @enderror
+
+
           <div class="mt-6">
             <button type="submit"
               class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">

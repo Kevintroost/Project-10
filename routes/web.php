@@ -57,6 +57,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
 
+    Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
+
 
 
  Route::post('events/store', [EventController::class, 'Store'])->name('events.store');

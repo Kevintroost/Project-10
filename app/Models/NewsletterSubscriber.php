@@ -9,4 +9,5 @@ class NewsletterSubscriber extends Model
 {
     use HasFactory;
     protected $fillable = ['email', 'subscribed_at'];
+
 }
