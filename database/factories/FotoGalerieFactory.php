@@ -17,7 +17,7 @@ class FotoGalerieFactory extends Factory
     public function definition(): array
     {
         $images = [
-            'images/seeder.jpg',
+            'seeder.jpg',
         ];
 
         return [

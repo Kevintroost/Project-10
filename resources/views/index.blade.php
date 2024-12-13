@@ -98,7 +98,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 @foreach ($fotoGaleries as $fotoGalerie)
                     <div class="relative">
-                        <img src="{{ asset('Images/' . $fotoGalerie->foto) }}" alt="foto_galerij"
+                        <img src="{{ asset('images/' . $fotoGalerie->foto) }}" alt="foto_galerij"
                             class="w-full h-64 object-cover rounded-lg">
                     </div>
                 @endforeach

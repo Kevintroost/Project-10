@@ -41,7 +41,8 @@ class EventController extends Controller
         $event->ticket_link = $validated['ticket_link'];
         $event->event_picture = $imagename;
         $event->save();
-    
+
+
         return redirect('/admin/dashboard/events/create')->with('success', 'Event request created successfully!');
     
     }

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(1)->create();
         Event::factory(200)->create();
-        FotoGalerie::factory(1)->create();
+        FotoGalerie::factory(200)->create();
 
 
        
