@@ -17,8 +17,6 @@ $table->string('event_type');
 $table->text('description')->nullable();
 $table->string('ticket_link');
 $table->string('event_picture');
-            $table->boolean('is_scraped')->default(false);
-            $table->unsignedBigInteger('scrapper_id')->nullable();
             $table->timestamps();
         });
     }

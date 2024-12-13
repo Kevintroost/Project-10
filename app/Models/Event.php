@@ -17,7 +17,6 @@ class Event extends Model
         'description',
         'ticket_link',
         'event_picture',
-        'is_scraped', 
-        'scrapper_id'
+        
     ];
 }
