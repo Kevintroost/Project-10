@@ -6,78 +6,80 @@
     <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
-          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M15 10l4.553 2.276a2 2 0 010 3.448L15 18m0-8l-4.553-2.276a2 2 0 00-3.448 0L3 10m6 0v8m6 0V10m0 8l-4.553 2.276a2 2 0 01-3.448 0L3 18" />
+          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+            viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 5v14m-8-7h2m0 0h2m-2 0v2m0-2v-2m12 1h-6m6 4h-6M4 19h16c.5523 0 1-.4477 1-1V6c0-.55228-.4477-1-1-1H4c-.55228 0-1 .44772-1 1v12c0 .5523.44772 1 1 1Z" />
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">$3.456K</p>
-          <p class="text-gray-500">Total Views</p>
+          <p class="text-xl font-semibold">200</p>
+          <p class="text-gray-500">Events</p>
         </div>
       </div>
-      <p class="text-green-500 text-sm">0.43% ↑</p>
+      <p class="text-green-500 text-sm"></p>
     </div>
 
     <!-- Card 2 -->
     <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
-          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 10h11M9 21v-7m0 0a4 4 0 118 0v7m0 0H9" />
+          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M5.024 3.783A1 1 0 0 1 6 3h12a1 1 0 0 1 .976.783L20.802 12h-4.244a1.99 1.99 0 0 0-1.824 1.205 2.978 2.978 0 0 1-5.468 0A1.991 1.991 0 0 0 7.442 12H3.198l1.826-8.217ZM3 14v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5h-4.43a4.978 4.978 0 0 1-9.14 0H3Z"
+              clip-rule="evenodd" />
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">$45.2K</p>
-          <p class="text-gray-500">Total Profit</p>
+          <p class="text-xl font-semibold">5</p>
+          <p class="text-gray-500">Contact forms filled</p>
         </div>
       </div>
-      <p class="text-green-500 text-sm">4.35% ↑</p>
+      <p class="text-green-500 text-sm"></p>
     </div>
 
     <!-- Card 3 -->
     <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
-          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M8 7V3m8 4V3M8 11v10m8-10v10M9 21h6m-6 0a3 3 0 003 3h0a3 3 0 003-3m0 0H9" />
+          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H6Zm7.25-2.095c.478-.86.75-1.85.75-2.905a5.973 5.973 0 0 0-.75-2.906 4 4 0 1 1 0 5.811ZM15.466 20c.34-.588.535-1.271.535-2v-1a5.978 5.978 0 0 0-1.528-4H18a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2h-4.535Z"
+              clip-rule="evenodd" />
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">2.450</p>
-          <p class="text-gray-500">Total Product</p>
+          <p class="text-xl font-semibold">5</p>
+          <p class="text-gray-500">Event request forms filled</p>
         </div>
       </div>
-      <p class="text-green-500 text-sm">2.59% ↑</p>
+      <p class="text-green-500 text-sm"></p>
     </div>
 
     <!-- Card 4 -->
     <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
-          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M17 20h5v-6M6 20H1v-6m5 6v-6m0 0a2 2 0 014 0v6M6 14a4 4 0 10-8 0M8 10a4 4 0 110 8" />
+          <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z" />
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">3.456</p>
-          <p class="text-gray-500">Total Users</p>
+          <p class="text-xl font-semibold">50</p>
+          <p class="text-gray-500">Reviews placed</p>
         </div>
       </div>
-      <p class="text-red-500 text-sm">0.95% ↓</p>
+      <p class="text-red-500 text-sm"></p>
     </div>
   </div>
   <section class="p-6">
-    <div class="flex flex-wrap gap-6">
+    <div class="flex flex-wrap gap-4">
 
-      <div class="bg-white p-8 shadow-md rounded-md w-full max-w-2xl " style="max-width: 600px;">
+      <div class="bg-white p-10 shadow-md rounded-md w-full max-w-2xl " style="max-width: 607px;">
         <h2 class="text-2xl font-semibold mb-4">Create a Newsletter</h2>
         <form action="{{ route('newsletter.create') }}" method="POST" enctype="multipart/form-data">
           @csrf
@@ -109,7 +111,7 @@
               <div class="mt-1">
                 <input type="url" name="image_url" id="image-url" placeholder="Enter image URL"
                   value="{{ old('image') }}"
-                  class="block w-full text-sm text-gray-500 py-3 px-6 rounded-md border border-gray-300 bg-white" />
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" />
               </div>
             </div>
 
@@ -143,9 +145,9 @@
                     d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
                 </svg>
               </span>
-              <span class="ml-3 text-gray-800">Google mail</span>
+              <span class="ml-3 text-gray-800">Google mailing server</span>
             </div>
-            <a href="" class="text-blue-500 hover:text-blue-700">
+            <a href="https://mail.google.com/mail/" class="text-blue-500 hover:text-blue-700">
               <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -344,6 +346,42 @@
             </a>
           </li>
         </ul>
+      </div>
+      <div class=" w-150 p-4 bg-white rounded-lg shadow-md" >
+        <h2 class="text-lg font-semibold text-gray-800">Admin Profile</h2>
+
+        <div class="p-16 text-center ">
+          <!-- Profile Image -->
+          <div class="relative inline-block">
+            <img src="{{ Vite::asset('resources/assets/Adminpfp.jpg') }}" alt="Profile Picture"
+              class="w-24 h-24 rounded-full mx-auto " />
+            <!-- Decorative elements -->
+            <div class="absolute top-0 left-0 w-6 h-6 bg-blue-100 rounded-full"></div>
+            <div class="absolute bottom-0 right-0 w-5 h-5 border-2 border-white bg-green-500 rounded-full"></div>
+          </div>
+          <!-- Name and Role -->
+          <div class="mt-4 ">
+            <h2 class="text-lg font-semibold">{{ Auth::user()->name }}</h2>
+            <p class="text-sm text-gray-500">Event account</p>
+            <form action="{{ route('logout') }}" method="post" class="flex items-center">
+              @csrf
+              <button type="submit"
+                class="flex items-center px-4 py-2 mt-4 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-700">
+                <span>Log out</span>
+                <svg class="w-6 h-6 ml-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
+                </svg>
+              </button>
+            </form>
+          </div>
+
+
+
+        </div>
+
+
       </div>
 
     </div>
