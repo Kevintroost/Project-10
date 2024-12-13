@@ -93,7 +93,7 @@
         <p class="text-sm text-gray-700">{{ $event->event_name }}</p>
         </div>
 
-        <form action="{{ route('destroy') }}" method="POST">
+        <form action="{{ route('events.destroy') }}" method="POST">
         @method('DELETE')
         @csrf
         <input type="hidden" name="event_id" value="{{ $event->id }}">
