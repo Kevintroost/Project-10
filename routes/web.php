@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
 use PHPUnit\Framework\Attributes\Group;
 use App\Models\Event;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
@@ -20,8 +21,8 @@ Route::get('/', function () {
 
 Route::get('/index', function () {
     $fotoGaleries = FotoGalerie::paginate(9);
-        return view('index', compact('fotoGaleries'));
-    })->name('index');
+    return view('index', compact('fotoGaleries'));
+})->name('index');
 
 
 Route::get('/admin', function () {
@@ -30,8 +31,8 @@ Route::get('/admin', function () {
 
 Route::get('/events/index', function () {
     $events = Event::all();
-    $events = Event::paginate(10);
-    return view('events.index' , compact('events'));
+    $events = Event::paginate(8);
+    return view('events.index', compact('events'));
 });
 
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
@@ -42,8 +43,8 @@ Route::get('/admin/dashboard/events/create', function () {
 
 
     return view('events/create', compact('events'));
+    
 });
-
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
@@ -58,6 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
 
+
+
+ Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
 });
 
 

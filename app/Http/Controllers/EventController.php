@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Event;
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventController extends Controller
 {
@@ -14,27 +14,42 @@ class EventController extends Controller
     }
 
     public function store(Request $request)
-{
-    $validated = $request->validate([
-        'event-name' => 'required|string|max:255',
-        'event-date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'), // Validates that the date is not in the past
-        'location' => 'required|string|max:255',
-        'event-type' => 'required|string|max:255',
-        'description' => 'nullable|string|min:20',
-        'ticket-link' => 'required|string|min:10',  
-        'event-picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        
-    ], [
-        'date.after_or_equal' => 'The event date must be today or in the future.',
-        // 'details.min' => 'Description must be at least 20 characters long.',
-    ]);
+    {
+        $validated = $request->validate([
+            'event_name' => 'required|string|max:255',
+            'event_date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'),
+            'location' => 'required|string|max:255',
+            'event_type' => 'required|string|max:255',
+            'description' => 'nullable|string|min:20',
+            'ticket_link' => 'required|string|min:10',  
+            'event_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'event_date.after_or_equal' => 'The event date must be today or in the future.',
+        ]);
+    
+        // Save the uploaded image
+        $imagename = time() . '.' . $request->file('event_picture')->extension();
+        $request->file('event_picture')->move(public_path('images'), $imagename);
+    
+        // Create the event
+        $event = new Event();
+        $event->event_name = $validated['event_name'];
+        $event->event_date = $validated['event_date'];
+        $event->location = $validated['location'];
+        $event->event_type = $validated['event_type'];
+        $event->description = $validated['description'] ?? null;
+        $event->ticket_link = $validated['ticket_link'];
+        $event->event_picture = $imagename;
+        $event->save();
+    
+        return redirect('/admin/dashboard/events/create')->with('success', 'Event request created successfully!');
+    
+    }
+    
 
-    Event::create($validated);
-
-    return redirect('/event/create')->with('success', 'Event request created successfully!');
 }
 
-}
+
 
 
 

@@ -15,11 +15,11 @@
                                 <div class="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
                                     <p
                                         class="w-40 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                                        {{ $event->date }} <!-- Show event date -->
+                                        {{ $event->event_date }} <!-- Show event date -->
                                     </p>
                                     <h3 class="text-lg font-semibold ">
                                         <a href="#" class="hover:underline">
-                                            {{ $event->title }} <!-- Show event title -->
+                                            {{ $event->event_name }} <!-- Show event title -->
                                         </a>
                                     </h3>
                                 </div>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/slipknotlive.jpg') }}"
+                <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/kanye.jpeg') }}"
                     alt="dashboard image">
             </div>
         </div>
