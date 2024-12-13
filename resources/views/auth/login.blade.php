@@ -7,7 +7,8 @@
           <h1 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
             Sign in to your account
           </h1>
-          <form class="space-y-6">
+          <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('login') }}">
+            @csrf
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
               <input type="email" name="email" id="email"

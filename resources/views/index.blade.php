@@ -105,41 +105,80 @@
             </div>
 
 
-<div class="flex items-center justify-center space-x-2 mt-6">
+            <div class="flex items-center justify-center space-x-2 mt-6">
 
-    @if ($fotoGaleries->onFirstPage())
-        <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-            Previous
-        </button>
-    @else
-        <a href="{{ $fotoGaleries->previousPageUrl() }}" class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-            Previous
-        </a>
-    @endif
+                @if ($fotoGaleries->onFirstPage())
+                    <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                        Previous
+                    </button>
+                @else
+                    <a href="{{ $fotoGaleries->previousPageUrl() }}"
+                        class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        Previous
+                    </a>
+                @endif
 
-    @for ($i = 1; $i <= $fotoGaleries->lastPage(); $i++)
-        @if ($i == $fotoGaleries->currentPage())
-            <button class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
-                {{ $i }}
-            </button>
-        @else
-            <a href="{{ $fotoGaleries->url($i) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                {{ $i }}
-            </a>
-        @endif
-    @endfor
+                @if ($fotoGaleries->lastPage() > 9)
+                    @if ($fotoGaleries->currentPage() > 4)
+                        <a href="{{ $fotoGaleries->url(1) }}"
+                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            1
+                        </a>
+                        @if ($fotoGaleries->currentPage() > 5)
+                            <span class="px-4 py-2">...</span>
+                        @endif
+                    @endif
 
+                    @for ($i = max(1, $fotoGaleries->currentPage() - 1); $i <= min($fotoGaleries->lastPage(), $fotoGaleries->currentPage() + 1); $i++)
+                        @if ($i == $fotoGaleries->currentPage())
+                            <button
+                                class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                                {{ $i }}
+                            </button>
+                        @else
+                            <a href="{{ $fotoGaleries->url($i) }}"
+                                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                {{ $i }}
+                            </a>
+                        @endif
+                    @endfor
 
-    @if ($fotoGaleries->hasMorePages())
-        <a href="{{ $fotoGaleries->nextPageUrl() }}" class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-            Next
-        </a>
-    @else
-        <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-            Next
-        </button>
-    @endif
-</div>
+                    @if ($fotoGaleries->currentPage() < $fotoGaleries->lastPage() - 3)
+                        @if ($fotoGaleries->currentPage() < $fotoGaleries->lastPage() - 4)
+                            <span class="px-4 py-2">...</span>
+                        @endif
+                        <a href="{{ $fotoGaleries->url($fotoGaleries->lastPage()) }}"
+                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            {{ $fotoGaleries->lastPage() }}
+                        </a>
+                    @endif
+                @else
+                    @for ($i = 1; $i <= $fotoGaleries->lastPage(); $i++)
+                        @if ($i == $fotoGaleries->currentPage())
+                            <button
+                                class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                                {{ $i }}
+                            </button>
+                        @else
+                            <a href="{{ $fotoGaleries->url($i) }}"
+                                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                {{ $i }}
+                            </a>
+                        @endif
+                    @endfor
+                @endif
+
+                @if ($fotoGaleries->hasMorePages())
+                    <a href="{{ $fotoGaleries->nextPageUrl() }}"
+                        class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        Next
+                    </a>
+                @else
+                    <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                        Next
+                    </button>
+                @endif
+            </div>
 
 
 

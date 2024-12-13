@@ -27,22 +27,32 @@
                         </div>
                     </div>
 
-                    <!-- Pagination and other parts here... -->
-                    <div class="flex items-center justify-center space-x-2 mt-6">
-                        <!-- Previous Button -->
-                        @if ($events->onFirstPage())
-                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-                                Previous
-                            </button>
-                        @else
-                            <a href="{{ $events->previousPageUrl() }}"
-                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                Previous
+                <div class="flex items-center justify-center space-x-2 mt-6">
+                    <!-- Previous Button -->
+                    @if ($events->onFirstPage())
+                        <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                            Previous
+                        </button>
+                    @else
+                        <a href="{{ $events->previousPageUrl() }}"
+                            class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            Previous
+                        </a>
+                    @endif
+
+                    <!-- Page Numbers -->
+                    @if ($events->lastPage() > 9)
+                        @if ($events->currentPage() > 4)
+                            <a href="{{ $events->url(1) }}"
+                                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                1
                             </a>
+                            @if ($events->currentPage() > 5)
+                                <span class="px-4 py-2">...</span>
+                            @endif
                         @endif
 
-                        <!-- Page Numbers -->
-                        @for ($i = 1; $i <= $events->lastPage(); $i++)
+                        @for ($i = max(1, $events->currentPage() - 1); $i <= min($events->lastPage(), $events->currentPage() + 1); $i++)
                             @if ($i == $events->currentPage())
                                 <button
                                     class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
@@ -56,23 +66,48 @@
                             @endif
                         @endfor
 
-                        <!-- Next Button -->
-                        @if ($events->hasMorePages())
-                            <a href="{{ $events->nextPageUrl() }}"
-                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                Next
+                        @if ($events->currentPage() < $events->lastPage() - 3)
+                            @if ($events->currentPage() < $events->lastPage() - 4)
+                                <span class="px-4 py-2">...</span>
+                            @endif
+                            <a href="{{ $events->url($events->lastPage()) }}"
+                                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                {{ $events->lastPage() }}
                             </a>
-                        @else
-                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-                                Next
-                            </button>
                         @endif
-                    </div>
+                    @else
+                        @for ($i = 1; $i <= $events->lastPage(); $i++)
+                            @if ($i == $events->currentPage())
+                                <button
+                                    class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                                    {{ $i }}
+                                </button>
+                            @else
+                                <a href="{{ $events->url($i) }}"
+                                    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                    {{ $i }}
+                                </a>
+                            @endif
+                        @endfor
+                    @endif
+
+                    <!-- Next Button -->
+                    @if ($events->hasMorePages())
+                        <a href="{{ $events->nextPageUrl() }}"
+                            class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            Next
+                        </a>
+                    @else
+                        <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                            Next
+                        </button>
+                    @endif
                 </div>
 
-                <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/kanye.jpeg') }}"
-                    alt="dashboard image">
+                
             </div>
+            <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/kanye.jpeg') }}"
+                    alt="dashboard image">
         </div>
     </section>
 </x-layout>
