@@ -1,10 +1,10 @@
 <x-layout>
 
 
-    <section class="bg-center bg-no-repeat')] bg-gray-700 bg-blend-multiply" style="
-     background-image: url('{{ Vite::asset('resources/assets/background.svg') }}');
+    <section class="bg-bottom bg-no-repeat')] " style="
+     background-image: url('{{ Vite::asset('resources/assets/background3.svg') }}');
     ">
-        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+        <div class="px-4 mx-auto max-w-screen-xl text-center py-4 lg:py-16">
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Contact</h1>
         </div>
     </section>

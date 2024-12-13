@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/slipknotlive.jpg') }}"
+                <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/kanye.jpeg') }}"
                     alt="dashboard image">
             </div>
         </div>
