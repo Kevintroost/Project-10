@@ -35,6 +35,11 @@ Route::get('/events/index', function () {
     return view('events.index', compact('events'));
 });
 
+Route::get('/events/show/{id}', function ($id) {
+    $event = Event::find($id);
+    return view('events.show', compact('event'));
+})->name('events.show');
+
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
