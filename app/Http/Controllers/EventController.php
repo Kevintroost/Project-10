@@ -21,16 +21,16 @@ class EventController extends Controller
             'location' => 'required|string|max:255',
             'event_type' => 'required|string|max:255',
             'description' => 'nullable|string|min:20',
-            'ticket_link' => 'required|string|min:10',  
+            'ticket_link' => 'required|string|min:10',
             'event_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ], [
             'event_date.after_or_equal' => 'The event date must be today or in the future.',
         ]);
-    
+
         // Save the uploaded image
         $imagename = time() . '.' . $request->file('event_picture')->extension();
         $request->file('event_picture')->move(public_path('images'), $imagename);
-    
+
         // Create the event
         $event = new Event();
         $event->event_name = $validated['event_name'];
@@ -44,15 +44,35 @@ class EventController extends Controller
 
 
         return redirect('/admin/dashboard/events/create')->with('success', 'Event request created successfully!');
-    
+
+
     }
-    
+
+
+    public function destroy(Request $request)
+    {
+        // Retrieve the ID from the request
+        $id = $request->input('event_id');
+
+        // Find the event in the database
+        $event = Event::find($id);
+
+        // Check if the event exists
+        if ($event) {
+            // Delete the event
+            $event->delete();
+
+            // Redirect back with a success message
+            return redirect('/admin/dashboard/events/create')->with('success', 'Event deleted successfully');
+
+
+
+        }
+
+
+    }
+
 
 }
-
-
-
-
-
 
 

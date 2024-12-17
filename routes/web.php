@@ -46,6 +46,8 @@ Route::get('/admin/dashboard/events/create', function () {
     
 });
 
+Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.admin-dashboard');
