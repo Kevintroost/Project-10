@@ -76,9 +76,10 @@
       <p class="text-red-500 text-sm"></p>
     </div>
   </div>
-    <div class="flex gap-4 p-6">
+  <section class="p-6">
+    <div class="flex flex-wrap gap-4">
 
-      <div class="bg-white p-10 shadow-md rounded-md w-full max-w-2xl " style="max-width: 590px;">
+      <div class="bg-white p-10 shadow-md rounded-md w-full max-w-2xl " style="max-width: 607px;">
         <h2 class="text-2xl font-semibold mb-4">Create a Newsletter</h2>
         <form action="{{ route('newsletter.create') }}" method="POST" enctype="multipart/form-data">
           @csrf
@@ -122,14 +123,14 @@
             <div class="mt-6">
               <button type="submit"
                 class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                Create Newsletter
+                Create Event
               </button>
             </div>
           </div>
         </form>
       </div>
 
-      <div class="bg-white p-10 shadow-md rounded-md w-full " style="max-width: 295px;">
+      <div class=" w-148 p-4 bg-white rounded-lg shadow-md">
         <h2 class="text-lg font-semibold text-gray-800">External Links</h2>
         <p class="text-sm text-gray-500 mb-4">Our social media</p>
 
@@ -166,7 +167,7 @@
               </span>
               <span class="ml-3 text-gray-800">Ticketmaster</span>
             </div>
-            <a href="https://ticketmaster.nl/" class="text-blue-500 hover:text-blue-700 pl-28 pr-0">
+            <a href="https://ticketmaster.nl/" class="text-blue-500 hover:text-blue-700 pl-28 ">
               <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -222,7 +223,7 @@
 
             </a>
           </li>
-          <li class="flex items-center justify-between">
+          <li class="flex items-center justify-between ">
             <div class="flex items-center">
               <span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#0077b5]">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -384,6 +385,7 @@
       </div>
 
     </div>
+  </section>
 
 
 
