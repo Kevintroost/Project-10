@@ -38,17 +38,10 @@ Route::get('/events/index', function () {
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
-Route::get('/admin/dashboard/events/create', function () {
-    $events = Event::all();
 
-
-    return view('events/create', compact('events'));
-    
-});
-
-Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
 Route::group(['middleware' => 'auth'], function () {
+    
     Route::get('/admin/dashboard', function () {
         return view('admin.admin-dashboard');
     });
@@ -61,9 +54,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
 
+    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
+    Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
 
- Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
+    Route::get('/admin/dashboard/events/create', function () {
+        $events = Event::all();
+        return view('events/create', compact('events'));
+
+    });
 });
 
 
