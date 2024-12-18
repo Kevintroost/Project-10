@@ -35,6 +35,10 @@ Route::get('/events/index', function () {
     return view('events.index', compact('events'));
 });
 
+Route::get('/about-us', function () {
+    return view('about-us');
+});
+
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
