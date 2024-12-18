@@ -39,6 +39,11 @@ Route::get('/about-us', function () {
     return view('about-us');
 });
 
+Route::get('/events/show/{id}', function ($id) {
+    $event = Event::find($id);
+    return view('events.show', compact('event'));
+})->name('events.show');
+
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 

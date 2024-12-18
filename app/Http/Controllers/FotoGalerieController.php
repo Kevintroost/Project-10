@@ -45,7 +45,7 @@ class FotoGalerieController extends Controller
 
 
 
-    public function destroy(Request $request)
+    public function Destroy(Request $request)
     {
         $imageid = $request->input('image_id');
     
