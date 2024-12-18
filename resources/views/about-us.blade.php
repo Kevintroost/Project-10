@@ -86,7 +86,7 @@ We’re passionate about connecting people to the moments that matter. Our missi
                 Reviews</h1>
         </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 mb-10">
   <!-- Testimonial Card 1 -->
   <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
     <!-- Profile Image -->
