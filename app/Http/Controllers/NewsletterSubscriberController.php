@@ -25,7 +25,7 @@ class NewsletterSubscriberController extends Controller
         $email->save();
 
         $url = url('/index');
-        Mail::to($request->email)->send(new WelcomeEmail($url));
+        Mail::to($request->email)->queue(new WelcomeEmail($url));
 
 
 
@@ -68,8 +68,10 @@ class NewsletterSubscriberController extends Controller
         $subscribers = NewsletterSubscriber::all();
 
         foreach ($subscribers as $subscriber) {
-            Mail::to($subscriber->email)->send(new NewsLetter($title, $description, $imageurl, $url));
+            Mail::to($subscriber->email)->queue(new NewsLetter($title, $description, $imageurl, $url));
         }
+
+        return redirect()->back();
     }
 
 }
