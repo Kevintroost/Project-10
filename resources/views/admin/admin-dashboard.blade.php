@@ -13,7 +13,7 @@
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">200</p>
+        <p class="text-xl font-semibold">{{$totalevent}}</p>
           <p class="text-gray-500">Events</p>
         </div>
       </div>
@@ -32,7 +32,7 @@
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">5</p>
+        <p class="text-xl font-semibold">{{$totalcontact}}</p>
           <p class="text-gray-500">Contact forms filled</p>
         </div>
       </div>
@@ -51,7 +51,7 @@
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">5</p>
+        <p class="text-xl font-semibold">{{$totaleventrequest}}</p>
           <p class="text-gray-500">Event request forms filled</p>
         </div>
       </div>
@@ -69,7 +69,7 @@
           </svg>
         </div>
         <div class="ml-4">
-          <p class="text-xl font-semibold">50</p>
+        <p class="text-xl font-semibold">{{$totalreviews}}</p>
           <p class="text-gray-500">Reviews placed</p>
         </div>
       </div>
@@ -376,12 +376,7 @@
               </button>
             </form>
           </div>
-
-
-
         </div>
-
-
       </div>
 
     </div>

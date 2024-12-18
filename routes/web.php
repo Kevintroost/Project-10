@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactFormController;
 use App\Models\ContactForm;
+use App\Models\Review;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
 use PHPUnit\Framework\Attributes\Group;
@@ -10,6 +11,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
+use App\Models\EventRequest;
 use App\Http\Controllers\NewsletterSubscriberController;
 
 
@@ -43,9 +45,20 @@ Route::get('/events/show/{id}', function ($id) {
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
+
+
+
 Route::group(['middleware' => 'auth'], function () {
+
+
     Route::get('/admin/dashboard', function () {
-        return view('admin.admin-dashboard');
+
+        $totalevent = Event::count();
+        $totalcontact = ContactForm::count();
+        $totaleventrequest = EventRequest::count();
+        $totalreviews = Review::count();
+
+        return view('admin.admin-dashboard', compact('totalevent', 'totalcontact', 'totaleventrequest', 'totalreviews'));
     });
 
     Route::get('/admin/dashboard/events/create', function () {
@@ -57,6 +70,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
     
     Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
+
+
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
     Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
