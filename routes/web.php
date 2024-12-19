@@ -35,6 +35,10 @@ Route::get('/events/index', function () {
     return view('events.index', compact('events'));
 });
 
+Route::get('/about-us', function () {
+    return view('about-us');
+});
+
 Route::get('/events/show/{id}', function ($id) {
     $event = Event::find($id);
     return view('events.show', compact('event'));
@@ -43,20 +47,13 @@ Route::get('/events/show/{id}', function ($id) {
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
+
+
 Route::group(['middleware' => 'auth'], function () {
+    
     Route::get('/admin/dashboard', function () {
         return view('admin.admin-dashboard');
     });
-
-    Route::get('/admin/dashboard/events/create', function () {
-        $events = Event::all();
-    
-    
-        return view('events/create', compact('events'));
-        
-    });
-    
-    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
     Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
@@ -66,9 +63,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
 
+    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
+    Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
 
- Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
+    Route::get('/admin/dashboard/events/create', function () {
+        $events = Event::all();
+        return view('events/create', compact('events'));
+
+    });
 });
 
 
