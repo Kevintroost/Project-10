@@ -13,7 +13,7 @@ class EventController extends Controller
         return view('events.index', compact('events')); // Pass $events to the view
     }
 
-    public function store(Request $request)
+    public function Store(Request $request)
     {
         $validated = $request->validate([
             'event_name' => 'required|string|max:255',
@@ -49,7 +49,7 @@ class EventController extends Controller
     }
 
 
-    public function destroy(Request $request)
+    public function Destroy(Request $request)
     {
         // Retrieve the ID from the request
         $id = $request->input('event_id');

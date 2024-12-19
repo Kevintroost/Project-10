@@ -10,6 +10,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
+use App\Models\EventRequest;
+use App\Models\Review;
 use App\Http\Controllers\NewsletterSubscriberController;
 
 
@@ -49,11 +51,30 @@ Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNew
 
 
 
+
+
 Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/admin/dashboard', function () {
-        return view('admin.admin-dashboard');
+        $totalevent = Event::count();
+        $totalcontact = ContactForm::count();
+        $totaleventrequest = EventRequest::count();
+        $totalreviews = Review::count();
+
+        return view('admin.admin-dashboard', compact('totalevent', 'totalcontact', 'totaleventrequest', 'totalreviews'));
     });
+
+    Route::get('/admin/dashboard/events/create', function () {
+        $events = Event::all();
+    
+    
+        return view('events/create', compact('events'));
+        
+    });
+    
+    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'Destroy'])->name('events.destroy');
+
+
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
     Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
@@ -63,7 +84,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
 
-    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
     Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
 
