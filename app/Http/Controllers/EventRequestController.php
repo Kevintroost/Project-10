@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class EventRequestController extends Controller
 {
+
+    public function index() {
+
+    
+        return view('event-request.index');
+    }
+
+
+
+
     public function create()
     {
         $provinces = [
