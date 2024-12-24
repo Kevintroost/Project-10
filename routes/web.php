@@ -54,7 +54,7 @@ Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNew
 
 
 Route::group(['middleware' => 'auth'], function () {
-    
+
     Route::get('/admin/dashboard', function () {
         $totalevent = Event::count();
         $totalcontact = ContactForm::count();
@@ -66,12 +66,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin/dashboard/events/create', function () {
         $events = Event::all();
-    
-    
+
+
         return view('events/create', compact('events'));
-        
+
     });
-    
+
     Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'Destroy'])->name('events.destroy');
 
 
