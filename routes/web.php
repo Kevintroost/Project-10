@@ -54,8 +54,11 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
 
-
+    // request check list 
     Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
+
+
+
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
     Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
     Route::delete('/admin/dashboard/image/destroy', [FotoGalerieController::class, 'Destroy'])->name('destroy');

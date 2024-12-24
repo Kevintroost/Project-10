@@ -7,16 +7,7 @@ use Illuminate\Http\Request;
 
 class EventRequestController extends Controller
 {
-
-    public function index() {
-
-    
-        return view('event-request.index');
-    }
-
-
-
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function create()
     {
         $provinces = [
@@ -54,4 +45,13 @@ class EventRequestController extends Controller
 
         return redirect('/event-request/create')->with('success', 'Event request created successfully!');
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function index()
+    {
+        return view('event-request.index');
+    }
+
+
+
+
 }
