@@ -46,12 +46,4 @@ class EventRequestController extends Controller
         return redirect('/event-request/create')->with('success', 'Event request created successfully!');
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public function index()
-    {
-        return view('event-request.index');
-    }
-
-
-
-
 }

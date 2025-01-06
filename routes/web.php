@@ -11,6 +11,7 @@ use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
 use App\Http\Controllers\NewsletterSubscriberController;
+use App\Http\Controllers\TaskController;
 
 
 
@@ -55,9 +56,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     // request check list 
-    Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
+    Route::get('/admin/dashboard/todo-list/index', [TaskController::class, 'index'])->name('event-request.index');
 
-
+    //
+    Route::post('/admin/dashboard/event-request/tasks/store', [TaskController::class, 'store'])->name('event-request.tasks.store');
+    //
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
     Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
