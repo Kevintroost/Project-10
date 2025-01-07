@@ -18,9 +18,7 @@
                                         <!-- Split date and time using Carbon -->
                                         {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
                                         <!-- Show event date -->
-                                        <br>
-                                        {{ \Carbon\Carbon::parse($event->event_date)->format('h:i A') }}
-                                        <!-- Show event time -->
+                                        
                                     </p>
                                     <h3 class="text-lg font-semibold ">
                                         <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline">
