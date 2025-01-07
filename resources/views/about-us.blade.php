@@ -32,7 +32,7 @@ We’re passionate about connecting people to the moments that matter. Our missi
 </section>
 
     
-<section class="max-w-screen-xl mx-auto px-4">
+<section class="max-w-screen-xl mx-auto px-4`">
 <ol class="relative border-l border-gray-200 dark:border-gray-400">                  
     <li class="mb-10 ms-6">            
         <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
@@ -82,91 +82,104 @@ We’re passionate about connecting people to the moments that matter. Our missi
 </ol>
 </section>
 
-<div class="px-4 mx-auto max-w-screen-l text-center py-4 lg:py-16">
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black md:text-4xl lg:text-5xl">
-                Reviews</h1>
-        </div>
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 mb-10">
-  <!-- Testimonial Card 1 -->
-  <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
-    <!-- Profile Image -->
-    <img
-      class="w-16 h-16 rounded-full mb-4"
-      src="https://via.placeholder.com/64"
-      alt="Profile Picture"
-    />
-    <!-- Star Rating -->
-    <div class="flex mb-4">
-      <!-- Full Stars -->
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-    </div>
-    <!-- Testimonial Content -->
-    <p class="text-gray-600 text-center mb-4">
-      Sed facilisi tortor mauris in vestibulum turpis ac. Senectus dui ultrices sed nunc odio
-      mattis tempus. Egestas sed id euismod sit.
-    </p>
-    <!-- User Name -->
-    <h3 class="text-gray-900 font-semibold">Metlinda Parker</h3>
+<div class="p-6 bg-white border border-gray-200 rounded-lg shadow">
+  <!-- Header -->
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+      Reviews 
+      <span class="ml-2 text-yellow-500 flex">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+      </span>
+    </h2>
+    <p class="text-gray-600 text-sm">(4.6) <a href="#" class="text-blue-500 underline">645 Reviews</a></p>
   </div>
 
-  <!-- Testimonial Card 2 -->
-  <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
-    <!-- Profile Image -->
-    <img
-      class="w-16 h-16 rounded-full mb-4"
-      src="https://via.placeholder.com/64"
-      alt="Profile Picture"
-    />
-    <!-- Star Rating -->
-    <div class="flex mb-4">
-      <!-- Full Stars -->
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <!-- Half Star -->
-      <span class="text-yellow-400 opacity-50">&#9733;</span>
-    </div>
-    <!-- Testimonial Content -->
-    <p class="text-gray-600 text-center mb-4">
-      Mattis turpis sed nisi ullamcorper pretium. Varius elementum adipiscing suscipit est porttitor
-      placerat lorem adipiscing urna.
-    </p>
-    <!-- User Name -->
-    <h3 class="text-gray-900 font-semibold">Matthew Bennett</h3>
+  <!-- Average Rating -->
+  <div class="mb-6">
+    <p class="text-4xl font-bold text-gray-800 mb-2">4.65 out of 5</p>
   </div>
 
-  <!-- Testimonial Card 3 -->
-  <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
-    <!-- Profile Image -->
-    <img
-      class="w-16 h-16 rounded-full mb-4"
-      src="https://via.placeholder.com/64"
-      alt="Profile Picture"
-    />
-    <!-- Star Rating -->
-    <div class="flex mb-4">
-      <!-- Full Stars -->
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <span class="text-yellow-400">&#9733;</span>
-      <!-- Half Star -->
-      <span class="text-yellow-400 opacity-50">&#9733;</span>
-      <!-- Empty Star -->
-      <span class="text-gray-300">&#9733;</span>
+  <!-- Rating Breakdown -->
+  <div class="mb-6">
+    <div class="flex items-center mb-1">
+      <p class="text-sm text-gray-600 w-10">5</p>
+      <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
+        <div class="bg-yellow-500 h-3 rounded-full" style="width: 50%;"></div>
+      </div>
+      <p class="text-sm text-gray-600">239 reviews</p>
     </div>
-    <!-- Testimonial Content -->
-    <p class="text-gray-600 text-center mb-4">
-      Nisi purus diam morbi rhoncus pellentesque condimentum in non. Velit at nibh eget tempor felis
-      dignissim sit.
-    </p>
-    <!-- User Name -->
-    <h3 class="text-gray-900 font-semibold">Sophia Rodriguez</h3>
+    <div class="flex items-center mb-1">
+      <p class="text-sm text-gray-600 w-10">4</p>
+      <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
+        <div class="bg-yellow-500 h-3 rounded-full" style="width: 70%;"></div>
+      </div>
+      <p class="text-sm text-gray-600">432 reviews</p>
+    </div>
+    <div class="flex items-center mb-1">
+      <p class="text-sm text-gray-600 w-10">3</p>
+      <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
+        <div class="bg-yellow-500 h-3 rounded-full" style="width: 10%;"></div>
+      </div>
+      <p class="text-sm text-gray-600">53 reviews</p>
+    </div>
+    <div class="flex items-center mb-1">
+      <p class="text-sm text-gray-600 w-10">2</p>
+      <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
+        <div class="bg-yellow-500 h-3 rounded-full" style="width: 5%;"></div>
+      </div>
+      <p class="text-sm text-gray-600">32 reviews</p>
+    </div>
+    <div class="flex items-center">
+      <p class="text-sm text-gray-600 w-10">1</p>
+      <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
+        <div class="bg-yellow-500 h-3 rounded-full" style="width: 2%;"></div>
+      </div>
+      <p class="text-sm text-gray-600">13 reviews</p>
+    </div>
+  </div>
+
+  <!-- Review -->
+  <div class="border-t border-gray-200 pt-6">
+    <div class="flex items-center mb-2">
+      <div class="flex text-yellow-500">
+      <p class=" mr-2 text-gray-800 font-semibold">Micheal Gough</p>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+        </svg>
+        <!-- Repeat the SVG above 4 more times -->
+      </div>
+      
+    </div>
+    <p class="text-sm text-gray-600 mb-2">November 18 2023 at 15:35</p>
+    <p class="text-sm text-gray-800 mb-4">My old IMAC was from 2013. This replacement was well needed. Very fast, and the colour matches my office set up perfectly. The display is out of this world and I’m very happy with this purchase.</p>
+    <div class="flex items-center text-sm text-gray-600">
+    </div>
   </div>
 </div>
 
