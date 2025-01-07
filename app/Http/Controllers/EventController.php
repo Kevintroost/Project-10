@@ -26,11 +26,11 @@ class EventController extends Controller
         ], [
             'event_date.after_or_equal' => 'The event date must be today or in the future.',
         ]);
-
-        // Save the uploaded image
+    
+        
         $imagename = time() . '.' . $request->file('event_picture')->extension();
-        $request->file('event_picture')->move(public_path('images'), $imagename);
-
+        $path = $request->file('event_picture')->storeAs('images', $imagename, 'public'); 
+    
         // Create the event
         $event = new Event();
         $event->event_name = $validated['event_name'];
@@ -41,12 +41,10 @@ class EventController extends Controller
         $event->ticket_link = $validated['ticket_link'];
         $event->event_picture = $imagename;
         $event->save();
-
-
+    
         return redirect('/admin/dashboard/events/create')->with('success', 'Event request created successfully!');
-
-
     }
+    
 
 
     public function Destroy(Request $request)
