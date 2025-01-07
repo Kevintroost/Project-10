@@ -86,7 +86,7 @@
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)
       <div class="flex items-center justify-between">
-        <img src="{{ asset('images/' . $event->event_picture) }}" alt="foto_galerij"
+      <img src="{{ asset($event->event_picture) }}" alt="Event Image"
         class="w-16 h-16 object-cover rounded-full">
 
         <div class="flex flex-col items-start ml-4">

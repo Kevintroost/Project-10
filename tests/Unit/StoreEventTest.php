@@ -18,8 +18,11 @@ class StoreEventTest extends TestCase
      */
     public function test_it_stores_an_event_with_valid_data()
     {
-        // Fake the storage disk
-        Storage::fake('public');
+        // Make sure the directory exists and is writable
+        $directory = public_path('images');
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }
 
         // Create a fake image file
         $file = UploadedFile::fake()->image('event_picture.jpg');
@@ -41,6 +44,12 @@ class StoreEventTest extends TestCase
             'event_picture' => $file,
         ];
 
+        // Generate the custom image name based on timestamp
+        $imagename = time() . '.' . $file->extension(); 
+
+        // Store the file in the 'public/images' directory with the custom image name
+        $path = $file->storeAs('images', $imagename, 'public');
+
         // Make the request to store the event
         $response = $this->post('/events/store', $data);
 
@@ -54,28 +63,63 @@ class StoreEventTest extends TestCase
             'location' => 'Sample Location',
         ]);
 
-        // List all files in the fake storage
-        $files = Storage::disk('public')->allFiles();
-        dump($files); // Debugging files in the storage
-
-        // Assert that a file exists in the 'images/' directory, and its name starts with a timestamp
-        $this->assertNotEmpty($files, 'No files found in storage.');
-        
-        // Find the file that starts with a timestamp in the 'images/' directory
-        $eventImage = collect($files)->first(function ($file) {
-            return strpos($file, 'images/') === 0; // Ensures file starts with 'images/'
-        });
-
-        // Assert that the event image file exists and has been saved correctly
-        $this->assertNotNull($eventImage, 'Event image file not found in the expected directory.');
-        $this->assertTrue(Storage::disk('public')->exists($eventImage), 'File not found in storage.');
+        // Verify that the file exists in the public/images directory
+        $eventImagePath = 'images/' . $imagename; 
+        $this->assertTrue(file_exists(public_path($eventImagePath)), 'File was not saved in public/images.');
 
         // Reset mocked time
         Carbon::setTestNow(null);
     }
 
+    /**
+     * Test storing an event with invalid data (wrong image type, missing fields, etc).
+     *
+     * @return void
+     */
+    public function test_it_does_not_store_an_event_with_invalid_data()
+    {
+        // Fake the storage disk
+        Storage::fake('public');
 
+        // Create a fake non-image file (e.g., a text file instead of an image)
+        $file = UploadedFile::fake()->create('event_picture.txt', 100);
 
+        // Create and authenticate a test user
+        $this->actingAsTestUser();
+
+        // Set a fixed time using Carbon
+        Carbon::setTestNow(Carbon::create(2024, 12, 19, 12, 0, 0));
+
+        // Data to store the event with an invalid image type
+        $data = [
+            'event_name' => 'Sample Event',
+            'event_date' => now()->addDay()->format('Y-m-d'),
+            'location' => 'Sample Location',
+            'event_type' => 'Concert',
+            'description' => 'This is a sample event description that exceeds 20 characters.',
+            'ticket_link' => 'http://example.com/tickets',
+            'event_picture' => $file,
+        ];
+
+        // Make the request to store the event
+        $response = $this->post('/events/store', $data);
+
+        // Assertions: The response should not redirect, since validation should fail
+        $response->assertStatus(302); // Redirect, but validation should fail
+        $response->assertSessionHasErrors('event_picture'); // The error should be related to the image type
+
+        // Verify that no event was stored in the database
+        $this->assertDatabaseMissing('events', [
+            'event_name' => 'Sample Event',
+        ]);
+
+        // Verify that no files are stored
+        $files = Storage::disk('public')->allFiles();
+        $this->assertEmpty($files, 'Files were stored despite invalid image.');
+
+        // Reset mocked time
+        Carbon::setTestNow(null);
+    }
 
     /**
      * Helper function to create and authenticate a test user.
@@ -92,5 +136,5 @@ class StoreEventTest extends TestCase
 
         return $user;
     }
-
 }
+

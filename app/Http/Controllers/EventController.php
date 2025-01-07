@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class EventController extends Controller
 {
@@ -26,11 +27,11 @@ class EventController extends Controller
         ], [
             'event_date.after_or_equal' => 'The event date must be today or in the future.',
         ]);
-    
-        
+
+        // Save the uploaded image directly to the public/images directory
         $imagename = time() . '.' . $request->file('event_picture')->extension();
-        $path = $request->file('event_picture')->storeAs('images', $imagename, 'public'); 
-    
+        $request->file('event_picture')->move(public_path('images'), $imagename);
+
         // Create the event
         $event = new Event();
         $event->event_name = $validated['event_name'];
@@ -39,38 +40,32 @@ class EventController extends Controller
         $event->event_type = $validated['event_type'];
         $event->description = $validated['description'] ?? null;
         $event->ticket_link = $validated['ticket_link'];
-        $event->event_picture = $imagename;
+        $event->event_picture = 'images/' . $imagename;
         $event->save();
-    
+
         return redirect('/admin/dashboard/events/create')->with('success', 'Event request created successfully!');
     }
-    
+
+
 
 
     public function Destroy(Request $request)
     {
-        // Retrieve the ID from the request
+        // Retrieve the event_id from the request
         $id = $request->input('event_id');
-
-        // Find the event in the database
-        $event = Event::find($id);
-
-        // Check if the event exists
-        if ($event) {
-            // Delete the event
+    
+        try {
+            // Attempt to find the event by its ID
+            $event = Event::findOrFail($id);
+    
+            // Delete the event if found
             $event->delete();
-
+    
             // Redirect back with a success message
             return redirect('/admin/dashboard/events/create')->with('success', 'Event deleted successfully');
-
-
-
+        } catch (ModelNotFoundException $e) {
+            // If the event is not found, redirect with an error message
+            return redirect('/admin/dashboard/events/create')->with('error', 'Event not found');
         }
-
-
     }
-
-
 }
-
-
