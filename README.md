@@ -13,10 +13,10 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 
-[![Vue][Vue.js]][Vue-url]
-[![Laravel][Laravel.com]][Laravel-url]
-[![tailwind][tailwindcss.com][tailwind-url]
-[![php][php.net][php-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![tailwind][tailwindcss.com][tailwind-url]
+* [![php][php.net][php-url]
 
 
 <h3 align="center">Contributers:</h3><br>
