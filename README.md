@@ -20,7 +20,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 <h3 align="center">Contributers:</h3><br>
-<a href="https://github.com/Kevintroost/Project-10/graphs/contributors">
+<a align="center" href="https://github.com/Kevintroost/Project-10/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Kevintroost/Project-10" />
 </a>
 
