@@ -15,8 +15,21 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 [![Vue][Vue.js]][Vue-url]
 [![Laravel][Laravel.com]][Laravel-url]
-[![Bootstrap][Bootstrap.com]][Bootstrap-url]
-[![JQuery][JQuery.com]][JQuery-url]
+[![tailwind][tailwindcss.com][tailwind-url]
+[![php][php.net][php-url]
 
 
 <h3 align="center">Contributers:</h3><br>
+
+
+
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[tailwind.com]:https://img.shields.io/badge/Tailwind_CSS-grey?style=for-the-badge&logo=tailwind-css&logoColor=38B2AC
+[tailwind-url]:https://tailwindcss.com/
+[php.net]:https://shields.io/badge/-PHP-3776AB?style=flat&logo=php
+[php-url]:https://www.php.net/
+
+
