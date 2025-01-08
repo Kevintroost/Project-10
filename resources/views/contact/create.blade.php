@@ -1,12 +1,15 @@
 <x-layout>
 
     <!-- Hero Section -->
-    <section class="bg-bottom bg-no-repeat')] " style="
-        background-image: url('{{ Vite::asset('resources/assets/background3.svg') }}');
+    <section class="bg-gray-700 bg-blend-multiply flex items-center justify-center" style="
+        background-image: url('{{ Vite::asset('resources/assets/background2.jpg') }}');
+        background-position: center;
+        background-size: cover;
     ">
         <div class="px-4 mx-auto max-w-screen-xl text-center py-4 lg:py-16">
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                Contact</h1>
+                Contact
+            </h1>
         </div>
     </section>
 

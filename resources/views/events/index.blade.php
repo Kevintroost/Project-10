@@ -1,32 +1,41 @@
 <x-layout>
+    <section class="bg-gray-700 bg-blend-multiply flex items-center justify-center" style="
+        background-image: url('{{ Vite::asset('resources/assets/background2.jpg') }}');
+        background-position: center;
+        background-size: cover;
+    ">
+        <div class="px-4 mx-auto max-w-screen-xl text-center py-4 lg:py-16">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                Upcoming Events
+            </h1>
+        </div>
+    </section>
     <section class="bg-white antialiased">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-            <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2">
+            <div class="gap-8 items-center mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2">
                 <div class="mt-4 md:mt-0">
                     <div class="max-w-3xl mx-auto text-center">
                         <h2 class="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 ">
-                            Upcoming Events
+                            Agenda
                         </h2>
                     </div>
 
                     <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16">
                         <div class="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-                            @foreach ($events as $event) <!-- Loop through events -->
-                                <div class="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                                    <p
-                                        class="w-40 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                                        <!-- Split date and time using Carbon -->
-                                        {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
-                                        <!-- Show event date -->
-                                        
-                                    </p>
-                                    <h3 class="text-lg font-semibold ">
-                                        <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline">
-                                            {{ $event->event_name }} <!-- Show event title -->
-                                        </a>
-                                    </h3>
-                                </div>
+                            @foreach ($events->sortBy('event_date') as $event) 
+                                 <div class="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
+                                                    <p
+                                                        class="w-40 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
+                                                        {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
+                                                    </p>
+                                                    <h3 class="text-lg font-semibold">
+                                                        <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline">
+                                                            {{ $event->event_name }}
+                                                        </a>
+                                                    </h3>
+                                                </div>
                             @endforeach
+
                         </div>
                     </div>
 

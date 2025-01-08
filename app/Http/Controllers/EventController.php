@@ -9,10 +9,13 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class EventController extends Controller
 {
     public function index()
-    {
-        $events = Event::all(); // Fetch all events
-        return view('events.index', compact('events')); // Pass $events to the view
-    }
+{
+    $events = Event::orderBy('event_date', 'asc')->get();
+    return view('events.index', compact('events'));
+}
+
+
+    
 
     public function Store(Request $request)
     {
@@ -53,14 +56,14 @@ class EventController extends Controller
     {
         // Retrieve the event_id from the request
         $id = $request->input('event_id');
-    
+
         try {
             // Attempt to find the event by its ID
             $event = Event::findOrFail($id);
-    
+
             // Delete the event if found
             $event->delete();
-    
+
             // Redirect back with a success message
             return redirect('/admin/dashboard/events/create')->with('success', 'Event deleted successfully');
         } catch (ModelNotFoundException $e) {

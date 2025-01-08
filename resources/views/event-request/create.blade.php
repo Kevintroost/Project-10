@@ -1,13 +1,17 @@
 <x-layout>
-<section class="bg-bottom bg-no-repeat')] " style="
-     background-image: url('{{ Vite::asset('resources/assets/background3.svg') }}');
+<section class="bg-gray-700 bg-blend-multiply flex items-center justify-center" style="
+        background-image: url('{{ Vite::asset('resources/assets/background2.jpg') }}');
+        background-position: center;
+        background-size: cover;
     ">
         <div class="px-4 mx-auto max-w-screen-xl text-center py-4 lg:py-16">
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Event request</h1>
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                Request an Event
+            </h1>
         </div>
     </section>
     <section class="flex flex-col items-center justify-center py-8 bg-gray-100 bg-cover bg-center"
-        style="background-image: url('{{ Vite::asset('resources/assets/wavebackground.svg') }}');">
+        >
         <!-- Alert Section -->
         @if(session('success'))
             <div class="w-full max-w-2xl">

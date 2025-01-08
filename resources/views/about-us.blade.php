@@ -1,11 +1,15 @@
 <x-layout>
 
 <!-- Hero Section -->
-<section class="bg-bottom bg-no-repeat')] " style="
-        background-image: url('{{ Vite::asset('resources/assets/background3.svg') }}');">
+<section class="bg-gray-700 bg-blend-multiply flex items-center justify-center" style="
+        background-image: url('{{ Vite::asset('resources/assets/background2.jpg') }}');
+        background-position: center;
+        background-size: cover;
+    ">
         <div class="px-4 mx-auto max-w-screen-xl text-center py-4 lg:py-16">
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                About us</h1>
+                About us
+            </h1>
         </div>
     </section>
 
@@ -42,7 +46,7 @@ We’re passionate about connecting people to the moments that matter. Our missi
         </span>
         <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-black">Today</h3>
         <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Released on October 13th, 2024</time>
-        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Serving millions of users with the best events and experiences worldwide!</p>
+        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">We’ve successfully managed hundreds of events, building a reputation for excellence, reliability, and creativity. Our journey has been fueled by our commitment to innovation and our clients' trust in us to deliver exceptional experiences.</p>
     </li>
     <li class="mb-10 ms-6">
         <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
@@ -72,7 +76,7 @@ We’re passionate about connecting people to the moments that matter. Our missi
         </span>
         <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-black">Our Journey</h3>
         <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Started on December 2nd, 2021</time>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Our platform went live with a focus on connecting event enthusiasts across the world.</p>
+        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Founded in 2021, Opus events began with a simple mission: to turn ordinary moments into extraordinary memories. What started as a small team with a passion for event planning has grown into a trusted name in the industry.</p>
     </li>
 
     <li class="mb-32 ms-3">
