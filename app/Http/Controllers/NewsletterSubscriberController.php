@@ -29,9 +29,7 @@ class NewsletterSubscriberController extends Controller
 
 
 
-        return redirect()->back();
-
-
+        return redirect()->back()->with('status', 'You have successfully subscribed to our newsletter!');
 
     }
 
