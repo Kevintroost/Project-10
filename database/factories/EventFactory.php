@@ -37,7 +37,7 @@ class EventFactory extends Factory
         $event_picture = [
             'seeder.jpg',
             'seeder2.jpg',
-            'seeder3.jpg',
+            'seeder3.png',
             'seeder4.jpg',
             'seeder5.jpg',
             

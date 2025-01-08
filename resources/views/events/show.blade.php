@@ -1,6 +1,6 @@
 <x-layout>
   <section class="bg-center bg-no-repeat bg-gray-500 bg-blend-multiply" style="
-    background-image: url('{{ asset('images/' . $event->event_picture) }}');
+    background-image: url('{{ asset($event->event_picture) }}'); /* The image used */
     background-size: cover; /* Makes the image cover the entire section */
     background-position: center; /* Ensures the image stays centered */
     width: 100%; /* Ensures the section takes full width */

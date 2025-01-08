@@ -33,6 +33,7 @@ class EventDestroyTest extends TestCase
 
         // Assert the redirection with success message
         $response->assertRedirect('/admin/dashboard/events/create');
+        
         $response->assertSessionHas('success', 'Event deleted successfully');
     }
 
@@ -46,6 +47,7 @@ class EventDestroyTest extends TestCase
         // Create a test user and authenticate
         $user = User::factory()->create();
         $this->actingAs($user);
+
     
         // Try to delete an event that doesn't exist (invalid event_id)
         $response = $this->delete(route('events.destroy'), ['event_id' => 999]);
@@ -53,7 +55,8 @@ class EventDestroyTest extends TestCase
         // Assert that the database still contains no events (no deletion occurred)
         $this->assertDatabaseCount('events', 0);
     
-        // Assert that the user is redirected to the correct page with the error message
+        
+
         // Ensure it redirects to '/admin/dashboard/events/create' on validation failure
         $response->assertRedirect('/admin/dashboard/events/create');
         $response->assertSessionHas('error', 'Event not found');
