@@ -30,13 +30,16 @@
         </div>
 
         <!-- Event Type -->
-        <select id="event-type" name="event_type"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 placeholder-gray-700 py-3 px-6">
-          <option value="" disabled selected class="text-gray-400">Event type</option>
-          <option value="Concert">Concert</option>
-          <option value="Festival">Festival</option>
-          <option value="Event">Event</option>
-        </select>
+        <div class="mt-4">
+          <label for="location" class="block text-sm font-medium text-gray-700">Event type</label>
+          <select id="event-type" name="event_type"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700 placeholder-gray-700 py-3 px-6">
+            <option value="" disabled selected class="text-gray-300">Choose event type</option>
+            <option value="Concert">Concert</option>
+            <option value="Festival">Festival</option>
+            <option value="Event">Event</option>
+          </select>
+        </div>
 
         <!-- Description -->
         <div class="mt-4">
@@ -66,17 +69,17 @@
           <input value="Create event" type="submit"
             class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
-          </>
+          </d>
         </div>
         @if ($errors->any())
-    <div class="text-red-500 mb-4">
+      <div class="text-red-500 mb-4">
         <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
+        @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+    @endforeach
         </ul>
-    </div>
-@endif
+      </div>
+    @endif
 
       </form>
     </div>
