@@ -19,7 +19,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Php][php.net]][php-url]
 
 
-<h3 align="left">Contributers:</h3><br>
+<h3 align="left">Contributers</h3><br>
 <a  href="https://github.com/Kevintroost/Project-10/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Kevintroost/Project-10" />
 </a>
