@@ -16,7 +16,7 @@ class StoreEventTest extends TestCase
      *
      * @return void
      */
-    public function test_it_stores_an_event_with_valid_data()
+    public function Store_Event_successfully()
     {
         // Make sure the directory exists and is writable
         $directory = public_path('images');
@@ -72,16 +72,16 @@ class StoreEventTest extends TestCase
     }
 
     /**
-     * Test storing an event with invalid data (wrong image type, missing fields, etc).
+     * Test storing an event with invalid data 
      *
      * @return void
      */
-    public function test_it_does_not_store_an_event_with_invalid_data()
+    public function Store_Event_Failed()
     {
         // Fake the storage disk
         Storage::fake('public');
 
-        // Create a fake non-image file (e.g., a text file instead of an image)
+        // Create a fake non-image file 
         $file = UploadedFile::fake()->create('event_picture.txt', 100);
 
         // Create and authenticate a test user
@@ -105,8 +105,8 @@ class StoreEventTest extends TestCase
         $response = $this->post('/events/store', $data);
 
         // Assertions: The response should not redirect, since validation should fail
-        $response->assertStatus(302); // Redirect, but validation should fail
-        $response->assertSessionHasErrors('event_picture'); // The error should be related to the image type
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors('event_picture'); 
 
         // Verify that no event was stored in the database
         $this->assertDatabaseMissing('events', [
@@ -130,7 +130,7 @@ class StoreEventTest extends TestCase
     {
         // Ensure unique email for test users
         $user = User::factory()->create([
-            'email' => fake()->unique()->safeEmail(), // Use a unique email
+            'email' => fake()->unique()->safeEmail(), 
         ]);
         $this->actingAs($user);
 

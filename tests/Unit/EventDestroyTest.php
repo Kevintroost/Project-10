@@ -10,13 +10,9 @@ use App\Models\User;
 class EventDestroyTest extends TestCase
 {
     use RefreshDatabase;
-
-    /**
-     * Test that the event is deleted successfully when it exists.
-     *
-     * @return void
-     */
-    public function test_event_is_deleted_successfully()
+ 
+    /** @test */
+    public function Destroy_Event_successfully()
     {
         // Create a test user and authenticate
         $user = User::factory()->create();
@@ -37,12 +33,9 @@ class EventDestroyTest extends TestCase
         $response->assertSessionHas('success', 'Event deleted successfully');
     }
 
-    /**
-     * Test that attempting to delete an event that doesn't exist doesn't change the database.
-     *
-     * @return void
-     */
-    public function test_event_not_found_does_not_delete_anything()
+    
+   /** @test */
+    public function Destroy_Event_Failed()
     {
         // Create a test user and authenticate
         $user = User::factory()->create();

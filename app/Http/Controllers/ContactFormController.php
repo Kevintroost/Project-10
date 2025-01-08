@@ -31,10 +31,10 @@ class ContactFormController extends Controller
 
     // Create and save the contact form data
     $contact = new ContactForm();
-    $contact->name = $request->name;
-    $contact->email = $request->email;
-    $contact->phonenumber = $request->phone;
-    $contact->message = $request->details;
+    $contact->name = $validated['name'];
+    $contact->email = $validated['email'];
+    $contact->phonenumber = $validated['phone'];
+    $contact->message = $validated['details'];
     $contact->save();
 
     $url = url('/index');

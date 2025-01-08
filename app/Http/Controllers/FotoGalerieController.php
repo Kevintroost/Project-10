@@ -47,30 +47,25 @@ class FotoGalerieController extends Controller
 
     public function Destroy(Request $request)
     {
-        $imageid = $request->input('image_id');
-    
-        $image = FotoGalerie::find($imageid);
-    
+        $image_id = $request->input('image_id');
+
+        $image = FotoGalerie::find($image_id);
+
         if ($image) {
-            
             $imagepath = public_path('Images/' . $image->foto);
-    
-            
+
             if (file_exists($imagepath)) {
-                
                 unlink($imagepath);
             }
-    
-            
+
             $image->delete();
-    
-            
+
             return redirect('admin/dashboard/image/create')->with('success', 'Image deleted successfully');
+        } else {
+            
+            return redirect('admin/dashboard/image/create')->withErrors('Image not found');
         }
-    
-    
     }
-    
+
 
 }
-
