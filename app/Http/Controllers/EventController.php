@@ -68,4 +68,35 @@ class EventController extends Controller
             return redirect('/admin/dashboard/events/create')->with('error', 'Event not found');
         }
     }
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+    $location = $request->input('location');
+    $date = $request->input('date');
+
+    // Build the query dynamically
+    $events = Event::query();
+
+    // Apply filters only if the corresponding field is filled
+    if ($query) {
+        $events->where('event_name', 'LIKE', "%{$query}%");
+    }
+
+    if ($location) {
+        $events->where('location', 'LIKE', "%{$location}%");
+    }
+
+    if ($date) {
+        $events->whereDate('event_date', $date);
+    }
+
+    // Only apply this condition if ALL fields are empty
+    if (empty($query) && empty($location) && empty($date)) {
+        $events->whereRaw('1 = 0'); // Ensures no results are returned
+    }
+
+    $events = $events->paginate(8);
+
+    return view('results', compact('events', 'query', 'location', 'date'));
+}
 }

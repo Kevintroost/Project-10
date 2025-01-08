@@ -17,6 +17,7 @@
                     together!</p>
                 <div class="flex ">
                     <div class="flex items-center bg-white rounded-lg shadow-lg px-4 py-2">
+                    <form action="{{ route('results') }}" method="GET" class="flex items-center bg-white rounded-lg shadow-lg px-4 py-2">
                         <!-- Search Event Input -->
                         <div class="flex items-center border-r border-gray-300 pr-4">
                             <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -35,23 +36,17 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5.121 17.804A3.001 3.001 0 016.343 20h11.314a3.001 3.001 0 011.222-2.196M15 10a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg>
-                            <select class="ml-2 focus:outline-none text-gray-600 bg-transparent">
-                                <option value="" selected>Search Location</option>
-                                <!-- Add location options here -->
-                            </select>
+                            <input type="text" name="location" placeholder="Enter Location" class="ml-2 focus:outline-none text-gray-600"/>
                         </div>
 
-                        <!-- Category Dropdown -->
+                        <!-- Date picker -->
                         <div class="flex items-center px-4">
                             <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
-                            <select class="ml-2 focus:outline-none text-gray-600 bg-transparent">
-                                <option value="" selected>Date</option>
-                                <!-- Add category options here -->
-                            </select>
+                            <input type="date" name="date" class="ml-2 focus:outline-none text-gray-600 bg-transparent"/>
                         </div>
 
                         <!-- Search Button -->
