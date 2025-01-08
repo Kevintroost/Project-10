@@ -79,10 +79,10 @@
           <!-- Main Content -->
           <div class="lg:col-span-3 space-y-4">
             <h1 class="text-3xl font-bold text-neutral-900">About the event</h1>
-            <p class="text-lg text-neutral-600">
-              {{ $event->description }}
+            <p class="break-words overflow-hidden whitespace-normal">
+  {{ $event->description }}
+</p>
 
-            </p>
             <button>
               <a href="{{ url('/contact/create') }}"
                 class="flex items-center justify-between px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-md cursor-pointer">Contact

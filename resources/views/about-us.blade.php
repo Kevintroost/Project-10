@@ -32,7 +32,7 @@ We’re passionate about connecting people to the moments that matter. Our missi
 </section>
 
     
-<section class="max-w-screen-xl mx-auto px-4`">
+<section class="max-w-screen-xl mx-auto px-8 mx-auto max-w-screen-xl ">
 <ol class="relative border-l border-gray-200 dark:border-gray-400">                  
     <li class="mb-10 ms-6">            
         <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
@@ -75,14 +75,14 @@ We’re passionate about connecting people to the moments that matter. Our missi
         <p class="text-base font-normal text-gray-500 dark:text-gray-400">Our platform went live with a focus on connecting event enthusiasts across the world.</p>
     </li>
 
-    <li class="mb-36 ms-3">
+    <li class="mb-32 ms-3">
         <div class="absolute w-3 h-3 bg-gray-200 rounded-full -start-1 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
         
     </li>
 </ol>
 </section>
 
-<div class="p-6 bg-white border border-gray-200 rounded-lg shadow">
+<div class="max-w-screen-xl mx-auto px-8 mx-auto max-w-screen-xl mb-16">
   <!-- Header -->
   <div class="mb-6">
     <h2 class="text-2xl font-bold text-gray-800 flex items-center">
