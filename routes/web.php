@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
         return view('admin.admin-dashboard', compact('totalevent', 'totalcontact', 'totaleventrequest', 'totalreviews'));
     });
 
+    Route::get('/results', [EventController::class, 'search'])->name('results');
+
     Route::get('/admin/dashboard/events/create', function () {
         $events = Event::all();
 
