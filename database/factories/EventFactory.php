@@ -34,6 +34,15 @@ class EventFactory extends Factory
             '31 december 2025',
         ];
 
+        $event_picture = [
+            'seeder.jpg',
+            'seeder2.jpg',
+            'seeder3.jpg',
+            'seeder4.jpg',
+            'seeder5.jpg',
+            
+        ];
+
         return [
             'event_name' => $this->faker->randomElement($event_name),
             'event_date' => $this->faker->randomElement($event_date),
@@ -41,7 +50,7 @@ class EventFactory extends Factory
             'event_type' => $this->faker->randomElement(['Concert', 'Festival', 'Theater']),
             'description' => $this->faker->text,
             'ticket_link' => $this->faker->url,
-            'event_picture' => $this->faker->imageUrl(),
+            'event_picture' => $this->faker->randomElement(array: $event_picture),
             'created_at' => now(),
             'updated_at' => now(),
         ];
