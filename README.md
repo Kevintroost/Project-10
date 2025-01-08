@@ -29,7 +29,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [Laravel-url]: https://laravel.com
 [tailwind.com]:https://img.shields.io/badge/Tailwind_CSS-grey?style=for-the-badge&logo=tailwind-css&logoColor=38B2AC
 [tailwind-url]:https://tailwindcss.com/
-[php.net]:https://shields.io/badge/-PHP-3776AB?style=flat&logo=php
+[php.net]:https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white
 [php-url]:https://www.php.net/
 
 
