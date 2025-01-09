@@ -115,7 +115,10 @@ We’re passionate about connecting people to the moments that matter. Our missi
   <!-- Average Rating -->
   <div class="mb-6">
     <p class="text-4xl font-bold text-gray-800 mb-2">4.65 out of 5</p>
+    <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600">Write a review</button>
   </div>
+
+  
 
   <!-- Rating Breakdown -->
   <div class="mb-6">
@@ -186,9 +189,4 @@ We’re passionate about connecting people to the moments that matter. Our missi
     </div>
   </div>
 </div>
-
-
-
-
-
 </x-layout>
