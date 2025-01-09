@@ -67,7 +67,7 @@
         <!-- Submit Button -->
         <div class="mt-6">
           <input value="Create event" type="submit"
-            class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
 
           </d>
         </div>
@@ -89,8 +89,7 @@
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)
       <div class="flex items-center justify-between">
-      <img src="{{ asset('images/' . $event->event_picture) }}" alt="Event Image"
-        class="w-16 h-16 object-cover rounded-full">
+        <img src="{{ asset($event->event_picture) }}" alt="Event Image" class="w-16 h-16 object-cover rounded-full">
 
         <div class="flex flex-col items-start ml-4">
         <p class="text-sm text-gray-700">{{ $event->event_name }}</p>
@@ -101,12 +100,12 @@
         @csrf
         <input type="hidden" name="event_id" value="{{ $event->id }}">
         <button type="submit"
-          class="mt-2 w-full bg-red-600 text-white font-semibold text-sm rounded-lg py-3 px-10 focus:outline-none hover:bg-red-700">
+          class="mt-2 w-full bg-red-600 text-white font-semibold text-sm rounded-lg py-3 px-10 focus:outline-none hover:bg-red-700 cursor-pointer">
           Delete
         </button>
         </form>
       </div>
-    @endforeach 
+    @endforeach
       </div>
     </div>
   </section>

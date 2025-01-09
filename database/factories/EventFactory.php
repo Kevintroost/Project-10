@@ -34,27 +34,28 @@ class EventFactory extends Factory
             '31 december 2025',
         ];
 
+        // Assuming you have images stored in the public/images folder
         $event_picture = [
             'seeder.jpg',
             'seeder2.jpg',
             'seeder3.png',
             'seeder4.jpg',
             'seeder5.jpg',
-            
         ];
 
         return [
             'event_name' => $this->faker->randomElement($event_name),
             'event_date' => $this->faker->randomElement($event_date),
-            'Location' => $this->faker->city,
+            'location' => $this->faker->city,
             'event_type' => $this->faker->randomElement(['Concert', 'Festival', 'Theater']),
             'description' => $this->faker->text,
             'ticket_link' => $this->faker->url,
-            'event_picture' => $this->faker->randomElement(array: $event_picture),
+            'event_picture' => 'images/' . $this->faker->randomElement($event_picture),
             'created_at' => now(),
             'updated_at' => now(),
         ];
     }
 }
+
 
 
