@@ -13,6 +13,7 @@ class CreateEventRequestsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->string('location')->nullable();
             $table->text('details')->nullable();
             $table->timestamp('date')->nullable();
             $table->timestamps();

@@ -55,11 +55,16 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
 
-    // request check list 
-    Route::get('/admin/dashboard/todo-list/index', [TaskController::class, 'index'])->name('event-request.index');
 
-    //
-    Route::post('/admin/dashboard/event-request/tasks/store', [TaskController::class, 'store'])->name('event-request.tasks.store');
+
+    // request check list 
+
+    // admin view
+    Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
+    Route::get('/api/event-requests', [EventRequestController::class, 'index']);
+    Route::put('/api/event-requests/{id}', [EventRequestController::class, 'update']);
+    Route::delete('/api/event-requests/{id}', [EventRequestController::class, 'destroy']);
+
     //
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
@@ -76,6 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 
 // Event Requests 
+// User input 
 Route::get('event-request/create', [EventRequestController::class, 'create'])->name('event-request.create');
 Route::post('event-request/store', [EventRequestController::class, 'store'])->name('event-request.store');
 

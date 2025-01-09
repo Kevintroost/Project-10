@@ -1,9 +1,10 @@
 <x-layout>
-<section class="bg-bottom bg-no-repeat')] " style="
+    <section class="bg-bottom bg-no-repeat')] " style="
      background-image: url('{{ Vite::asset('resources/assets/background3.svg') }}');
     ">
         <div class="px-4 mx-auto max-w-screen-xl text-center py-4 lg:py-16">
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Event request</h1>
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                Event request</h1>
         </div>
     </section>
     <section class="flex flex-col items-center justify-center py-8 bg-gray-100 bg-cover bg-center"
@@ -66,22 +67,17 @@
                         @enderror
                     </div>
 
-                    <!-- Location Dropdown -->
+                    <!-- Location Input -->
                     <div>
-                        <label for="location" class="block text-sm font-medium mb-2">Select Province</label>
-                        <select name="location" id="location" required
-                            class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="" disabled selected>Select a province</option>
-                            @foreach($provinces as $province)
-                                <option value="{{ $province }}" {{ old('location') === $province ? 'selected' : '' }}>
-                                    {{ $province }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <label for="location" class="block text-sm font-medium mb-2">Province</label>
+                        <input type="text" name="location" id="location" value="{{ old('location') }}"
+                            class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Enter your province">
                         @error('location')
                             <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
+
 
                     <!-- Date Field -->
                     <div>
