@@ -33,7 +33,7 @@ Route::get('/admin', function () {
 
 Route::get('/events/index', function () {
     $events = Event::all();
-    $events = Event::paginate(8);
+    $events = Event::orderBy('event_date')->paginate(8);
     return view('events.index', compact('events'));
 });
 
@@ -47,6 +47,9 @@ Route::get('/events/show/{id}', function ($id) {
 })->name('events.show');
 
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
+
+
+
 
 
 

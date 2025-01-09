@@ -50,8 +50,8 @@ class StoreNewsletterSubscriberTest extends TestCase
         // Fake the Mail facade to prevent actually sending emails
         Mail::fake();
 
-        // Define an invalid email (e.g., already subscribed)
-        $invalidEmail = 'invalid@example.com';
+        // Define an invalid email 
+        $invalidEmail = 'RaminoHiromiVrca@gmail.com';
 
         // Create a subscriber for the invalid email 
         NewsletterSubscriber::create([
@@ -60,15 +60,15 @@ class StoreNewsletterSubscriberTest extends TestCase
         ]);
 
         // Send the request to subscribe with an email that already exists
-        $response = $this->post(route('newsletter.subscribe'), [
+        $response = $this->post(route('email.create'), [
             'email' => $invalidEmail
         ]);
 
         // Assert that the validation failed
-        $response->assertSessionHasErrors('email'); // Check for validation error
+        $response->assertSessionHasErrors('email'); 
 
         // Assert that the email was not added again to the database
-        $this->assertDatabaseCount('newsletter_subscribers', 1); // Only one subscriber with that email
+        $this->assertDatabaseCount('newsletter_subscribers', 1); 
 
         // Assert no email was queued
         Mail::assertNotQueued(WelcomeEmail::class);

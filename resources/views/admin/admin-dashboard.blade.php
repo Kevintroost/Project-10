@@ -110,12 +110,12 @@
               <label for="image-url" class="block text-sm font-medium text-gray-700"> Provide a Image URL</label>
               <div class="mt-1">
                 <input type="url" name="image_url" id="image-url" placeholder="Enter image URL"
-                  value="{{ old('image') }}"
+                  value="{{ old('image_url') }}"
                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" />
               </div>
             </div>
 
-            @error('image')
+            @error('image_url')
         <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
       @enderror
 
