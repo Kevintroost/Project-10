@@ -116,16 +116,16 @@
             <a href="{{ url('/index') }}" class="hover:underline me-4 md:me-6">Home</a>
           </li>
           <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Events</a>
+            <a href="{{ url('events/index') }}" class="hover:underline me-4 md:me-6">Events</a>
           </li>
           <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Request</a>
+            <a href="{{ route('event-request.create') }}" class="hover:underline me-4 md:me-6">Request</a>
           </li>
           <li>
-            <a href="#" class="hover:underline me-4 md:me-6">About us</a>
+            <a href="{{ url('/about-us') }}" class="hover:underline me-4 md:me-6">About us</a>
           </li>
           <li>
-            <a href="#" class="hover:underline">Contact</a>
+            <a href="{{ url('/contact/create') }}" class="hover:underline">Contact</a>
           </li>
         </ul>
       </div>
