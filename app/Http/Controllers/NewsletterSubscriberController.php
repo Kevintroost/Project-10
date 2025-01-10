@@ -33,6 +33,8 @@ class NewsletterSubscriberController extends Controller
 
     }
 
+    
+
     public function NewsLetterCreate(Request $request)
     {
         // Validate the input
@@ -45,18 +47,15 @@ class NewsletterSubscriberController extends Controller
         // Get the image URL
         $imageurl = $request->input('image_url');
 
-        // Check if the URL points to an image
-        if ($imageurl && !getimagesize($imageurl)) {
-            return back()->withErrors(['image_url' => 'The provided URL does not point to a valid image.']);
-        }
+        // Check if the URL points to an image file
+        if ($imageurl) {
+            $path_info = pathinfo($imageurl);
+            $valid_extensions = ['jpg', 'jpeg', 'png', 'gif'];
 
-        // Check file extension
-        $valid_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-        $path_info = pathinfo($imageurl);
-        if (!in_array(strtolower($path_info['extension']), $valid_extensions)) {
-            return back()->withErrors(['image_url' => 'The URL does not point to a valid image file type.']);
+            if (!in_array(strtolower($path_info['extension']), $valid_extensions)) {
+                return back()->withErrors(['image_url' => 'The URL does not point to a valid image file type.']);
+            }
         }
-
 
         // Send email with image URL
         $title = $request->input('title');
@@ -71,5 +70,4 @@ class NewsletterSubscriberController extends Controller
 
         return redirect()->back();
     }
-
 }
