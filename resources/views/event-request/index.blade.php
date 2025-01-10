@@ -2,7 +2,6 @@
 
 
 <div id="app">
-
     <task-list></task-list>
 </div>
 

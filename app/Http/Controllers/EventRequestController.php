@@ -8,14 +8,20 @@ use Illuminate\Http\Request;
 class EventRequestController extends Controller
 {
     // Method to fetch all event requests and return to the index view
+
     public function index()
+    {
+        return view('event-request/index');
+    }
+
+    public function data()
     {
         // Fetch all event requests
         $eventRequests = EventRequest::all();
 
-        dd($eventRequests); 
         // Return the Blade view and pass the event requests to it
-        return view('event-request.index', compact('eventRequests'));
+
+        return response()->json($eventRequests, 200);
     }
 
     public function create()
@@ -26,8 +32,21 @@ class EventRequestController extends Controller
     // Method to store a new event request/  // /// / / // / // / / / / // / / / / /    
     public function store(Request $request)
     {
-        $eventRequest = EventRequest::create($request->all());
-        return response()->json($eventRequest, 201);
+        // Validate the form data (optional but recommended)
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'date' => 'required|date',
+            'details' => 'required|string',
+        ]);
+
+        // Store the event request
+        $eventRequest = EventRequest::create($validated);
+
+        // Redirect back with a success message
+        return redirect()->route('event-request.create')->with('success', 'Your event request has been submitted successfully!');
     }
 
     // Method to update an event request
@@ -45,4 +64,22 @@ class EventRequestController extends Controller
         $eventRequest->delete();
         return response()->json(null, 204);
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $eventRequest = EventRequest::findOrFail($id);
+
+        // Ensure the status is valid
+        $validStatuses = ['To-Do', 'In Progress', 'Done'];
+        if (!in_array($request->status, $validStatuses)) {
+            return response()->json(['error' => 'Invalid status'], 400);
+        }
+
+        // Update the event's status
+        $eventRequest->status = $request->status;
+        $eventRequest->save();
+
+        return response()->json(['success' => 'Event status updated'], 200);
+    }
+
 }

@@ -6,11 +6,16 @@ const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import TaskList from './components/EventRequestTaskList.vue';
+
+// motion package  
+import { MotionPlugin } from '@vueuse/motion';
+// 
 app.component('example-component', ExampleComponent);
 app.component('task-list', TaskList)
 
 
 
+app.use(MotionPlugin);
 app.mount('#app');
 
 
