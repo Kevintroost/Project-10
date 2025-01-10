@@ -15,5 +15,6 @@ class EventRequest extends Model
         'phone',
         'details',
         'date',
+        'location'
     ];
 }
