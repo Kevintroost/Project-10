@@ -32,8 +32,8 @@
           </svg>
         </div>
         <div class="ml-4">
-        <p class="text-xl font-semibold">{{$totalcontact}}</p>
-          <p class="text-gray-500">Contact forms filled</p>
+        <p class="text-xl font-semibold">{{$totaleventrequest}}</p>
+          <p class="text-gray-500">Event request forms filled</p>
         </div>
       </div>
       <p class="text-green-500 text-sm"></p>
@@ -51,8 +51,8 @@
           </svg>
         </div>
         <div class="ml-4">
-        <p class="text-xl font-semibold">{{$totaleventrequest}}</p>
-          <p class="text-gray-500">Event request forms filled</p>
+        <p class="text-xl font-semibold">{{$totalcontact}}</p>
+          <p class="text-gray-500">Contact forms filled</p>
         </div>
       </div>
       <p class="text-green-500 text-sm"></p>

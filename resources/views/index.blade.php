@@ -42,11 +42,7 @@
 
                         <!-- Date picker -->
                         <div class="flex items-center px-4">
-                            <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
+                            
                             <input type="date" name="date" class="ml-2 focus:outline-none text-gray-600 bg-transparent"/>
                         </div>
 

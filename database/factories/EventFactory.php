@@ -43,13 +43,21 @@ class EventFactory extends Factory
             'seeder5.jpg',
         ];
 
+        $ticket_link = [
+            'https://www.ticketmaster.com/',
+            'https://www.stubhub.com/',
+            'https://www.viagogo.com/',
+            'https://www.ticketswap.com/',
+            'https://www.tickets.com/',
+        ];
+
         return [
             'event_name' => $this->faker->randomElement($event_name),
             'event_date' => $this->faker->randomElement($event_date),
             'location' => $this->faker->city,
             'event_type' => $this->faker->randomElement(['Concert', 'Festival', 'Theater']),
             'description' => $this->faker->text,
-            'ticket_link' => $this->faker->url,
+            'ticket_link' => $this->faker->randomElement($ticket_link),
             'event_picture' => 'images/' . $this->faker->randomElement($event_picture),
             'created_at' => now(),
             'updated_at' => now(),
