@@ -13,8 +13,10 @@ class CreateEventRequestsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->text('details')->nullable();
-            $table->timestamp('date')->nullable();
+            $table->text('details');
+            $table->string('date');
+            $table->string('location');
+            $table->enum('status', ['To-Do', 'In Progress', 'Done'])->default('To-Do');
             $table->timestamps();
         });
     }

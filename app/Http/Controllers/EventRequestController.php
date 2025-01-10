@@ -7,41 +7,79 @@ use Illuminate\Http\Request;
 
 class EventRequestController extends Controller
 {
-    public function create()
+    // Method to fetch all event requests and return to the index view
+
+    public function index()
     {
-        $provinces = [
-            'Drenthe',
-            'Flevoland',
-            'Friesland',
-            'Gelderland',
-            'Groningen',
-            'Limburg',
-            'North Brabant',
-            'North Holland',
-            'Overijssel',
-            'South Holland',
-            'Utrecht',
-            'Zeeland',
-        ];
-        return view('event-request.create', compact('provinces'));
+        return view('event-request/index');
     }
 
+    public function data()
+    {
+        // Fetch all event requests
+        $eventRequests = EventRequest::all();
+
+        // Return the Blade view and pass the event requests to it
+
+        return response()->json($eventRequests, 200);
+    }
+
+    public function create()
+    {
+        return view('event-request/create');
+    }
+
+    // Method to store a new event request/  // /// / / // / // / / / / // / / / / /    
     public function store(Request $request)
     {
+        // Validate the form data (optional but recommended)
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:15',
+            'phone' => 'required|string|max:255',
             'location' => 'required|string|max:255',
-            'details' => 'nullable|string|min:10',
-            'date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'), // Validates that the date is not in the past
-        ], [
-            'date.after_or_equal' => 'The event date must be today or in the future.',
-            // 'details.min' => 'Details must be at least 10 characters long.',
+            'date' => 'required|date',
+            'details' => 'required|string',
         ]);
 
-        EventRequest::create($validated);
+        // Store the event request
+        $eventRequest = EventRequest::create($validated);
 
-        return redirect('/event-request/create')->with('success', 'Event request created successfully!');
+        // Redirect back with a success message
+        return redirect()->route('event-request.create')->with('success', 'Your event request has been submitted successfully!');
     }
+
+    // Method to update an event request
+    public function update(Request $request, $id)
+    {
+        $eventRequest = EventRequest::findOrFail($id);
+        $eventRequest->update($request->all());
+        return response()->json($eventRequest);
+    }
+
+    // Method to delete an event request
+    public function destroy($id)
+    {
+        $eventRequest = EventRequest::findOrFail($id);
+        $eventRequest->delete();
+        return response()->json(null, 204);
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $eventRequest = EventRequest::findOrFail($id);
+
+        // Ensure the status is valid
+        $validStatuses = ['To-Do', 'In Progress', 'Done'];
+        if (!in_array($request->status, $validStatuses)) {
+            return response()->json(['error' => 'Invalid status'], 400);
+        }
+
+        // Update the event's status
+        $eventRequest->status = $request->status;
+        $eventRequest->save();
+
+        return response()->json(['success' => 'Event status updated'], 200);
+    }
+
 }
