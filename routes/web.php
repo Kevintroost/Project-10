@@ -12,6 +12,8 @@ use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
 use App\Http\Controllers\NewsletterSubscriberController;
 use App\Http\Controllers\TaskController;
+use App\Models\EventRequest;
+use App\Models\Review;
 
 
 
@@ -32,33 +34,42 @@ Route::get('/admin', function () {
 
 Route::get('/events/index', function () {
     $events = Event::all();
-    $events = Event::paginate(8);
+    $events = Event::orderBy('event_date')->paginate(8);
     return view('events.index', compact('events'));
 });
 
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
-Route::get('/admin/dashboard/events/create', function () {
-    $events = Event::all();
+Route::get('/results', [EventController::class, 'search'])->name('results');
 
 
-    return view('events/create', compact('events'));
+Route::get('/events/show/{id}', function ($id) {
+    $event = Event::find($id);
+    return view('events.show', compact('event'));
+})->name('events.show');
 
-});
-
-Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
-        return view('admin.admin-dashboard');
+        $totalevent = Event::count();
+        $totalcontact = ContactForm::count();
+        $totaleventrequest = EventRequest::count();
+        $totalreviews = Review::count();
+
+        return view('admin.admin-dashboard', compact('totalevent', 'totalcontact', 'totaleventrequest', 'totalreviews'));
     });
+    
+    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
-
-
-
-    // request check list 
-
+    Route::get('/admin/dashboard/events/create', function () {
+        $events = Event::all();
+    
+    
+        return view('events/create', compact('events'));
+    
+    });
+    
     // admin view
     Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
     Route::post('/api/event-requests', [EventRequestController::class, 'data']);
