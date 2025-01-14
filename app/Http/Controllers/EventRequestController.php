@@ -29,26 +29,31 @@ class EventRequestController extends Controller
         return view('event-request/create');
     }
 
-    // Method to store a new event request/  // /// / / // / // / / / / // / / / / /    
+
+    // Method to store an event request
     public function store(Request $request)
     {
-        // Validate the form data (optional but recommended)
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'date' => 'required|date',
-            'details' => 'required|string',
-        ]);
+        try {
+            // Validate the form data (optional but recommended)
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'phone' => 'required|string|max:255',
+                'location' => 'required|string|max:255',
+                'date' => 'required|date',
+                'details' => 'required|string',
+            ]);
 
-        // Store the event request
-        $eventRequest = EventRequest::create($validated);
+            // Store the event request
+            $eventRequest = EventRequest::create($validated);
 
-        // Redirect back with a success message
-        return redirect()->route('event-request.create')->with('success', 'Your event request has been submitted successfully!');
+            // Redirect back with a success message
+            return redirect()->route('event-request.create')->with('success', 'Your event request has been submitted successfully!');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Redirect back with validation errors
+            return redirect()->route('event-request.create')->withErrors($e->errors())->withInput();
+        }
     }
-
     // Method to update an event request
     public function update(Request $request, $id)
     {
@@ -64,6 +69,7 @@ class EventRequestController extends Controller
         $eventRequest->delete();
         return response()->json(null, 204);
     }
+
 
     public function updateStatus(Request $request, $id)
     {

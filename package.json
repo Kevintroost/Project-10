@@ -20,9 +20,11 @@
         "vue": "^3.5.13"
     },
     "dependencies": {
+        "@vue/compiler-sfc": "^3.5.13",
         "@vueuse/motion": "^2.2.6",
         "framer-motion": "^11.16.4",
         "motion": "^11.16.4",
+        "vue-router": "^4.5.0",
         "vuedraggable": "^2.24.3"
     }
 }

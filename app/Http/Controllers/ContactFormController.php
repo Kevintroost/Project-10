@@ -10,7 +10,7 @@ use App\Mail\ContactMail;
 
 class ContactFormController extends Controller
 {
-    public function create()
+    public function Create()
 
     {
       
@@ -19,7 +19,7 @@ class ContactFormController extends Controller
         
     }
 
-    public function store(Request $request)
+    public function Store(Request $request)
 {
     // Validate the input
     $validated = $request->validate([

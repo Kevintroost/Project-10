@@ -36,7 +36,7 @@ class StoreFotoGalerieTest extends TestCase
         $imagename = time() . '.' . $file->extension();
 
         // Make the request to store the image (let Laravel handle storage)
-        $response = $this->post(route('Store'), $data);
+        $response = $this->post(route('store'), $data);
 
         // Assertions
         $this->assertTrue(file_exists(public_path('images/' . $imagename)), 'File was not saved in public/images.');
@@ -68,7 +68,7 @@ class StoreFotoGalerieTest extends TestCase
         ];
     
         // Make the request to store the image
-        $response = $this->post(route('Store'), $data);
+        $response = $this->post(route('store'), $data);
     
         // Assertions
         $response->assertSessionHasErrors('image');

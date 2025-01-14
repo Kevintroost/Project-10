@@ -97,5 +97,5 @@ Auth::routes();
 Route::get('event-request/create', [EventRequestController::class, 'create'])->name('event-request.create');
 Route::post('event-request/store', [EventRequestController::class, 'store'])->name('event-request.store');
 
-Route::get('contact/create', [ContactFormController::class, 'create'])->name('contact.create');
-Route::post('contact/store', [ContactFormController::class, 'store'])->name('contact.store');
+Route::get('contact/create', [ContactFormController::class, 'Create'])->name('contact.create');
+Route::post('contact/store', [ContactFormController::class, 'Store'])->name('contact.store');

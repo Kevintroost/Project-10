@@ -29,7 +29,7 @@ class ContactMail extends Mailable implements ShouldQueue
         $this->contact = $contact;
         $this->url = $url;
     }
-    
+
 
     /**
      * Get the message envelope.
@@ -56,6 +56,11 @@ class ContactMail extends Mailable implements ShouldQueue
                 'url' => $this->url,
             ]
         );
+    }
+
+    public function getContact()
+    {
+        return $this->contact;
     }
 
     /**

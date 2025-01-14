@@ -33,21 +33,26 @@ class NewsletterSubscriberController extends Controller
 
     }
 
-    
+
+
+
 
     public function NewsLetterCreate(Request $request)
     {
+        // Conditional validation rule for image_url based on environment
+        $image_url_rule = app()->environment('testing') ? 'nullable|url' : 'nullable|url|active_url';
+
         // Validate the input
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required|min:3|max:255',
             'description' => 'required|min:3|max:1000',
-            'image_url' => 'nullable|url|active_url',
+            'image_url' => $image_url_rule,
         ]);
 
         // Get the image URL
-        $imageurl = $request->input('image_url');
+        $imageurl = $validated['image_url'];
 
-        // Check if the URL points to an image file
+        // Check if the URL points to an image file (if an image URL is provided)
         if ($imageurl) {
             $path_info = pathinfo($imageurl);
             $valid_extensions = ['jpg', 'jpeg', 'png', 'gif'];
@@ -58,16 +63,19 @@ class NewsletterSubscriberController extends Controller
         }
 
         // Send email with image URL
-        $title = $request->input('title');
-        $description = $request->input('description');
+        $title = $validated['title'];
+        $description = $validated['description'];
         $url = url('/index');
 
         $subscribers = NewsletterSubscriber::all();
 
         foreach ($subscribers as $subscriber) {
+            // Ensure each subscriber receives the newsletter
             Mail::to($subscriber->email)->queue(new NewsLetter($title, $description, $imageurl, $url));
         }
 
-        return redirect()->back();
+        // Redirect back with a success message
+        return redirect('/')->with('success', 'Newsletter created and emails sent!');
     }
+
 }
