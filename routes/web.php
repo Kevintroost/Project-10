@@ -4,14 +4,12 @@ use App\Http\Controllers\ContactFormController;
 use App\Models\ContactForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
-use PHPUnit\Framework\Attributes\Group;
 use App\Models\Event;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRequestController;
 use App\Http\Controllers\FotoGalerieController;
 use App\Models\FotoGalerie;
 use App\Http\Controllers\NewsletterSubscriberController;
-use App\Http\Controllers\TaskController;
 use App\Models\EventRequest;
 use App\Models\Review;
 
@@ -26,6 +24,10 @@ Route::get('/index', function () {
     $fotoGaleries = FotoGalerie::paginate(9);
     return view('index', compact('fotoGaleries'));
 })->name('index');
+
+Route::get('/about-us', function () {
+    return view('about-us');
+})->name('aboutus');
 
 
 Route::get('/admin', function () {
@@ -69,6 +71,8 @@ Route::group(['middleware' => 'auth'], function () {
         return view('events/create', compact('events'));
     
     });
+
+    
     
     // admin view
     Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');

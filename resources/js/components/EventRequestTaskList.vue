@@ -21,7 +21,7 @@
           <div class="space-y-3 text-gray-600">
             <p><strong class="text-gray-900">Email:</strong> {{ element.email }}</p>
             <p><strong class="text-gray-900">Phone:</strong> {{ element.phone }}</p>
-            <p><strong class="text-gray-900">Details:</strong> {{ element.details }}</p>
+            <p><strong class="text-gray-900 break-words overflow-hidden whitespace-normal">Details:</strong> {{ element.details }}</p>
             <p><strong class="text-gray-900">Date:</strong> {{ element.date }}</p>
             <p><strong class="text-gray-900">Location:</strong> {{ element.location }}</p>
           </div>
@@ -59,7 +59,7 @@ export default {
   methods: {
     async fetchEvents() {
       try {
-        const response = await axios.post("/api/event-requests");
+        const response = await axios.post("http://localhost/Project-10/public/api/event-requests");
         // The fetched events are stored in the eventRequests object.
         const events = response.data;
         this.eventRequests = {
@@ -73,7 +73,7 @@ export default {
     },
     async deleteEvent(id) {
       try {
-        await axios.delete(`/api/event-requests/${id}`);
+        await axios.delete(`http://localhost/Project-10/public/api/event-requests/${id}`);
         for (let status in this.eventRequests) {
           this.eventRequests[status] = this.eventRequests[status].filter(
             (event) => event.id !== id
@@ -108,7 +108,7 @@ export default {
 
     async updateEventStatus(id, newStatus) {
       try {
-        await axios.patch(`/api/event-requests/${id}`, { status: newStatus });
+        await axios.patch(`http://localhost/Project-10/public/api/event-requests/${id}`, { status: newStatus });
       } catch (error) {
         console.error("Error updating event status:", error);
       }
