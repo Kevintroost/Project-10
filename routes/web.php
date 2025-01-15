@@ -43,7 +43,8 @@ Route::get('/events/index', function () {
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
-Route::get('/results', [EventController::class, 'search'])->name('results');
+Route::get('/search', [EventController::class, 'search'])->name('search');
+Route::patch('/event-requests/{id}/status', [EventRequestController::class, 'updateStatus'])->name('event-request.update-status');
 
 
 Route::get('/events/show/{id}', function ($id) {
