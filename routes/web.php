@@ -61,19 +61,19 @@ Route::group(['middleware' => 'auth'], function () {
 
         return view('admin.admin-dashboard', compact('totalevent', 'totalcontact', 'totaleventrequest', 'totalreviews'));
     });
-    
+
     Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
 
     Route::get('/admin/dashboard/events/create', function () {
         $events = Event::all();
-    
-    
+
+
         return view('events/create', compact('events'));
-    
+
     });
 
-    
-    
+
+
     // admin view
     Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
     Route::post('/api/event-requests', [EventRequestController::class, 'data']);
@@ -89,7 +89,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
     Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
+
+    Route::get('/admin/dashboard/contact/index', function () {
+
+        $contacts = ContactForm::all();
+        return view('contact.index', compact('contacts'));
+    })->name('contact.index');
+
+    Route::delete('/contacts/{id}', [ContactFormController::class, 'destroy'])->name('contact.destroy');
+
 });
+
+
+
+
+
 
 
 

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Route;
 use App\Models\ContactForm;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+
 
 class ContactFormController extends Controller
 {
@@ -44,4 +46,13 @@ class ContactFormController extends Controller
     // Redirect with a success message
     return redirect('/contact/create')->with('success', 'Your message has been sent!');
 }
+
+
+
+public function destroy($id)
+{
+    ContactForm::findOrFail($id)->delete();
+    return redirect()->route('contact.index')->with('success', 'Contact deleted successfully.');
+}
+
 }
