@@ -52,6 +52,9 @@ Route::get('/events/show/{id}', function ($id) {
     return view('events.show', compact('event'));
 })->name('events.show');
 
+Route::get('/results', [EventController::class, 'search'])->name('results');
+Route::get('/search', [EventController::class, 'search'])->name('search');
+
     
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
