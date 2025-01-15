@@ -27,6 +27,10 @@ Route::get('/index', function () {
     return view('index', compact('fotoGaleries'));
 })->name('index');
 
+Route::get('/about-us', function () {
+    return view('about-us');
+})->name('aboutus');
+
 
 Route::get('/admin', function () {
     return view('auth.login');
@@ -69,6 +73,8 @@ Route::group(['middleware' => 'auth'], function () {
         return view('events/create', compact('events'));
     
     });
+
+    
     
     // admin view
     Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
