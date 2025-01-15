@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-<<<<<<< Updated upstream
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\EventRequest>
