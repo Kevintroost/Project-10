@@ -3,7 +3,7 @@
     <!-- Containers for each section -->
     <div v-for="status in statuses" :key="status" class="flex-1 bg-white shadow-lg rounded-lg p-4" @dragover.prevent
       @drop="handleDrop(status)">
-      <h3 class="font-bold text-xl text-center mb-6 ">{{ status }}</h3>
+      <h2 class=" text-2xl font-semibold text-center mb-4 ">{{ status }}</h2>
       <div class="space-y-6">
         <div v-for="(element, index) in eventRequests[status]" :key="element.id"
           class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105"
