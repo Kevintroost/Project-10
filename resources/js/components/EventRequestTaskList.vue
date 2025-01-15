@@ -21,7 +21,7 @@
           <div class="space-y-3 text-gray-600">
             <p><strong class="text-gray-900">Email:</strong> {{ element.email }}</p>
             <p><strong class="text-gray-900">Phone:</strong> {{ element.phone }}</p>
-            <p><strong class="text-gray-900">Details:</strong> {{ element.details }}</p>
+            <p><strong class="text-gray-900 break-words overflow-hidden whitespace-normal">Details:</strong> {{ element.details }}</p>
             <p><strong class="text-gray-900">Date:</strong> {{ element.date }}</p>
             <p><strong class="text-gray-900">Location:</strong> {{ element.location }}</p>
           </div>
