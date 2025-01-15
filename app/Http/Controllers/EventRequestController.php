@@ -54,13 +54,31 @@ class EventRequestController extends Controller
             return redirect()->route('event-request.create')->withErrors($e->errors())->withInput();
         }
     }
+
+     
     // Method to update an event request
     public function update(Request $request, $id)
     {
+        // Find the event request by ID or fail
         $eventRequest = EventRequest::findOrFail($id);
-        $eventRequest->update($request->all());
+
+        // Validate incoming request data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'date' => 'required|date',
+            'details' => 'required|string',
+        ]);
+
+        // Update the event request with the validated data
+        $eventRequest->update($validatedData);
+
+        // Return the updated event request as JSON
         return response()->json($eventRequest);
     }
+
 
     // Method to delete an event request
     public function destroy($id)

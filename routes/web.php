@@ -79,14 +79,14 @@ Route::group(['middleware' => 'auth'], function () {
     // admin view
     Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
     Route::post('/api/event-requests', [EventRequestController::class, 'data']);
-    Route::put('/api/event-requests/{id}', [EventRequestController::class, 'update']);
+    Route::put('/api/event-requests/{id}', [EventRequestController::class, 'update'])->name('eventrequests.update');
     Route::delete('/api/event-requests/{id}', [EventRequestController::class, 'destroy']);
     Route::patch('/api/event-requests/{id}', [EventRequestController::class, 'updateStatus']);
 
     //
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
-    Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
+    Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('Store');
     Route::delete('/admin/dashboard/image/destroy', [FotoGalerieController::class, 'Destroy'])->name('destroy');
     Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
