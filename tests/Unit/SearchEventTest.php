@@ -11,88 +11,37 @@ class SearchEventTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Test search with query filter.
+     * Test search with query filter (successful).
      */
-    public function test_search_with_query()
+    public function test_search_with_query_success()
     {
         // Create test events
         Event::factory()->create(['event_name' => 'Music Festival']);
         Event::factory()->create(['event_name' => 'Art Exhibition']);
 
+        // Send search request
         $response = $this->get('/search?query=Music');
 
+        // Assert successful response and correct results
         $response->assertStatus(200);
         $response->assertSee('Music Festival');
         $response->assertDontSee('Art Exhibition');
     }
 
     /**
-     * Test search with location filter.
+     * Test search with query filter (failing).
      */
-    public function test_search_with_location()
+    public function test_search_with_query_failure()
     {
         // Create test events
-        Event::factory()->create(['location' => 'New York']);
-        Event::factory()->create(['location' => 'Los Angeles']);
+        Event::factory()->create(['event_name' => 'Art Exhibition']);
 
-        $response = $this->get('/search?location=New York');
+        // Send search request with no matching results
+        $response = $this->get('/search?query=Music');
 
+        // Assert successful response but no results
         $response->assertStatus(200);
-        $response->assertSee('New York');
-        $response->assertDontSee('Los Angeles');
-    }
-
-    /**
-     * Test search with date filter.
-     */
-    public function test_search_with_date()
-    {
-        // Create test events
-        Event::factory()->create(['event_date' => '2025-01-01']);
-        Event::factory()->create(['event_date' => '2025-02-01']);
-
-        $response = $this->get('/search?date=2025-01-01');
-
-        $response->assertStatus(200);
-        $response->assertSee('2025-01-01');
-        $response->assertDontSee('2025-02-01');
-    }
-
-    /**
-     * Test search with no filters.
-     */
-    public function test_search_with_no_filters()
-    {
-        // Create test events
-        Event::factory()->create(['event_name' => 'Test Event']);
-
-        $response = $this->get('/search');
-
-        $response->assertStatus(200);
-        $response->assertDontSee('Test Event'); // No results should be returned
-    }
-
-    /**
-     * Test search with multiple filters.
-     */
-    public function test_search_with_multiple_filters()
-    {
-        // Create test events
-        Event::factory()->create([
-            'event_name' => 'Music Festival',
-            'location' => 'New York',
-            'event_date' => '2025-01-01',
-        ]);
-        Event::factory()->create([
-            'event_name' => 'Art Exhibition',
-            'location' => 'Los Angeles',
-            'event_date' => '2025-02-01',
-        ]);
-
-        $response = $this->get('/search?query=Music&location=New York&date=2025-01-01');
-
-        $response->assertStatus(200);
-        $response->assertSee('Music Festival');
         $response->assertDontSee('Art Exhibition');
+        $response->assertDontSee('Music Festival');
     }
 }

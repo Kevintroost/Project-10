@@ -6,7 +6,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\EventRequest;
 use App\Models\User;
-use Laravel\Passport\Passport;
 class UpdateEventRequestTest extends TestCase
 {
 

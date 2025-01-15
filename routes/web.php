@@ -43,7 +43,8 @@ Route::get('/events/index', function () {
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
 
-Route::get('/results', [EventController::class, 'search'])->name('results');
+Route::get('/search', [EventController::class, 'search'])->name('search');
+Route::patch('/event-requests/{id}/status', [EventRequestController::class, 'updateStatus'])->name('event-request.update-status');
 
 
 Route::get('/events/show/{id}', function ($id) {
@@ -78,7 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
     Route::post('/api/event-requests', [EventRequestController::class, 'data']);
     Route::put('/api/event-requests/{id}', [EventRequestController::class, 'update'])->name('eventrequests.update');
-    Route::delete('/api/event-requests/{id}', [EventRequestController::class, 'destroy']);
+    Route::delete('/api/event-requests/{id}', [EventRequestController::class, 'destroy'])->name('eventrequests.destroy');
     Route::patch('/api/event-requests/{id}', [EventRequestController::class, 'updateStatus']);
 
     //
