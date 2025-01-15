@@ -72,7 +72,7 @@
                         <label for="location" class="block text-sm font-medium mb-2">Location</label>
                         <input type="text" name="location" id="location" value="{{ old('location') }}"
                             class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Enter your province">
+                            placeholder="Enter the location">
                         @error('location')
                             <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
