@@ -88,7 +88,7 @@ Route::group(['middleware' => 'auth'], function () {
     //
 
     Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
-    Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('Store');
+    Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
     Route::delete('/admin/dashboard/image/destroy', [FotoGalerieController::class, 'Destroy'])->name('destroy');
     Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');

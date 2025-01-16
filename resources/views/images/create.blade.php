@@ -4,7 +4,7 @@
             
             <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-md p-6 mb-6 lg:mb-0 flex-shrink-0 h-[16rem]">
                 <h2 class="text-lg font-medium text-gray-700 mb-4">File upload</h2>
-                <form action="{{ route('Store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <label for="file_input" class="block text-sm font-medium text-gray-700 mb-2">Attach file</label>
                     <input type="file" id="file_input" name="image" class="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 py-4 px-4 text-base">
