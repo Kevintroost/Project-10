@@ -65,10 +65,10 @@ class EventRequestController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:255',
+            'phone' => 'required|regex:/^[0-9\-\(\)\s]+$/|min:5|max:20',
             'location' => 'required|string|max:255',
             'date' => 'required|date',
-            'details' => 'required|string',
+            'details' => 'required|string|min:10|max:1000',
         ]);
 
         // Update the event request with the validated data

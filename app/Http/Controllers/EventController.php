@@ -28,7 +28,7 @@ class EventController extends Controller
             'location' => 'required|string|max:255',
             'event_type' => 'required|string|max:255',
             'description' => 'nullable|string|min:20 |max:2000',
-            'ticket_link' => 'required|string|min:10',
+            'ticket_link' => 'required|string|min:10 |max:255',
             'event_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ], [
             'event_date.after_or_equal' => 'The event date must be today or in the future.',
