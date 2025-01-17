@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="'Events | Opus Events'">
     <section class="bg-gray-700 bg-blend-multiply flex items-center justify-center" style="
         background-image: url('{{ Vite::asset('resources/assets/background2.jpg') }}');
         background-position: center;

@@ -8,7 +8,10 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=, initial-scale=1.0">
    @vite(['resources/css/app.css', 'resources/js/app.js'])
-   <title>Document</title>
+   @props(['title' => 'Default Title'])
+   <title>{{ $title }}</title>
+   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+
 </head>
 
 <body class="flex h-screen bg-neutral-800 dark:bg-white">

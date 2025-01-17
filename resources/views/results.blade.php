@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="'Results | Opus Events'">
     <section class="bg-white antialiased">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
             <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2">

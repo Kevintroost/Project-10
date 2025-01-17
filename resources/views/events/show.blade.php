@@ -1,4 +1,6 @@
-<x-layout>
+<x-layout :title="$event->event_name . ' | Opus Events'">
+
+
   <section class="bg-center bg-no-repeat bg-gray-500 bg-blend-multiply" style="
     background-image: url('{{ asset($event->event_picture) }}'); /* The image used */
     background-size: cover; /* Makes the image cover the entire section */
@@ -80,8 +82,8 @@
           <div class="lg:col-span-3 space-y-4">
             <h1 class="text-3xl font-bold text-neutral-900">About the event</h1>
             <p class="break-words overflow-hidden whitespace-normal">
-  {{ $event->description }}
-</p>
+              {{ $event->description }}
+            </p>
 
             <button>
               <a href="{{ url('/contact/create') }}"
