@@ -44,10 +44,10 @@
                             </div>
 
                             <!-- Date picker -->
-                            <div class="flex items-center px-4">
+                            <div class="flex items-center px-4 text">
 
                                 <input type="date" name="date"
-                                    class="ml-2 focus:outline-none text-gray-600 bg-transparent" />
+                                    class="ml-2 focus:outline-none text-gray-400 bg-transparent" />
                             </div>
 
                             <!-- Search Button -->
