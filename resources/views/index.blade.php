@@ -75,51 +75,64 @@
 
 
 
-        <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16  ">
+        <div class="gap-8 items-center py-6 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2   ">
 
             <div class="mt-4 md:mt-0">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text">Discover, Connect, and Celebrate.
                 </h2>
-                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Join us as we explore new
+                <p class="mb-2 font-light text-gray-400 md:text-lg dark:text-gray-400">Join us as we explore new
                     ways to make events more engaging and inclusive. With tools that enhance participation and
                     ideas that spark innovation, we’re creating opportunities for people to connect with what
                     they love and with one another.
                 </p>
+                <a href="{{ url('/about-us') }}"
+                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ">
+                    About us
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
             </div>
             <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/events.jpeg') }}"
                 alt="dashboard image">
 
         </div>
-        <div class="bg-blue-600 text-white p-6 rounded-lg shadow-lg flex items-center justify-between mb-16">
-            <div class="flex items-center space-x-4">
-                <div>
-                    <!-- Phone icon -->
-                    <img class="w-12" src="https://raw.githubusercontent.com/2fasvg/2fasvg.github.io/master/assets/img/logo/ticketmaster.com/ticketmaster.com.svg" alt="phone">
-                </div>
-                <div>
-                    <h1 class="text-2xl font-bold">Ticketmaster Mobile App</h1>
-                    <p class="text-white/80">Download the app to view our events and your tickets easily!</p>
-                </div>
-            </div>
-            <div class="flex space-x-4">
-                <!-- Google Play button -->
-                <a href="https://play.google.com/store/apps/details?id=com.ticketmaster.mobile.android.na&pcampaignid=web_share" class="inline-block">
-                    <img class="h-12"
-                        src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                        alt="Get it on Google Play">
+        <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 ">
+
+            <!-- Image Section -->
+            <img class="w-full rounded-lg" src="{{ Vite::asset('resources/assets/wacken.jpg') }}" alt="dashboard image">
+
+            <!-- Text Section -->
+            <div class="mt-4 md:mt-0">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text">Unleash the Power of Events</h2>
+                <p class="mb-6 font-light text-gray-400 md:text-lg">
+                    Experience the thrill of live music, the joy of celebrations, and the excitement of unique events.
+                    Our platform brings you closer to the action, offering a seamless way to discover and attend events
+                    that match your interests. Join us and be part of unforgettable moments.
+                </p>
+                <a href="{{ url('contact/create') }}"
+                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ">
+                    Contact us
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <!-- App Store button -->
-                <a href="https://apps.apple.com/nl/app/ticketmaster/id1458364994" class="inline-block">
-                    <img class="h-12"
-                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                        alt="Download on the App Store">
-                </a>
+
             </div>
+
         </div>
+        
+            
+    
 
 
-
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             @foreach ($fotoGaleries as $fotoGalerie)
                 <div class="relative">
                     <img src="{{ asset('images/' . $fotoGalerie->foto) }}" alt="foto_galerij"
@@ -127,12 +140,40 @@
                 </div>
             @endforeach
         </div>
+        
+
+
+
+
+
 
 
 
 
     </section>
-
+    <section class=" bg-no-repeat bg-center bg-gray-700 bg-blend-multiply" style="
+     background-image: url('{{ Vite::asset('resources/assets/concert.png') }}');
+     background-size: cover;
+    ">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <div class="mx-auto max-w-screen-md sm:text-center">
+                <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-neutral-100 sm:text-4xl">Sign up for our
+                    newsletter</h2>
+                <p class="mx-auto mb-8 max-w-2xl font-light text-neutral-200 md:mb-12 sm:text-xl">Stay up to date with
+                    the roadmap progress, announcements, and exclusive discounts. Feel free to sign up with your
+                    email.</p>
+                <form class="flex items-center flex-wrap justify-center gap-2" action="{{ route('email.create') }}"
+                    method="POST">
+                    @csrf
+                    <input type="email" name="email" placeholder="Enter your email"
+                        class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-100 text-neutral-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        value="{{ old('email') }}">
+                    <input value="Subscribe" type="submit"
+                        class="px-4 py-2 bg-blue-700  text-white font-semibold rounded-md cursor-pointer">
+                </form>
+            </div>
+        </div>
+    </section>
 
 
 
