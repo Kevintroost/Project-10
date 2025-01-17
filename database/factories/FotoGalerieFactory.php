@@ -18,6 +18,10 @@ class FotoGalerieFactory extends Factory
     {
         $images = [
             'seeder.jpg',
+            'seeder2.jpg',
+            'seeder3.png',
+            'seeder4.jpg',
+            'seeder5.jpg',
         ];
 
         return [

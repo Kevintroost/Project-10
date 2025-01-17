@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Add pictures | Opus Events'">
     <div class="bg-gray-100 min-h-screen p-6">
         <div class="flex flex-col lg:flex-row lg:space-x-6">
             

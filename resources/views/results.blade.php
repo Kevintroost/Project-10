@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="'Results | Opus Events'">
     <section class="bg-white antialiased">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
             <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2">
@@ -11,22 +11,27 @@
 
                     <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16">
                         <div class="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-                            @foreach ($events as $event) <!-- Loop through events -->
-                                <div class="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                                    <p
-                                        class="w-40 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                                        <!-- Split date and time using Carbon -->
-                                        {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
-                                        <!-- Show event date -->
-                                        
-                                    </p>
-                                    <h3 class="text-lg font-semibold ">
-                                        <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline">
-                                            {{ $event->event_name }} <!-- Show event title -->
-                                        </a>
+                            @if ($events->isEmpty()) <!-- Check if no events exist -->
+                                <div class="text-center py-8">
+                                    <h3 class="text-xl font-semibold text-gray-500 dark:text-gray-400">
+                                        No events found. Try searching for something else.
                                     </h3>
                                 </div>
-                            @endforeach
+                            @else
+                                @foreach ($events as $event) <!-- Loop through events -->
+                                    <div class="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
+                                        <p
+                                            class="w-40 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
+                                            {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
+                                        </p>
+                                        <h3 class="text-lg font-semibold">
+                                            <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline">
+                                                {{ $event->event_name }}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
 
@@ -106,8 +111,6 @@
                             </button>
                         @endif
                     </div>
-
-
                 </div>
                 <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/kanye.jpeg') }}"
                     alt="dashboard image">

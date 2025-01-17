@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="'About us | Opus Events'">
 
 <!-- Hero Section -->
 <section class="bg-gray-700 bg-blend-multiply flex items-center justify-center" style="

@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Create events | Opus Events'">
   <section class="p-6 flex flex-row gap-6">
     <!-- Left: Create Event Form -->
     <div class="w-1/2 bg-white p-8 shadow-md rounded-md">
