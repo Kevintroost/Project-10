@@ -17,8 +17,7 @@
                     together!</p>
                 <div class="flex ">
                     <div class="flex items-center bg-white rounded-lg shadow-lg px-4 py-2">
-                        <form action="{{ route('results') }}" method="GET"
-                            class="flex items-center bg-white px-4 py-2">
+                        <form action="{{ route('results') }}" method="GET" class="flex items-center bg-white px-4 py-2">
                             <!-- Search Event Input -->
                             <div class="flex items-center border-r border-gray-300 pr-4">
                                 <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -72,7 +71,7 @@
     </section>
 
 
-    <section class="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+    <section class="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-8">
 
 
 
@@ -91,6 +90,33 @@
                 alt="dashboard image">
 
         </div>
+        <div class="bg-blue-600 text-white p-6 rounded-lg shadow-lg flex items-center justify-between mb-16">
+            <div class="flex items-center space-x-4">
+                <div>
+                    <!-- Phone icon -->
+                    <img class="w-12" src="https://raw.githubusercontent.com/2fasvg/2fasvg.github.io/master/assets/img/logo/ticketmaster.com/ticketmaster.com.svg" alt="phone">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold">Ticketmaster Mobile App</h1>
+                    <p class="text-white/80">Download the app to view our events and your tickets easily!</p>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <!-- Google Play button -->
+                <a href="https://play.google.com/store/apps/details?id=com.ticketmaster.mobile.android.na&pcampaignid=web_share" class="inline-block">
+                    <img class="h-12"
+                        src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                        alt="Get it on Google Play">
+                </a>
+                <!-- App Store button -->
+                <a href="https://apps.apple.com/nl/app/ticketmaster/id1458364994" class="inline-block">
+                    <img class="h-12"
+                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                        alt="Download on the App Store">
+                </a>
+            </div>
+        </div>
+
 
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -103,7 +129,7 @@
         </div>
 
 
-        
+
 
     </section>
 
