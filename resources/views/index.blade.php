@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="'Home | Opus Events'">
 
 
     <section class="bg-center bg-no-repeat" style="
