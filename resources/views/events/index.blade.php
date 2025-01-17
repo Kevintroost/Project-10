@@ -11,11 +11,7 @@
         </div>
     </section>
     <section class="bg-white antialiased">
-        <div class="max-w-3xl mx-auto text-center">
-            <!-- <h2 class="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 ">
-                            Agenda
-                        </h2> -->
-        </div>
+        
 
         <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-16">
             <div class="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
