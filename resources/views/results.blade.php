@@ -12,14 +12,8 @@
     </section>
 
     <section class="bg-white antialiased">
-        <div class="max-w-3xl mx-auto text-center">
-            <!-- <h2 class="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 ">
-                            Agenda
-                        </h2> -->
-        </div>
-
         <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-16">
-            <div class="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="-my-4 divide-y divide-gray-200 dark:divide-neutral-800">
                 @if ($events->isEmpty())
                     <div class="text-center py-8">
                         <h3 class="text-xl font-semibold text-gray-500 dark:text-gray-400">
@@ -28,34 +22,39 @@
                     </div>
                 @else
                     @foreach ($events as $event)
-                        <div class="flex items-center justify-between gap-2 py-4 sm:gap-6">
+                        <div class="flex items-center py-4">
                             <!-- Date on the left -->
-                            <p class="text-lg font-normal text-gray-500 sm:text-left dark:text-gray-400">
-                                {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
-                            </p>
+                            <div class="flex-shrink-0 p-6 text-center">
+                                <p class="text-lg font-bold text-gray-700">
+                                    {{ \Carbon\Carbon::parse($event->event_date)->format('d') }}
+                                </p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    {{ \Carbon\Carbon::parse($event->event_date)->format('M Y') }}
+                                </p>
+                            </div>
 
-                            <!-- Name in the middle -->
-                            <h3 class="text-lg  text-left flex-1">
-                                <a class="font-semibold" href="{{ route('events.show', ['id' => $event->id]) }}"
-                                    class="hover:underline">
-                                    {{ $event->event_name }}
-                                </a>
-                                -
-                                <a class="text-gray-600" href="{{ route('events.show', ['id' => $event->id]) }}"
-                                    class="hover:underline">
+                            <!-- Image next to the date -->
+                            <div class="flex-shrink-0 w-64 h-32 overflow-hidden">
+                                <img src="{{ asset($event->event_picture) }}" alt="{{ $event->event_name }}"
+                                    class="object-cover w-full h-full">
+                            </div>
+
+                            <!-- Event details in the middle -->
+                            <div class="flex-1 pl-6">
+                                <h3 class="text-lg font-semibold text-gray-800">
+                                    <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline">
+                                        {{ $event->event_name }}
+                                    </a>
+                                </h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">
                                     {{ $event->location }}
-                                </a>
-                            </h3>
+                                </p>
+                            </div>
 
-                            <!-- Icon on the right -->
-                            <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline"
-                                class="w-[19px] h-[19px] ml-2 text-gray-800 dark:text-black" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
-                                </svg>
+                            <!-- Tickets & Info button on the right -->
+                            <a href="{{ route('events.show', ['id' => $event->id]) }}"
+                                class="bg-neutral-800 text-white px-4 py-2 rounded hover:bg-gray-600">
+                                Tickets & Info
                             </a>
                         </div>
                     @endforeach
@@ -63,8 +62,8 @@
             </div>
         </div>
 
+        <!-- Pagination Section -->
         <div class="flex items-center justify-center space-x-2 mt-6">
-            <!-- Previous Button -->
             @if ($events->onFirstPage())
                 <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
                     Previous
@@ -76,61 +75,22 @@
                 </a>
             @endif
 
-            <!-- Page Numbers -->
-            @if ($events->lastPage() > 9)
-                @if ($events->currentPage() > 4)
-                    <a href="{{ $events->url(1) }}"
-                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                        1
-                    </a>
-                    @if ($events->currentPage() > 5)
-                        <span class="px-4 py-2">...</span>
-                    @endif
-                @endif
-
-                @for ($i = max(1, $events->currentPage() - 1); $i <= min($events->lastPage(), $events->currentPage() + 1); $i++)
-                    @if ($i == $events->currentPage())
-                        <button
-                            class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
-                            {{ $i }}
-                        </button>
-                    @else
-                        <a href="{{ $events->url($i) }}"
-                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                            {{ $i }}
-                        </a>
-                    @endif
-                @endfor
-
-                @if ($events->currentPage() < $events->lastPage() - 3)
-                    @if ($events->currentPage() < $events->lastPage() - 4)
-                        <span class="px-4 py-2">...</span>
-                    @endif
-                    <a href="{{ $events->url($events->lastPage()) }}"
-                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                        {{ $events->lastPage() }}
+            @for ($i = 1; $i <= $events->lastPage(); $i++)
+                @if ($i == $events->currentPage())
+                    <button class="px-4 py-2 text-white bg-neutral-800 rounded-md">
+                        {{ $i }}
+                    </button>
+                @else
+                    <a href="{{ $events->url($i) }}"
+                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">
+                        {{ $i }}
                     </a>
                 @endif
-            @else
-                @for ($i = 1; $i <= $events->lastPage(); $i++)
-                    @if ($i == $events->currentPage())
-                        <button
-                            class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
-                            {{ $i }}
-                        </button>
-                    @else
-                        <a href="{{ $events->url($i) }}"
-                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                            {{ $i }}
-                        </a>
-                    @endif
-                @endfor
-            @endif
+            @endfor
 
-            <!-- Next Button -->
             @if ($events->hasMorePages())
                 <a href="{{ $events->nextPageUrl() }}"
-                    class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                    class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200">
                     Next
                 </a>
             @else
@@ -140,8 +100,8 @@
             @endif
         </div>
 
+        <!-- Subscription Section -->
         <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-16">
-            <!-- Blue Section -->
             <div class="bg-white flex">
                 <div
                     class="bg-blue-600 text-white text-center p-6 rounded-md w-full flex flex-col justify-center items-center">

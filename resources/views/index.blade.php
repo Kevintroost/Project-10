@@ -128,6 +128,7 @@
 
         </div>
         
+        
             
     
 
@@ -141,13 +142,6 @@
             @endforeach
         </div>
         
-
-
-
-
-
-
-
 
 
     </section>
