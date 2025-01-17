@@ -35,7 +35,7 @@ class StoreFotoGalerieTest extends TestCase
         // Generate the custom image name based on timestamp
         $imagename = time() . '.' . $file->extension();
 
-        // Make the request to store the image (let Laravel handle storage)
+        // Make the request to store the image 
         $response = $this->post(route('store'), $data);
 
         // Assertions
@@ -61,15 +61,15 @@ class StoreFotoGalerieTest extends TestCase
     {
         // Create and authenticate a test user
         $this->actingAsTestUser();
-    
+
         // Test sending no file (null or empty input)
         $data = [
-            'image' => null, 
+            'image' => null,
         ];
-    
+
         // Make the request to store the image
         $response = $this->post(route('store'), $data);
-    
+
         // Assertions
         $response->assertSessionHasErrors('image');
     }

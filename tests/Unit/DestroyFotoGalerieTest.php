@@ -22,12 +22,12 @@ class DestroyFotoGalerieTest extends TestCase
 
         // Create a fake image and store it
         $file = UploadedFile::fake()->image('test-image.jpg');
-        $imageName = time() . '.' . $file->extension();
-        $file->storeAs('images', $imageName, 'public');
+        $imagename = time() . '.' . $file->extension();
+        $file->storeAs('images', $imagename, 'public');
 
         // Create a FotoGalerie record using a factory
         $fotoGalerie = FotoGalerie::factory()->create([
-            'foto' => $imageName,
+            'foto' => $imagename,
             'user_id' => $user->id,
         ]);
 
@@ -35,7 +35,7 @@ class DestroyFotoGalerieTest extends TestCase
         $response = $this->delete(route('destroy'), ['image_id' => $fotoGalerie->id]);
 
         // Assert that the file is deleted from the public folder
-        $this->assertFalse(file_exists(public_path('images/' . $imageName)));
+        $this->assertFalse(file_exists(public_path('images/' . $imagename)));
 
         // Assert that the record is deleted from the database
         $this->assertDatabaseMissing('foto_galeries', ['id' => $fotoGalerie->id]);
@@ -51,34 +51,34 @@ class DestroyFotoGalerieTest extends TestCase
         // Create and authenticate a test user
         $user = User::factory()->create();
         $this->actingAs($user);
-    
+
         // Create a FotoGalerie record using a factory
         $fotoGalerie = FotoGalerie::factory()->create();
-    
-        // Send a DELETE request with an invalid image_id (non-existing ID)
+
+        // Send a DELETE request with an invalid image_id 
         $response = $this->delete(route('destroy'), ['image_id' => 999]);  // 999 doesn't exist
-    
-        // Assert that the database still contains the image (no deletion occurred)
+
+        // Assert that the database still contains the image 
         $this->assertDatabaseCount('foto_galeries', 1);
-    
+
         // Assert the redirection
         $response->assertRedirect('admin/dashboard/image/create');
-    
+
         // Assert that the error message is set in the session
-        $response->assertSessionHasErrors(); 
-        $this->assertTrue(session()->has('errors')); 
-        $this->assertTrue(session()->has('errors')); 
+        $response->assertSessionHasErrors();
+        $this->assertTrue(session()->has('errors'));
+        $this->assertTrue(session()->has('errors'));
     }
-    
+
 
 
     private function actingAsTestUser()
     {
         // Create a test user with a unique email
         $user = User::factory()->create([
-            'email' => fake()->unique()->safeEmail(), // Ensures a unique email each time
+            'email' => fake()->unique()->safeEmail(), 
         ]);
-        $this->actingAs($user);  // Automatically log in the user
+        $this->actingAs($user);  
 
         return $user;
     }

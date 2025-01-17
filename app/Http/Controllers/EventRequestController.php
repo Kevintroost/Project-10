@@ -9,12 +9,12 @@ class EventRequestController extends Controller
 {
     // Method to fetch all event requests and return to the index view
 
-    public function index()
+    public function Index()
     {
         return view('event-request/index');
     }
 
-    public function data()
+    public function Data()
     {
         // Fetch all event requests
         $eventRequests = EventRequest::all();
@@ -24,17 +24,17 @@ class EventRequestController extends Controller
         return response()->json($eventRequests, 200);
     }
 
-    public function create()
+    public function Create()
     {
         return view('event-request/create');
     }
 
 
     // Method to store an event request
-    public function store(Request $request)
+    public function Store(Request $request)
     {
         try {
-            // Validate the form data (optional but recommended)
+            // Validate the form data 
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
@@ -44,8 +44,7 @@ class EventRequestController extends Controller
                 'details' => 'required|string',
             ]);
 
-            // Store the event request
-            $eventRequest = EventRequest::create($validated);
+            EventRequest::create($validated);
 
             // Redirect back with a success message
             return redirect()->route('event-request.create')->with('success', 'Your event request has been submitted successfully!');
@@ -55,12 +54,12 @@ class EventRequestController extends Controller
         }
     }
 
-     
+
     // Method to update an event request
-    public function update(Request $request, $id)
+    public function Update(Request $request, $id)
     {
         // Find the event request by ID or fail
-        $eventRequest = EventRequest::findOrFail($id);
+        $eventrequest = EventRequest::findOrFail($id);
 
         // Validate incoming request data
         $validatedData = $request->validate([
@@ -73,29 +72,29 @@ class EventRequestController extends Controller
         ]);
 
         // Update the event request with the validated data
-        $eventRequest->update($validatedData);
+        $eventrequest->update($validatedData);
 
         // Return the updated event request as JSON
-        return response()->json($eventRequest);
+        return response()->json($eventrequest);
     }
 
 
     // Method to delete an event request
-    public function destroy($id)
+    public function Destroy($id)
     {
-        $eventRequest = EventRequest::findOrFail($id);
-        $eventRequest->delete();
+        $eventrequest = EventRequest::findOrFail($id);
+        $eventrequest->delete();
         return response()->json(null, 204);
     }
 
 
-    public function updateStatus(Request $request, $id)
+    public function UpdateStatus(Request $request, $id)
     {
         $eventRequest = EventRequest::findOrFail($id);
 
         // Ensure the status is valid
-        $validStatuses = ['To-Do', 'In Progress', 'Done'];
-        if (!in_array($request->status, $validStatuses)) {
+        $validstatuses = ['To-Do', 'In Progress', 'Done'];
+        if (!in_array($request->status, $validstatuses)) {
             return response()->json(['error' => 'Invalid status'], 400);
         }
 

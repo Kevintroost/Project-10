@@ -20,7 +20,7 @@ class SearchEventTest extends TestCase
         Event::factory()->create(['event_name' => 'Art Exhibition']);
 
         // Send search request
-        $response = $this->get('/search?query=Music');
+        $response = $this->get('/results?query=Music');
 
         // Assert successful response and correct results
         $response->assertStatus(200);
@@ -29,7 +29,7 @@ class SearchEventTest extends TestCase
     }
 
     /**
-     * Test search with query filter (failing).
+     * Test search with query filter 
      */
     public function test_search_with_query_failure()
     {
@@ -37,7 +37,7 @@ class SearchEventTest extends TestCase
         Event::factory()->create(['event_name' => 'Art Exhibition']);
 
         // Send search request with no matching results
-        $response = $this->get('/search?query=Music');
+        $response = $this->get('/results?query=Music');
 
         // Assert successful response but no results
         $response->assertStatus(200);

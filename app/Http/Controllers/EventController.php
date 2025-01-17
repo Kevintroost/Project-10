@@ -8,23 +8,26 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class EventController extends Controller
 {
-    public function index()
-{
-    $events = Event::orderBy('event_date', 'asc')->get();
-    return view('events.index', compact('events'));
-}
+    public function Index()
+    {
+        // Fetch all events and order them by date
+        $events = Event::orderBy('event_date', 'asc')->get();
+        return view('events.index', compact('events'));
+    }
 
 
-    
+
 
     public function Store(Request $request)
     {
+
+        // Validate the request
         $validated = $request->validate([
             'event_name' => 'required|string|max:255',
             'event_date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'),
             'location' => 'required|string|max:255',
             'event_type' => 'required|string|max:255',
-            'description' => 'nullable|string|min:20',
+            'description' => 'nullable|string|min:20 |max:2000',
             'ticket_link' => 'required|string|min:10',
             'event_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ], [
@@ -71,35 +74,37 @@ class EventController extends Controller
             return redirect('/admin/dashboard/events/create')->with('error', 'Event not found');
         }
     }
-    public function search(Request $request)
-{
-    $query = $request->input('query');
-    $location = $request->input('location');
-    $date = $request->input('date');
 
-    // Build the query dynamically
-    $events = Event::query();
 
-    // Apply filters only if the corresponding field is filled
-    if ($query) {
-        $events->where('event_name', 'LIKE', "%{$query}%");
+    public function Search(Request $request)
+    {
+        $query = $request->input('query');
+        $location = $request->input('location');
+        $date = $request->input('date');
+
+        // Build the query dynamically
+        $events = Event::query();
+
+        // Apply filters only if the corresponding field is filled
+        if ($query) {
+            $events->where('event_name', 'LIKE', "%{$query}%");
+        }
+
+        if ($location) {
+            $events->where('location', 'LIKE', "%{$location}%");
+        }
+
+        if ($date) {
+            $events->whereDate('event_date', $date);
+        }
+
+        // Only apply this condition if ALL fields are empty
+        if (empty($query) && empty($location) && empty($date)) {
+            $events->whereRaw('1 = 0'); // Ensures no results are returned
+        }
+
+        $events = $events->paginate(8);
+
+        return view('results', compact('events', 'query', 'location', 'date'));
     }
-
-    if ($location) {
-        $events->where('location', 'LIKE', "%{$location}%");
-    }
-
-    if ($date) {
-        $events->whereDate('event_date', $date);
-    }
-
-    // Only apply this condition if ALL fields are empty
-    if (empty($query) && empty($location) && empty($date)) {
-        $events->whereRaw('1 = 0'); // Ensures no results are returned
-    }
-
-    $events = $events->paginate(8);
-
-    return view('results', compact('events', 'query', 'location', 'date'));
-}
 }

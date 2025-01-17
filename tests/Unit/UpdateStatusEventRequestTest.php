@@ -14,7 +14,7 @@ class UpdateStatusEventRequestTest extends TestCase
      * Test updating the status of an event request successfully.
      */
 
-     /** @test */
+    /** @test */
     public function Update_Status_Event_Request_Successfully()
     {
         // Create a test event request
@@ -39,15 +39,15 @@ class UpdateStatusEventRequestTest extends TestCase
     /**
      * Test updating the status of an event request fails with invalid status.
      */
-    
+
     /** @test */
     public function Update_Status_Event_Request_Failed()
     {
         // Create a test event request
-        $eventRequest = EventRequest::factory()->create(['status' => 'To-Do']);
+        $eventrequest = EventRequest::factory()->create(['status' => 'To-Do']);
 
         // Attempt to update with an invalid status
-        $response = $this->patchJson(route('event-request.update-status', $eventRequest->id), [
+        $response = $this->patchJson(route('event-request.update-status', $eventrequest->id), [
             'status' => 'Invalid Status',
         ]);
 
@@ -57,10 +57,10 @@ class UpdateStatusEventRequestTest extends TestCase
 
         // Assert the status was not updated in the database
         $this->assertDatabaseHas('event_requests', [
-            'id' => $eventRequest->id,
+            'id' => $eventrequest->id,
             'status' => 'To-Do',
         ]);
     }
 
-   
+
 }

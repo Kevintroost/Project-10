@@ -13,9 +13,10 @@ class DestroyContactFormTest extends TestCase
 
 
     /** @test */
-    public function test_destroy_contact_form_successfully()
+    public function Destroy_Contact_Form_Successfully()
     {
 
+        // Create a sample user and authenticate
         $user = User::factory()->create();
         $this->actingAs($user);
 
@@ -39,7 +40,7 @@ class DestroyContactFormTest extends TestCase
 
 
     /** @test */
-    public function test_destroy_contact_form_failed()
+    public function Destroy_contact_form_failed()
     {
         // Create a sample user and authenticate
         $user = User::factory()->create();
@@ -48,7 +49,7 @@ class DestroyContactFormTest extends TestCase
         // Attempt to delete a non-existent contact form entry
         $response = $this->delete(route('contact.destroy', 9999)); // ID 9999 should not exist
 
-        // Assert the response status is 404 (Not Found)
+        // Assert the response status is 404 
         $response->assertStatus(404);
     }
 

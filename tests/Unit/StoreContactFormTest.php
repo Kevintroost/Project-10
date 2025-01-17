@@ -56,7 +56,7 @@ class StoreContactFormTest extends TestCase
     public function Store_Contact_Form_Failed()
     {
         // Define invalid form data
-        $formData = [
+        $formdata = [
             'name' => 'abc', 
             'email' => 'invalid-email', 
             'phone' => 'not-a-number', 
@@ -64,7 +64,7 @@ class StoreContactFormTest extends TestCase
         ];
 
         // Validate the data
-        $validator = Validator::make($formData, [
+        $validator = Validator::make($formdata, [
             'name' => 'required|string|min:5|max:255',
             'email' => 'required|email|min:5|max:255',
             'phone' => 'nullable|numeric',

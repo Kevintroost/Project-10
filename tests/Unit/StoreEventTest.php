@@ -45,7 +45,7 @@ class StoreEventTest extends TestCase
         ];
 
         // Generate the custom image name based on timestamp
-        $imagename = time() . '.' . $file->extension(); 
+        $imagename = time() . '.' . $file->extension();
 
         // Store the file in the 'public/images' directory with the custom image name
         $path = $file->storeAs('images', $imagename, 'public');
@@ -64,7 +64,7 @@ class StoreEventTest extends TestCase
         ]);
 
         // Verify that the file exists in the public/images directory
-        $eventImagePath = 'images/' . $imagename; 
+        $eventImagePath = 'images/' . $imagename;
         $this->assertTrue(file_exists(public_path($eventImagePath)), 'File was not saved in public/images.');
 
         // Reset mocked time
@@ -106,7 +106,7 @@ class StoreEventTest extends TestCase
 
         // Assertions: The response should not redirect, since validation should fail
         $response->assertStatus(302);
-        $response->assertSessionHasErrors('event_picture'); 
+        $response->assertSessionHasErrors('event_picture');
 
         // Verify that no event was stored in the database
         $this->assertDatabaseMissing('events', [
@@ -130,7 +130,7 @@ class StoreEventTest extends TestCase
     {
         // Ensure unique email for test users
         $user = User::factory()->create([
-            'email' => fake()->unique()->safeEmail(), 
+            'email' => fake()->unique()->safeEmail(),
         ]);
         $this->actingAs($user);
 

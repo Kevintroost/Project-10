@@ -14,32 +14,32 @@ class StoreNewsletterSubscriberTest extends TestCase
 
     /** @test */
     public function Store_Newsletter_Subscriber_successfully()
-{
-    // Fake the Mail facade to prevent actually sending emails
-    Mail::fake();
+    {
+        // Fake the Mail facade to prevent actually sending emails
+        Mail::fake();
 
-    // Define a valid email to subscribe
-    $email = 'RaminoHiromiVrca@gmail.com';
+        // Define a valid email to subscribe
+        $email = 'RaminoHiromiVrca@gmail.com';
 
-    // Call the method using a POST request to simulate the form submission
-    $response = $this->post(route('email.create'), [
-        'email' => $email
-    ]);
+        // Call the method using a POST request to simulate the form submission
+        $response = $this->post(route('email.create'), [
+            'email' => $email
+        ]);
 
-    // Assert that the subscriber is added to the database
-    $this->assertDatabaseHas('newsletter_subscribers', [
-        'email' => $email,
-    ]);
+        // Assert that the subscriber is added to the database
+        $this->assertDatabaseHas('newsletter_subscribers', [
+            'email' => $email,
+        ]);
 
-    // Assert that the email was queued
-    Mail::assertQueued(WelcomeEmail::class, function ($mail) use ($email) {
-        return $mail->hasTo($email);
-    });
+        // Assert that the email was queued
+        Mail::assertQueued(WelcomeEmail::class, function ($mail) use ($email) {
+            return $mail->hasTo($email);
+        });
 
-    // Assert redirection and success message 
-    $response->assertRedirect('/');
-    $response->assertSessionHas('status', 'You have successfully subscribed to our newsletter!');
-}
+        // Assert redirection and success message 
+        $response->assertRedirect('/');
+        $response->assertSessionHas('status', 'You have successfully subscribed to our newsletter!');
+    }
 
 
 
@@ -65,10 +65,10 @@ class StoreNewsletterSubscriberTest extends TestCase
         ]);
 
         // Assert that the validation failed
-        $response->assertSessionHasErrors('email'); 
+        $response->assertSessionHasErrors('email');
 
         // Assert that the email was not added again to the database
-        $this->assertDatabaseCount('newsletter_subscribers', 1); 
+        $this->assertDatabaseCount('newsletter_subscribers', 1);
 
         // Assert no email was queued
         Mail::assertNotQueued(WelcomeEmail::class);

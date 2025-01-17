@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class StoreEventRequestTest extends TestCase
 {
-    use RefreshDatabase; 
+    use RefreshDatabase;
 
     /** @test */
     public function store_event_request_successfully()
@@ -47,37 +47,37 @@ class StoreEventRequestTest extends TestCase
 
 
 
-/** @test */
-public function Store_Event_Request_Failed()
-{
-    // Simulate a POST request with missing email data
-    $formData = [
-        'name' => 'John Doe',
-        'phone' => '1234567890',
-        'location' => 'New York',
-        'date' => '2025-05-12',
-        'details' => 'This is a test event request.',
-        // Missing email
-    ];
+    /** @test */
+    public function Store_Event_Request_Failed()
+    {
+        // Simulate a POST request with missing email data
+        $formdata = [
+            'name' => 'John Doe',
+            'phone' => '1234567890',
+            'location' => 'New York',
+            'date' => '2025-05-12',
+            'details' => 'This is a test event request.',
+            // Missing email
+        ];
 
-    // Perform the POST request
-    $response = $this->post(route('event-request.store'), $formData);
+        // Perform the POST request
+        $response = $this->post(route('event-request.store'), $formdata);
 
-    // Assert that the request is NOT stored in the database (since validation fails)
-    $this->assertDatabaseMissing('event_requests', [
-        'name' => 'John Doe',
-        'phone' => '1234567890',
-        'location' => 'New York',
-        'date' => '2025-05-12',
-        'details' => 'This is a test event request.',
-    ]);
+        // Assert that the request is NOT stored in the database 
+        $this->assertDatabaseMissing('event_requests', [
+            'name' => 'John Doe',
+            'phone' => '1234567890',
+            'location' => 'New York',
+            'date' => '2025-05-12',
+            'details' => 'This is a test event request.',
+        ]);
 
-    // Assert the response is a redirect back to the correct form URL
-    // Ensure the redirect goes to the right route
-    $response->assertRedirect(route('event-request.create'));
+        // Assert the response is a redirect back to the correct form URL
+        // Ensure the redirect goes to the right route
+        $response->assertRedirect(route('event-request.create'));
 
-    // Assert that the session contains validation errors for the missing 'email' field
-    $response->assertSessionHasErrors('email');
+        // Assert that the session contains validation errors for the missing 'email' field
+        $response->assertSessionHasErrors('email');
+    }
+
 }
-
-}    

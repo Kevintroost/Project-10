@@ -17,7 +17,7 @@ class DestroyEventRequestTest extends TestCase
     {
         // Create a sample user and log the user in
         $user = User::factory()->create();
-        $this->actingAs($user); // Authenticate the user for the test
+        $this->actingAs($user);
 
         // Create a sample event request
         $eventRequest = EventRequest::factory()->create();
@@ -25,7 +25,7 @@ class DestroyEventRequestTest extends TestCase
         // Simulate the DELETE request to the destroy method
         $response = $this->deleteJson(route('eventrequests.destroy', $eventRequest->id));
 
-        // Assert the response status is 204 (No Content)
+        // Assert the response status is 204 
         $response->assertStatus(204);
 
         // Assert the event request was deleted
@@ -34,18 +34,19 @@ class DestroyEventRequestTest extends TestCase
         ]);
     }
 
+
+
     /** @test */
     public function Destroy_Event_Request_failed()
     {
         // Create a sample user and log the user in
         $user = User::factory()->create();
-        $this->actingAs($user); // Authenticate the user for the test
+        $this->actingAs($user);
 
         // Try to delete a non-existent event request
         $response = $this->deleteJson(route('eventrequests.destroy', 9999)); // 9999 should not exist
 
-        // Assert the response status is 404 (Not Found)
+        // Assert the response status is 404 
         $response->assertStatus(404);
     }
 }
-    
