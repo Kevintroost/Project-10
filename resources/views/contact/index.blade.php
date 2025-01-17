@@ -1,6 +1,8 @@
-<x-admin-layout>
+<x-admin-layout :title="'Contact request | Opus Events'">
     <section class="p-6 flex flex-row gap-6 max-w-screen-xl mx-auto">
+        
         <div class="flex flex-col items-stretch w-full">
+        <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-6">Contact requests</h1>
 
             @foreach ($contacts as $contact)
                 <div
@@ -26,8 +28,8 @@
                             @csrf
                             <input type="hidden" name="event_id" value="{{ $contact->id }}">
                             <button type="submit"
-                                class="mt-2 bg-red-600 text-white font-semibold text-sm rounded-lg py-2 px-4 focus:outline-none hover:bg-red-700 cursor-pointer">
-                                Delete
+                                class="mt-2 bg-green-600 text-white font-semibold text-sm rounded-lg py-2 px-4 focus:outline-none hover:bg-red-700 cursor-pointer">
+                                Complete
                             </button>
                         </form>
                     </div>

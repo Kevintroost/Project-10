@@ -1,7 +1,7 @@
 <x-admin-layout :title="'Create events | Opus Events'">
   <section class="p-6 flex flex-row gap-6">
     <!-- Left: Create Event Form -->
-    <div class="w-1/2 bg-white p-8 shadow-md rounded-md">
+    <div class="w-1/2 bg-white p-8 shadow-md rounded-md flex-shrink-0 h-[44rem] ">
       <h2 class="text-2xl font-semibold mb-4">Create a New Event</h2>
       <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -85,7 +85,8 @@
     </div>
 
     <!-- Right: List of Events -->
-    <div class="w-1/2 bg-white border border-gray-200 rounded-lg shadow-md p-6 overflow-y-auto flex-shrink-0 h-[16rem]">
+
+    <div class="w-1/2 bg-white border border-gray-200 rounded-lg shadow-md flex flex-col items-stretch w-full p-6 ">
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)
       <div class="flex items-center justify-between">
