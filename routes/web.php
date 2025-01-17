@@ -16,12 +16,14 @@ use App\Models\Review;
 
 
 Route::get('/', function () {
-    $fotoGaleries = FotoGalerie::paginate(9);
+    // Fetch photos in a random order and paginate them
+    $fotoGaleries = FotoGalerie::inRandomOrder()->paginate(6);
     return view('index', compact('fotoGaleries'));
 });
 
+
 Route::get('/index', function () {
-    $fotoGaleries = FotoGalerie::paginate(6);
+    $fotoGaleries = FotoGalerie::inRandomOrder()->paginate(6);
     return view('index', compact('fotoGaleries'));
 })->name('index');
 
@@ -44,7 +46,7 @@ Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNew
 
 
 Route::get('/search', [EventController::class, 'search'])->name('search');
-Route::patch('/event-requests/{id}/status', [EventRequestController::class, 'updateStatus'])->name('event-request.update-status');
+Route::patch('/event-requests/{id}/status', [EventRequestController::class, 'UpdateStatus'])->name('event-request.update-status');
 
 
 Route::get('/events/show/{id}', function ($id) {
