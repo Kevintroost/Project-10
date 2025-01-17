@@ -13,41 +13,46 @@
     <section class="bg-white antialiased">
         
 
-        <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-16">
-            <div class="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-                @foreach ($events->sortBy('event_date') as $event) 
-                    <div class="flex items-center justify-between gap-2 py-4 sm:gap-6">
-                        <!-- Date on the left -->
-                        <p class="text-lg font-normal text-gray-500 sm:text-left dark:text-gray-400">
-                            {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
-                        </p>
+    <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-16">
+    <div class="-my-4 divide-y divide-gray-200 dark:divide-neutral-800">
+        @foreach ($events->sortBy('event_date') as $event)
+            <div class="flex items-center  py-4">
+                <!-- Date on the left -->
+                <div class="flex-shrink-0  p-6 text-center">
+                    <p class="text-lg font-bold text-gray-700 ">
+                        {{ \Carbon\Carbon::parse($event->event_date)->format('d') }}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {{ \Carbon\Carbon::parse($event->event_date)->format('M Y') }}
+                    </p>
+                </div>
 
-                        <!-- Name in the middle -->
-                        <h3 class="text-lg  text-left flex-1">
-                            <a class="font-semibold" href="{{ route('events.show', ['id' => $event->id]) }}"
-                                class="hover:underline">
-                                {{ $event->event_name }}
-                            </a>
-                            -
-                            <a class="text-gray-600" href="{{ route('events.show', ['id' => $event->id]) }}"
-                                class="hover:underline">
-                                {{ $event->location }}
+                <!-- Image next to the date -->
+                <div class="flex-shrink-0 w-64 h-32 overflow-hidden">
+                    <img src="{{ asset($event->event_picture) }}" alt="{{ $event->event_name }}" class="object-cover w-full h-full">
+                </div>
 
-                            </a>
-                        </h3>
-
-                        <!-- Icon on the right -->
-                        <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline"
-                            class="w-[19px] h-[19px] ml-2 text-gray-800 dark:text-black" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
-                            </svg>
+                <!-- Event details in the middle -->
+                <div class="flex-1 pl-6">
+                    <h3 class="text-lg font-semibold text-gray-800">
+                        <a href="{{ route('events.show', ['id' => $event->id]) }}" class="hover:underline">
+                            {{ $event->event_name }}
                         </a>
-                    </div>
-                @endforeach
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        {{ $event->location }}
+                    </p>
+                </div>
+
+                <!-- Tickets & Info button on the right -->
+                <a href="{{ route('events.show', ['id' => $event->id]) }}" class="bg-neutral-800 text-white px-4 py-2 rounded hover:bg-gray-600">
+                    Tickets & Info
+                </a>
             </div>
-        </div>
+        @endforeach
+    </div>
+</div>
+
 
 
         <div class="flex items-center justify-center space-x-2 mt-6">
