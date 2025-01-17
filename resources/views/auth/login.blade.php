@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="'Login | Opus Events'">
   <section class="bg-cover bg-center"
     style="background-image: url('{{ Vite::asset('resources/assets/wavebackground.svg') }}');">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
