@@ -98,7 +98,7 @@
             </div>
 
 
-            <div class="flex items-center justify-center space-x-2 mt-6">
+            <!-- <div class="flex items-center justify-center space-x-2 mt-6">
 
                 @if ($fotoGaleries->onFirstPage())
                     <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
@@ -171,7 +171,7 @@
                         Next
                     </button>
                 @endif
-            </div>
+            </div> -->
 
 
 

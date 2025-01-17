@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/index', function () {
-    $fotoGaleries = FotoGalerie::paginate(9);
+    $fotoGaleries = FotoGalerie::paginate(6);
     return view('index', compact('fotoGaleries'));
 })->name('index');
 
