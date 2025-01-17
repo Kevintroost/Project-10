@@ -17,43 +17,47 @@
                     together!</p>
                 <div class="flex ">
                     <div class="flex items-center bg-white rounded-lg shadow-lg px-4 py-2">
-                    <form action="{{ route('results') }}" method="GET" class="flex items-center bg-white rounded-lg shadow-lg px-4 py-2">
-                        <!-- Search Event Input -->
-                        <div class="flex items-center border-r border-gray-300 pr-4">
-                            <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z" />
-                            </svg>
-                            <input type="text" name="query" placeholder="Search Event"
-                                class="ml-2 focus:outline-none text-gray-600" />
-                        </div>
+                        <form action="{{ route('results') }}" method="GET"
+                            class="flex items-center bg-white rounded-lg shadow-lg px-4 py-2">
+                            <!-- Search Event Input -->
+                            <div class="flex items-center border-r border-gray-300 pr-4">
+                                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z" />
+                                </svg>
+                                <input type="text" name="query" placeholder="Search Event"
+                                    class="ml-2 focus:outline-none text-gray-600" />
+                            </div>
 
-                        <!-- Search Location Dropdown -->
-                        <div class="flex items-center border-r border-gray-300 px-4">
-                            <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17.8 13.938h-.011a7 7 0 1 0-11.464.144h-.016l.14.171c.1.127.2.251.3.371L12 21l5.13-6.248c.194-.209.374-.429.54-.659l.13-.155Z" />
-                            </svg>
-                            <input type="text" name="location" placeholder="Enter Location" class="ml-2 focus:outline-none text-gray-600"/>
-                        </div>
+                            <!-- Search Location Dropdown -->
+                            <div class="flex items-center border-r border-gray-300 px-4">
+                                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.8 13.938h-.011a7 7 0 1 0-11.464.144h-.016l.14.171c.1.127.2.251.3.371L12 21l5.13-6.248c.194-.209.374-.429.54-.659l.13-.155Z" />
+                                </svg>
+                                <input type="text" name="location" placeholder="Enter Location"
+                                    class="ml-2 focus:outline-none text-gray-600" />
+                            </div>
 
-                        <!-- Date picker -->
-                        <div class="flex items-center px-4">
-                            
-                            <input type="date" name="date" class="ml-2 focus:outline-none text-gray-600 bg-transparent"/>
-                        </div>
+                            <!-- Date picker -->
+                            <div class="flex items-center px-4">
 
-                        <!-- Search Button -->
-                        <button class="ml-4 p-2 bg-blue-600 text-white rounded-full shadow-md">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z" />
-                            </svg>
-                        </button>
+                                <input type="date" name="date"
+                                    class="ml-2 focus:outline-none text-gray-600 bg-transparent" />
+                            </div>
+
+                            <!-- Search Button -->
+                            <button class="ml-4 p-2 bg-blue-600 text-white rounded-full shadow-md">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z" />
+                                </svg>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -68,37 +72,37 @@
     </section>
 
 
-    <section class="bg-white">
+    <section class="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
 
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
 
-            <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16  ">
 
-                <div class="mt-4 md:mt-0">
-                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text">Discover, Connect, and Celebrate.
-                    </h2>
-                    <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Join us as we explore new
-                        ways to make events more engaging and inclusive. With tools that enhance participation and
-                        ideas that spark innovation, we’re creating opportunities for people to connect with what
-                        they love and with one another.
-                    </p>
+        <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16  ">
+
+            <div class="mt-4 md:mt-0">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text">Discover, Connect, and Celebrate.
+                </h2>
+                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Join us as we explore new
+                    ways to make events more engaging and inclusive. With tools that enhance participation and
+                    ideas that spark innovation, we’re creating opportunities for people to connect with what
+                    they love and with one another.
+                </p>
+            </div>
+            <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/events.jpeg') }}"
+                alt="dashboard image">
+
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            @foreach ($fotoGaleries as $fotoGalerie)
+                <div class="relative">
+                    <img src="{{ asset('images/' . $fotoGalerie->foto) }}" alt="foto_galerij"
+                        class="w-full h-64 object-cover rounded-lg">
                 </div>
-                <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/events.jpeg') }}"
-                    alt="dashboard image">
-
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                @foreach ($fotoGaleries as $fotoGalerie)
-                    <div class="relative">
-                        <img src="{{ asset('images/' . $fotoGalerie->foto) }}" alt="foto_galerij"
-                            class="w-full h-64 object-cover rounded-lg">
-                    </div>
-                @endforeach
-            </div>
+            @endforeach
+        </div>
 
 
-            <!-- <div class="flex items-center justify-center space-x-2 mt-6">
+        <!-- <div class="flex items-center justify-center space-x-2 mt-6">
 
                 @if ($fotoGaleries->onFirstPage())
                     <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
@@ -173,9 +177,6 @@
                 @endif
             </div> -->
 
-
-
-        </div>
     </section>
 
 
