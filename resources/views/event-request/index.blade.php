@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'View requests | Opus Events'">
 
 
 <div id="app">

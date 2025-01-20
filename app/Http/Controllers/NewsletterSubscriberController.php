@@ -14,21 +14,23 @@ class NewsletterSubscriberController extends Controller
     public function WelcomeNewsLetter(Request $request)
     {
 
-
+        // Validate the email address
         $request->validate([
             'email' => 'required|email|unique:newsletter_subscribers,email|min:3|max:255',
         ]);
 
+        // Create a new subscriber record
         $email = new NewsletterSubscriber();
         $email->email = $request->email;
         $email->subscribed_at = now();
         $email->save();
 
+        // Send a welcome email to the subscriber with a link to the index page
         $url = url('/index');
         Mail::to($request->email)->queue(new WelcomeEmail($url));
 
 
-
+        // Redirect back with a success message
         return redirect()->back()->with('status', 'You have successfully subscribed to our newsletter!');
 
     }

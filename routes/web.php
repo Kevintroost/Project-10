@@ -16,12 +16,14 @@ use App\Models\Review;
 
 
 Route::get('/', function () {
-    $fotoGaleries = FotoGalerie::paginate(9);
+    // Fetch photos in a random order and paginate them
+    $fotoGaleries = FotoGalerie::inRandomOrder()->paginate(6);
     return view('index', compact('fotoGaleries'));
 });
 
+
 Route::get('/index', function () {
-    $fotoGaleries = FotoGalerie::paginate(9);
+    $fotoGaleries = FotoGalerie::inRandomOrder()->paginate(6);
     return view('index', compact('fotoGaleries'));
 })->name('index');
 
@@ -44,7 +46,7 @@ Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNew
 
 
 Route::get('/search', [EventController::class, 'search'])->name('search');
-Route::patch('/event-requests/{id}/status', [EventRequestController::class, 'updateStatus'])->name('event-request.update-status');
+Route::patch('/event-requests/{id}/status', [EventRequestController::class, 'UpdateStatus'])->name('event-request.update-status');
 
 
 Route::get('/events/show/{id}', function ($id) {
@@ -52,10 +54,9 @@ Route::get('/events/show/{id}', function ($id) {
     return view('events.show', compact('event'));
 })->name('events.show');
 
-Route::get('/results', [EventController::class, 'search'])->name('results');
-Route::get('/search', [EventController::class, 'search'])->name('search');
+Route::get('/results', [EventController::class, 'Search'])->name('results');
 
-    
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
         $totalevent = Event::count();
@@ -66,7 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('admin.admin-dashboard', compact('totalevent', 'totalcontact', 'totaleventrequest', 'totalreviews'));
     });
 
-    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'destroy'])->name('events.destroy');
+    Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'Destroy'])->name('events.destroy');
 
     Route::get('/admin/dashboard/events/create', function () {
         $events = Event::all();
@@ -78,17 +79,19 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
+
+
     // admin view
-    Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'index'])->name('event-request.index');
-    Route::post('/api/event-requests', [EventRequestController::class, 'data']);
-    Route::put('/api/event-requests/{id}', [EventRequestController::class, 'update'])->name('eventrequests.update');
-    Route::delete('/api/event-requests/{id}', [EventRequestController::class, 'destroy'])->name('eventrequests.destroy');
-    Route::patch('/api/event-requests/{id}', [EventRequestController::class, 'updateStatus']);
+    Route::get('/admin/dashboard/event-request/index', [EventRequestController::class, 'Index'])->name('event-request.index');
+    Route::post('/api/event-requests', [EventRequestController::class, 'Data']);
+    Route::put('/api/event-requests/{id}', [EventRequestController::class, 'Update'])->name('eventrequests.update');
+    Route::delete('/api/event-requests/{id}', [EventRequestController::class, 'Destroy'])->name('eventrequests.destroy');
+    Route::patch('/api/event-requests/{id}', [EventRequestController::class, 'UpdateStatus']);
 
     //
 
-    Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'create'])->name('images.create');
-    Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('Store');
+    Route::get('/admin/dashboard/image/create', [FotoGalerieController::class, 'Create'])->name('images.create');
+    Route::post('/admin/dashboard/image/store', [FotoGalerieController::class, 'Store'])->name('store');
     Route::delete('/admin/dashboard/image/destroy', [FotoGalerieController::class, 'Destroy'])->name('destroy');
     Route::post('Destroy', [LoginController::class, 'Destroy'])->middleware('auth')->name('logout');
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');

@@ -74,7 +74,7 @@ class UpdateEventRequestTest extends TestCase
     {
         // Create a sample user and log them in using session authentication
         $user = User::factory()->create();
-        $this->actingAs($user);  // Log the user in using session-based authentication (for web routes)
+        $this->actingAs($user);
 
         // Create a sample event request
         $eventRequest = EventRequest::create([
@@ -88,12 +88,12 @@ class UpdateEventRequestTest extends TestCase
 
         // Prepare invalid data to simulate a validation failure
         $invalidData = [
-            'name' => '', // Name is required and should not be empty
-            'email' => 'invalid-email', // Invalid email format
-            'phone' => '', // Phone is required and should not be empty
-            'location' => '', // Location is required and should not be empty
-            'date' => 'invalid-date', // Invalid date format
-            'details' => '', // Details is required and should not be empty
+            'name' => '',
+            'email' => 'invalid-email',
+            'phone' => '',
+            'location' => '',
+            'date' => 'invalid-date',
+            'details' => '',
         ];
 
         // Simulate the request with invalid data

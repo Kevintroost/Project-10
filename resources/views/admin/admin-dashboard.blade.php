@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Admin dashboard | Opus Events'">
 
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 ">
@@ -79,7 +79,8 @@
   <section class="p-6">
     <div class="flex flex-wrap gap-4">
 
-      <div class="bg-white p-10 shadow-md rounded-md w-full max-w-2xl " style="max-width: 607px;">
+    <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[49.5%]">
+
         <h2 class="text-2xl font-semibold mb-4">Create a Newsletter</h2>
         <form action="{{ route('newsletter.create') }}" method="POST" enctype="multipart/form-data">
           @csrf
@@ -130,7 +131,7 @@
         </form>
       </div>
 
-      <div class=" w-148 p-4 bg-white rounded-lg shadow-md">
+      <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[24%]">
         <h2 class="text-lg font-semibold text-gray-800">External Links</h2>
         <p class="text-sm text-gray-500 mb-4">Our social media</p>
 
@@ -167,7 +168,7 @@
               </span>
               <span class="ml-3 text-gray-800">Ticketmaster</span>
             </div>
-            <a href="https://ticketmaster.nl/" class="text-blue-500 hover:text-blue-700 pl-28 ">
+            <a href="https://ticketmaster.nl/" class="text-blue-500 hover:text-blue-700 pl-26 ">
               <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -347,7 +348,7 @@
           </li>
         </ul>
       </div>
-      <div class=" w-150 p-4 bg-white rounded-lg shadow-md" >
+      <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[23.75%]">
         <h2 class="text-lg font-semibold text-gray-800">Admin Profile</h2>
 
         <div class="p-16 text-center ">

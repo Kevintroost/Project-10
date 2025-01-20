@@ -8,6 +8,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <title>{{ $title ?? 'Default Title' }}</title>
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 </head>
 
 <body>
@@ -102,15 +104,6 @@
           <img src="{{ Vite::asset('resources/assets/opuslogo.png') }}" class="h-8" alt="Flowbite Logo" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
-        <form class="flex items-center space-x-2" action="{{ route('email.create') }}" method="POST">
-          @csrf
-          <input type="email" name="email" placeholder="Enter your email"
-               class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-               value="{{ old('email') }}">
-               
-          <input value="Subscribe" type="submit"
-            class="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-md cursor-pointer">
-        </form>
         <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
           <li>
             <a href="{{ url('/index') }}" class="hover:underline me-4 md:me-6">Home</a>
@@ -133,7 +126,7 @@
       <div class="flex justify-between items-center py-4">
         <!-- Text -->
         <span class="text-gray-500 dark:text-gray-400">
-          © 2024 <a href="" class="hover:underline">OpusEvents™</a>. All Rights Reserved.
+          © {{ now()->year}} <a href="" class="hover:underline">OpusEvents™</a>. All Rights Reserved.
         </span>
 
         <!-- Social Icons -->

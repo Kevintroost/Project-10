@@ -19,35 +19,34 @@ class CreateNewsletterTest extends TestCase
 
 
     /** @test */
-    public function Create_Newsletter_subscriber_successfully()
-{
-    {
-        // Fake the Mailer to prevent real emails from being sent
-        Mail::fake();
+    public function Create_Newsletter_Subscriber_Successfully()
+    { {
+            // Fake the Mailer to prevent real emails from being sent
+            Mail::fake();
 
-        // Seed the database with 3 newsletter subscribers
-        NewsletterSubscriber::factory()->count(3)->create();
+            // Seed the database with 3 newsletter subscribers
+            NewsletterSubscriber::factory()->count(3)->create();
 
-        // Create a test user (make sure to use an actual factory or existing user model)
-        $user = User::factory()->create();
+            // Create a test user 
+            $user = User::factory()->create();
 
-        // Simulate logging in as the test user
-        $this->actingAs($user);
+            // Simulate logging in as the test user
+            $this->actingAs($user);
 
-        // Simulate the request to create a newsletter
-        $response = $this->post(route('newsletter.create'), [
-            'title' => 'Test Newsletter',
-            'description' => 'This is a test newsletter',
-            'image_url' => 'https://via.placeholder.com/150.jpg', 
-        ]);
+            // Simulate the request to create a newsletter
+            $response = $this->post(route('newsletter.create'), [
+                'title' => 'Test Newsletter',
+                'description' => 'This is a test newsletter',
+                'image_url' => 'https://via.placeholder.com/150.jpg',
+            ]);
 
-        // Check that the response is a redirect (using 'back' behavior in the controller)
-        $response->assertRedirect();
+            // Check that the response is a redirect 
+            $response->assertRedirect();
 
-        // Assert that 3 emails were queued for the 3 subscribers
-        Mail::assertQueued(NewsLetter::class, 3);
+            // Assert that 3 emails were queued for the 3 subscribers
+            Mail::assertQueued(NewsLetter::class, 3);
+        }
     }
-}
 
 
 
@@ -55,7 +54,7 @@ class CreateNewsletterTest extends TestCase
 
 
     /** @test */
-    public function Create_Newsletter_subscriber_failed()
+    public function Create_Newsletter_Subscriber_Failed()
     {
         // Seed the database with newsletter subscribers
         NewsletterSubscriber::factory()->count(3)->create();
@@ -67,10 +66,10 @@ class CreateNewsletterTest extends TestCase
         $user = User::factory()->create();
         $this->actingAs($user);
 
-        // Simulate an invalid description (too short)
+        // Simulate an invalid description 
         $response = $this->post(route('newsletter.create'), [
             'title' => 'Test Newsletter',
-            'description' => '2',  // Invalid description (too short)
+            'description' => '2',  // Invalid description 
             'image_url' => 'https://via.placeholder.com/150.jpg',
         ]);
 
