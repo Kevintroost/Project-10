@@ -14,9 +14,6 @@ class EventController extends Controller
     return view('events.index', compact('events'));
 }
 
-
-    
-
     public function Store(Request $request)
     {
         $validated = $request->validate([
@@ -26,7 +23,7 @@ class EventController extends Controller
             'event_type' => 'required|string|max:255',
             'description' => 'nullable|string|min:20',
             'ticket_link' => 'required|string|min:10',
-            'event_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'event_picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ], [
             'event_date.after_or_equal' => 'The event date must be today or in the future.',
         ]);

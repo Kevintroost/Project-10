@@ -13,10 +13,10 @@ class CreateEventsTable extends Migration
             $table->string('event_name');
             $table->string('event_date');
             $table->string('location');
-            $table->string('event_type');
+            $table->string('event_type')->nullable();
             $table->text('description')->nullable();
-            $table->string('ticket_link');
-            $table->string('event_picture');
+            $table->string('ticket_link')->nullable();
+            $table->string('event_picture')->nullable();
             $table->timestamps();
         });
     }

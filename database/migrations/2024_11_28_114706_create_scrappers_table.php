@@ -8,9 +8,11 @@ class CreateScrappersTable extends Migration
 {
     public function up()
     {
-        Schema::create('scrappers', function (Blueprint $table) {
+        Schema::create('scrapper', function (Blueprint $table) {
             $table->id();
-            $table->string('source_url');
+            $table->string('name');
+            $table->string('link');
+            $table->string('date');
             $table->timestamp('last_run_at')->nullable();
             $table->timestamps();
         });
