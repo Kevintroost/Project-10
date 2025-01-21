@@ -3,7 +3,7 @@
         <div class="flex flex-col lg:flex-row lg:space-x-6">
             
             <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-md p-6 mb-6 lg:mb-0 flex-shrink-0 h-[16rem]">
-                <h2 class="text-lg font-medium text-gray-700 mb-4">File upload</h2>
+                <h2 class="text-lg font-medium text-gray-700 mb-4">photo upload</h2>
                 <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <label for="file_input" class="block text-sm font-medium text-gray-700 mb-2">Attach file</label>
@@ -13,13 +13,14 @@
                         <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
                     @enderror
                     
-                    <input type="submit" value="Upload" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:dark:bg-neutral-900 py-4 px-4 mt-4">
+                    <input type="submit" value=" photo upload" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:dark:bg-neutral-900 py-4 px-4 mt-4">
                 </form>
             </div>
 
             
             <div class="flex-1 bg-white border border-gray-200 rounded-lg shadow-md p-6 overflow-y-auto">
                 <div class="grid grid-cols-1 gap-6">
+                <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-6">Pictures</h1>
                     @foreach ($images as $image)
                         <div class="flex items-center justify-between">
                             

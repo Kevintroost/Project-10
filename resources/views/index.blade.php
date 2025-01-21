@@ -188,6 +188,7 @@
 
 
 
+
     </section>
     <section class=" bg-no-repeat bg-center bg-gray-700 bg-blend-multiply" style="
      background-image: url('{{ Vite::asset('resources/assets/concert.png') }}');

@@ -17,9 +17,6 @@
                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full p-3"
                 placeholder="name@company.com" required value="{{ old('email') }}">
 
-              @if($errors->has('email'))
-          <p class="text-red-500 text-sm mt-1">{{ $errors->first('email') }}</p>
-        @endif
             </div>
 
             <div>
@@ -28,11 +25,15 @@
                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 block w-full p-3"
                 required>
 
-            
 
-            <button type="submit"
-              class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 mt-5 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md">Sign
-              in</button>
+              @if($errors->has('email'))
+          <p class="text-red-500 text-sm mt-1">{{ $errors->first('email') }}</p>
+        @endif
+
+
+              <button type="submit"
+                class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 mt-5 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md">Sign
+                in</button>
           </form>
 
         </div>
