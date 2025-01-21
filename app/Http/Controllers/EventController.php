@@ -76,34 +76,36 @@ class EventController extends Controller
 
 
     public function Search(Request $request)
-    {
-        $query = $request->input('query');
-        $location = $request->input('location');
-        $date = $request->input('date');
+{
+    $query = $request->input('query');
+    $location = $request->input('location');
+    $date = $request->input('date');
 
-        // Build the query dynamically
-        $events = Event::query();
+    // Build the query dynamically
+    $events = Event::query();
 
-        // Apply filters only if the corresponding field is filled
-        if ($query) {
-            $events->where('event_name', 'LIKE', "%{$query}%");
-        }
-
-        if ($location) {
-            $events->where('location', 'LIKE', "%{$location}%");
-        }
-
-        if ($date) {
-            $events->whereDate('event_date', $date);
-        }
-
-        // Only apply this condition if ALL fields are empty
-        if (empty($query) && empty($location) && empty($date)) {
-            $events->whereRaw('1 = 0'); // Ensures no results are returned
-        }
-
-        $events = $events->paginate(8);
-
-        return view('results', compact('events', 'query', 'location', 'date'));
+    // Apply filters only if the corresponding field is filled
+    if ($query) {
+        $events->where('event_name', 'LIKE', "%{$query}%");
     }
+
+    if ($location) {
+        $events->where('location', 'LIKE', "%{$location}%");
+    }
+
+    if ($date) {
+        $events->whereDate('event_date', $date);
+    }
+
+    // Handle the case where no filters are applied
+    if (empty($query) && empty($location) && empty($date)) {
+        $events->whereRaw('1 = 0'); // Ensures no results are returned
+    }
+
+    // Apply ordering and pagination
+    $events = $events->orderBy('event_date', 'asc')->paginate(8);
+
+    return view('results', compact('events', 'query', 'location', 'date'));
+}
+
 }
