@@ -151,7 +151,7 @@
                         @csrf
                         <input type="email" name="email" placeholder="Enter your email"
                             class="px-4 py-2 w-full md:w-auto rounded-md border border-gray-600 bg-neutral-100 text-neutral-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            value="{{ old('email') }}">
+                            value="{{ old('email') }} " required>
                         <input value="Subscribe" type="submit"
                             class="px-4 py-2 border border-neutral-200  text-white font-semibold rounded-md cursor-pointer">
                     </form>
