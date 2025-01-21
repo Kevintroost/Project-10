@@ -201,7 +201,7 @@
 
                 <img class="flex-shrink-0 w-12 h-12 border rounded-full border-black/10"
                     src="{{ Vite::asset('resources/assets/person1.png') }}" alt="Sebastiaan Kloos" loading="lazy">
-                <a href="" target="_blank" class="inline-block font-bold tracking-tight">
+                <a  target="_blank" class="inline-block font-bold tracking-tight">
 
                     <p>George Droid</p>
                     <p class="font-medium text-black/60">Founder of fent</p>

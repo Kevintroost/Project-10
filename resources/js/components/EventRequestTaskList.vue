@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 gap-6  bg-gray-50">
     <!-- Containers for each section -->
     <div v-for="status in statuses" :key="status" class="flex-1 p-4 bg-gray-50" @dragover.prevent="handleDragOver" @drop="handleDrop(status)">
-      <h1 @click="toggleFold(status)" class="text-2xl font-bold border-b border-gray-300 pb-2 mb-6 cursor-pointer flex items-center">
+      <h1 @click="toggleFold(status)" class="text-2xl font-semibold border-b border-gray-300 pb-2 mb-6 cursor-pointer flex items-center">
         <span class="mr-2">
           <!-- Conditional icon rendering -->
           <svg
