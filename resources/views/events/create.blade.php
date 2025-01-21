@@ -87,6 +87,7 @@
     <!-- Right: List of Events -->
 
     <div class="w-1/2 bg-white border border-gray-200 rounded-lg shadow-md flex flex-col items-stretch w-full p-6 ">
+      <h2 class="text-2xl font-semibold mb-4">Events</h2>
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)
       <div class="flex items-center justify-between">

@@ -14,7 +14,7 @@
         style="background-image: url('{{ Vite::asset('resources/assets/wavebackground.svg') }}');">
         <!-- Alert Section -->
         @if(session('success'))
-            <div class="w-full max-w-2xl">
+            <div class="w-full max-w-2xl mb-6">
                 <div class="flex items-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
                     role="alert">
                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
