@@ -17,7 +17,7 @@
 
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
 
-            <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16  ">
+            <div class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16">
 
             <img class="w-full rounded-lg " src="{{ Vite::asset('resources/assets/events.jpeg') }}"
                     alt="dashboard image">
@@ -36,55 +36,62 @@ We’re passionate about connecting people to the moments that matter. Our missi
 </section>
 
     
-<section class="max-w-screen-xl mx-auto px-8 mx-auto max-w-screen-xl ">
-<ol class="relative border-l border-gray-200 dark:border-gray-400">                  
-    <li class="mb-10 ms-6">            
-        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-            </svg>
-        </span>
-        <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-black">Today</h3>
-        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Released on October 13th, 2024</time>
-        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">We’ve successfully managed hundreds of events, building a reputation for excellence, reliability, and creativity. Our journey has been fueled by our commitment to innovation and our clients' trust in us to deliver exceptional experiences.</p>
-    </li>
-    <li class="mb-10 ms-6">
-        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-            </svg>
-        </span>
-        <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-black">Rebranding</h3>
-        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Started on August 10th, 2023</time>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Rebranded with a modern look, a new logo, and enhanced user experience.</p>
-    </li>
-    <li class="mb-10 ms-6">
-        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-            </svg>
-        </span>
-        <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-black">First Major Update</h3>
-        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Released on December 20th, 2021</time>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Introduced advanced event filters, making it easier to find your favorite events.</p>
-    </li>
-    <li class="ms-6">
-        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-            </svg>
-        </span>
-        <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-black">Our Journey</h3>
-        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Started on December 2nd, 2021</time>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Founded in 2021, Opus events began with a simple mission: to turn ordinary moments into extraordinary memories. What started as a small team with a passion for event planning has grown into a trusted name in the industry.</p>
-    </li>
+<section class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16">
+    <!-- Ordered List -->
+    <ol class="relative border-l border-gray-200 dark:border-gray-400">
+        <!-- List Item 1 -->
+        <li class="mb-10 ms-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-black">Today</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Released on October 13th, 2024</time>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">We’ve successfully managed hundreds of events, building a reputation for excellence, reliability, and creativity. Our journey has been fueled by our commitment to innovation and our clients' trust in us to deliver exceptional experiences.</p>
+        </li>
 
-    <li class="mb-32 ms-3">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full -start-1 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-        
-    </li>
-</ol>
+        <!-- List Item 2 -->
+        <li class="mb-10 ms-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-black">Rebranding</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Started on August 10th, 2023</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">Rebranded with a modern look, a new logo, and enhanced user experience.</p>
+        </li>
+
+        <!-- List Item 3 -->
+        <li class="mb-10 ms-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-black">First Major Update</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Released on December 20th, 2021</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">Introduced advanced event filters, making it easier to find your favorite events.</p>
+        </li>
+
+        <!-- List Item 4 -->
+        <li class="ms-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-black">Our Journey</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Started on December 2nd, 2021</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">Founded in 2021, Opus events began with a simple mission: to turn ordinary moments into extraordinary memories. What started as a small team with a passion for event planning has grown into a trusted name in the industry.</p>
+        </li>
+    </ol>
+
+    <!-- Image -->
+    <img class="w-full h-full rounded-lg object-cover" src="{{ Vite::asset('resources/assets/events.jpeg') }}" alt="dashboard image">
 </section>
+
 
 <div class="max-w-screen-xl mx-auto px-8 mx-auto max-w-screen-xl mb-16">
   <!-- Header -->
