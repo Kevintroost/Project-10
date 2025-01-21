@@ -40,7 +40,7 @@
                         <label for="name" class="block text-sm font-medium mb-2">Name</label>
                         <input type="text" name="name" id="name" value="{{ old('name') }}"
                             class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Enter your name">
+                            placeholder="Enter your name" required>
                         @error('name')
                             <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
@@ -52,7 +52,7 @@
                         <label for="email" class="block text-sm font-medium mb-2">Email</label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}"
                             class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Enter your email">
+                            placeholder="Enter your email" required>
                         @error('email')
                             <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
@@ -63,7 +63,7 @@
                         <label for="phone" class="block text-sm font-medium mb-2">Phone</label>
                         <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
                             class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Enter your phone number">
+                            placeholder="Enter your phone number" required>
                         @error('phone')
                             <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
@@ -74,7 +74,7 @@
                         <label for="location" class="block text-sm font-medium mb-2">Location</label>
                         <input type="text" name="location" id="location" value="{{ old('location') }}"
                             class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Enter the location">
+                            placeholder="Enter the location" required>
                         @error('location')
                             <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
@@ -85,7 +85,7 @@
                     <div>
                         <label for="date" class="block text-sm font-medium mb-2">Event Date</label>
                         <input type="datetime-local" name="date" id="date" value="{{ old('date') }}"
-                            class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500">
+                            class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500" required>
                         @error('date')
                             <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
@@ -97,7 +97,7 @@
                     <label for="details" class="block text-sm font-medium mb-2">Details</label>
                     <textarea id="details" name="details" rows="4"
                         class="w-full bg-gray-50 border border-gray-300 text-black text-sm rounded-md px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Provide details about the event">{{ old('details') }}</textarea>
+                        placeholder="Provide details about the event" required>{{ old('details') }}</textarea>
                     @error('details')
                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                     @enderror

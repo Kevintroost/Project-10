@@ -50,7 +50,7 @@
                             <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
                             <input type="text" name="name" id="name" value="{{ old('name') }}"
                                 class="w-full bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Enter your name">
+                                placeholder="Enter your name" required>
                             @error('name')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -63,7 +63,7 @@
                             <label for="email" class="block text-sm font-medium mb-2">Email</label>
                             <input type="email" name="email" id="email" value="{{ old('email') }}"
                                 class="w-full bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Enter your email">
+                                placeholder="Enter your email" required>
                             @error('email')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -74,7 +74,7 @@
                             <label for="phone" class="block text-sm font-medium mb-2">Phone Number</label>
                             <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
                                 class="w-full bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Enter your phone number">
+                                placeholder="Enter your phone number" required>
                             @error('phone')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -86,7 +86,7 @@
                         <label for="details" class="block text-sm font-medium mb-2">Message</label>
                         <textarea id="details" name="details" rows="4"
                             class="w-full bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Enter your message here">{{ old('details') }}</textarea>
+                            placeholder="Enter your message here" required>{{ old('details') }}</textarea>
                         @error('details')
                             <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                         @enderror
