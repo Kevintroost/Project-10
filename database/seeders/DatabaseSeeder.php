@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         User::factory(1)->create();
         Event::factory(30)->create();
         EventRequest::factory(20)->create();
-        FotoGalerie::factory(200)->create();
+        FotoGalerie::factory(10)->create();
         ContactForm::factory(100)->create();
 
 
