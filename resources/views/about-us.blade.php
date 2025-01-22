@@ -36,7 +36,7 @@ We’re passionate about connecting people to the moments that matter. Our missi
 </section>
 
     
-<section class="gap-8 items-center py-8 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16">
+<section class="gap-6 items-center py-8 mx-auto max-w-screen-xl xl:gap-12 px-4 md:grid md:grid-cols-2 sm:py-16">
     <!-- Ordered List -->
     <ol class="relative border-l border-gray-200 dark:border-gray-400">
         <!-- List Item 1 -->
@@ -93,7 +93,7 @@ We’re passionate about connecting people to the moments that matter. Our missi
 </section>
 
 
-<div class="max-w-screen-xl mx-auto px-8 mx-auto max-w-screen-xl mb-16">
+<div class="max-w-screen-xl mx-auto px-4 mx-auto max-w-screen-xl mb-16">
   <!-- Header -->
   <div class="mb-6">
     <h2 class="text-2xl font-bold text-gray-800 flex items-center">
