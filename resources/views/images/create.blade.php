@@ -2,7 +2,7 @@
     <div class="bg-gray-100 min-h-screen p-6">
         <div class="flex flex-col lg:flex-row lg:space-x-6">
             
-            <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-md p-6 mb-6 lg:mb-0 flex-shrink-0 h-[16rem]">
+            <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-md p-6 mb-6 lg:mb-0 flex-shrink-0 h-[17rem]">
             <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-2">Picture upload</h1>
                 <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
