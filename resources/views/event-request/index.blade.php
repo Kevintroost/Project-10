@@ -2,6 +2,7 @@
 
 
     <div id="app">
+        
         <h1 class="text-4xl font-bold border-b border-gray-300 ml-4 mb-6 pt-6 pb-2 ">Event requests </h1>
         
 

@@ -1,7 +1,24 @@
 <x-admin-layout :title="'Create events | Opus Events'">
-  <section class="p-6 flex flex-row gap-6">
+@if(session('success'))
+            <div class="w-full  pt-6 px-6 items-center ">
+                <div class="flex items-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
+                    role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium">Success alert!</span>
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    </div>
+                </div>
+            </div>
+        @endif
+  <section class="px-6 pt-6 flex flex-row gap-6">
     <!-- Left: Create Event Form -->
-    <div class="w-1/2 bg-white p-8 shadow-md rounded-md flex-shrink-0 h-[46rem] ">
+    <div class="w-1/2 bg-white p-8 border border-gray-200 shadow-md rounded-md flex-shrink-0 h-[46rem] ">
       <h2 class="text-2xl font-semibold mb-4">Create a New Event</h2>
       <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
