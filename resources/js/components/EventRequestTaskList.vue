@@ -40,7 +40,7 @@
 
     <div v-if="!foldedStatuses[status]" class="space-y-6">
       <div v-for="(element, index) in eventRequests[status]" :key="element.id"
-        class="bg-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform"
+        class="bg-gray-300 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform cursor-move"
         draggable="true" @dragstart="handleDragStart(status, index)">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4 truncate">{{ element.name }}</h2>
         <div class="text-gray-900">
