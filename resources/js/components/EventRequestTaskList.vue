@@ -136,7 +136,7 @@ export default {
     },
     handleDragOver(event) {
       const scrollMargin = 10;
-      const scrollSpeed = 20;
+      const scrollSpeed = 200;
 
       if (event.clientY < scrollMargin) {
         window.scrollBy(0, -scrollSpeed);
