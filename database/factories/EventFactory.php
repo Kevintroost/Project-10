@@ -51,17 +51,17 @@ class EventFactory extends Factory
             'https://www.tickets.com/',
         ];
 
-        // return [
-        //     'event_name' => $this->faker->randomElement($event_name),
-        //     'event_date' => $this->faker->randomElement($event_date),
-        //     'location' => $this->faker->city,
-        //     'event_type' => $this->faker->randomElement(['Concert', 'Festival', 'Theater']),
-        //     'description' => $this->faker->text,
-        //     'ticket_link' => $this->faker->randomElement($ticket_link),
-        //     'event_picture' => 'images/' . $this->faker->randomElement($event_picture),
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ];
+        return [
+            'event_name' => $this->faker->randomElement($event_name),
+            'event_date' => $this->faker->randomElement($event_date),
+            'location' => $this->faker->city,
+            'event_type' => $this->faker->randomElement(['Concert', 'Festival', 'Theater']),
+            'description' => $this->faker->text,
+            'ticket_link' => $this->faker->randomElement($ticket_link),
+            'event_picture' => 'images/' . $this->faker->randomElement($event_picture),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
     }
 }
 

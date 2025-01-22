@@ -36,9 +36,6 @@ class NewsletterSubscriberController extends Controller
     }
 
 
-
-
-
     public function NewsLetterCreate(Request $request)
     {
         // Conditional validation rule for image_url based on environment
@@ -48,7 +45,7 @@ class NewsletterSubscriberController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:3|max:255',
             'description' => 'required|min:3|max:1000',
-            'image_url' => $image_url_rule,
+            'image_url' => $image_url_rule . '|required|max:2048',
         ]);
 
         // Get the image URL
@@ -77,7 +74,7 @@ class NewsletterSubscriberController extends Controller
         }
 
         // Redirect back with a success message
-        return redirect('/')->with('success', 'Newsletter created and emails sent!');
+        return redirect('/admin/dashboard')->with('success', 'Newsletter created and emails sent!');
     }
 
 }

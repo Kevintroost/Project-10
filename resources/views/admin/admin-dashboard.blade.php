@@ -81,6 +81,24 @@
 
     <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[49.5%]">
 
+    @if(session('success'))
+            <div class="w-full mb-2 max-w-2xl">
+                <div class="flex items-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
+                    role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium">successfully created</span>
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <h2 class="text-2xl font-semibold mb-4">Create a Newsletter</h2>
         <form action="{{ route('newsletter.create') }}" method="POST" enctype="multipart/form-data">
           @csrf
@@ -90,7 +108,7 @@
               <label for="event-name" class="block text-sm font-medium text-gray-700">Titel</label>
               <input type="text" name="title" id="event-name" placeholder="Enter event or artist name"
                 value="{{ old('title') }}"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" />
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" required />
             </div>
             @error('title')
         <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
@@ -100,7 +118,7 @@
             <div class="mt-4">
               <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
               <textarea id="description" placeholder="Add event description" rows="2" name="description"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6">{{ old('description') }}</textarea>
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6" required>{{ old('description') }}</textarea>
             </div>
             @error('description')
         <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
@@ -111,8 +129,8 @@
               <label for="image-url" class="block text-sm font-medium text-gray-700"> Provide a Image URL</label>
               <div class="mt-1">
                 <input type="url" name="image_url" id="image-url" placeholder="Enter image URL"
-                  value="{{ old('image_url') }}"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" />
+                  value="{{ old('image_url') }} "
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" required />
               </div>
             </div>
 
