@@ -81,8 +81,9 @@
 
         <!-- Link to Tickets -->
         <div class="mt-4 flex flex-col">
-          <input type="url" id="ticket-link" name="ticket_link" placeholder="https://example.com" value="{{ old('ticket_link') }}"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6" required />
+        <label for="ticket-link" class="block text-sm font-medium text-gray-700">Link to Tickets</label>
+          <input type="url" id="ticket-link" name="ticket_link" placeholder="https://example.com"value="{{ old('ticket_link') }}"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6"  required/>
           @error('ticket_link')
             <p class="text-red-500 mt-1 text-sm">{{ $message }}</p>
           @enderror
@@ -110,7 +111,7 @@
     </div>
 
     <!-- Right: List of Events -->
-    <div class="w-full sm:w-1/2 bg-white border border-gray-200 rounded-lg shadow-md p-8 flex flex-col h-[46rem">
+    <div class="w-full sm:w-1/2 bg-white border border-gray-200 rounded-lg shadow-md p-8 flex flex-col max-h-[46rem]">
       <h2 class="text-2xl font-semibold mb-4">Events</h2>
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)
@@ -133,7 +134,7 @@
         @endforeach
       </div>
 
-      <div class="flex items-center justify-center space-x-2 mt-7 ">
+      <div class="flex items-center justify-center space-x-2 mt-11 ">
             <!-- Previous Button -->
             @if ($events->onFirstPage())
                 <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
