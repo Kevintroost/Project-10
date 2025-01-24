@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin/dashboard/events/create', function () {
         $events = Event::all();
-
+        $events = event::orderBy('created_at', 'desc')->paginate(6);
 
         return view('events/create', compact('events'));
 

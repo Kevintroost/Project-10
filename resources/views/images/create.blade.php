@@ -32,7 +32,7 @@
                         <span class="text-sm mt-2 text-red-600">{{ $message }}</span>
                     @enderror
 
-                    <input type="submit" value=" photo upload"
+                    <input type="submit" value="Upload"
                         class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:dark:bg-neutral-900 py-4 px-4 mt-4">
                 </form>
 
@@ -40,7 +40,7 @@
 
 
 
-            <div class="flex-1 bg-white border border-gray-200 rounded-lg shadow-md p-6 overflow-y-auto">
+            <div class="flex-1 bg-white border border-gray-200 rounded-lg shadow-md p-5 overflow-y-auto">
 
                 <div class="grid grid-cols-1 gap-6">
                     <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 ">Pictures</h1>
@@ -71,6 +71,82 @@
 
                         </div>
                     @endforeach
+                    <div class="flex items-center justify-center space-x-2 mt-4">
+                        <!-- Previous Button -->
+                        @if ($images->onFirstPage())
+                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                                Previous
+                            </button>
+                        @else
+                            <a href="{{ $images->previousPageUrl() }}"
+                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                Previous
+                            </a>
+                        @endif
+
+                        <!-- Page Numbers -->
+                        @if ($images->lastPage() > 9)
+                            @if ($images->currentPage() > 4)
+                                <a href="{{ $images->url(1) }}"
+                                    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                    1
+                                </a>
+                                @if ($images->currentPage() > 5)
+                                    <span class="px-4 py-2">...</span>
+                                @endif
+                            @endif
+
+                            @for ($i = max(1, $images->currentPage() - 1); $i <= min($images->lastPage(), $images->currentPage() + 1); $i++)
+                                @if ($i == $images->currentPage())
+                                    <button
+                                        class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                                        {{ $i }}
+                                    </button>
+                                @else
+                                    <a href="{{ $images->url($i) }}"
+                                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                        {{ $i }}
+                                    </a>
+                                @endif
+                            @endfor
+
+                            @if ($images->currentPage() < $images->lastPage() - 3)
+                                @if ($images->currentPage() < $images->lastPage() - 4)
+                                    <span class="px-4 py-2">...</span>
+                                @endif
+                                <a href="{{ $images->url($images->lastPage()) }}"
+                                    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                    {{ $images->lastPage() }}
+                                </a>
+                            @endif
+                        @else
+                            @for ($i = 1; $i <= $images->lastPage(); $i++)
+                                @if ($i == $images->currentPage())
+                                    <button
+                                        class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                                        {{ $i }}
+                                    </button>
+                                @else
+                                    <a href="{{ $images->url($i) }}"
+                                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                        {{ $i }}
+                                    </a>
+                                @endif
+                            @endfor
+                        @endif
+
+                        <!-- Next Button -->
+                        @if ($images->hasMorePages())
+                            <a href="{{ $images->nextPageUrl() }}"
+                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                Next
+                            </a>
+                        @else
+                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                                Next
+                            </button>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

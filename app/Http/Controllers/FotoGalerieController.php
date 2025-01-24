@@ -20,6 +20,7 @@ class FotoGalerieController extends Controller
 
         // Fetch all images
         $images = FotoGalerie::all();
+        $images = FotoGalerie::orderBy('created_at', 'desc')->paginate(6);
         return view('images.create', compact('images'));
 
 
