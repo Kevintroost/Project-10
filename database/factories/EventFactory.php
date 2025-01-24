@@ -41,6 +41,8 @@ class EventFactory extends Factory
             'seeder3.png',
             'seeder4.jpg',
             'seeder5.jpg',
+            'seeder6.jpg',
+            'seeder7.png',
         ];
 
         $ticket_link = [

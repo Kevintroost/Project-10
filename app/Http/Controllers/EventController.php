@@ -107,5 +107,33 @@ class EventController extends Controller
 
     return view('results', compact('events', 'query', 'location', 'date'));
 }
+    // Update the event
+    public function Update(Request $request, $id){
+
+
+        // Validate the updated event details
+        $validated = $request->validate([
+            'event_name' => 'required|string|min: 3|max:255',
+            'event_date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'),
+            'location' => 'required|string|min:3|max:255',
+            'description' => 'nullable|string|min:20 |max:2000',
+            'ticket_link' => 'required|string|min:10 |max:255',
+        ], [
+            'event_date.after_or_equal' => 'The event date must be today or in the future.',
+        ]);
+
+        // Find the event by its ID and update its details  
+        $event = Event::find($id);
+        $event->event_name = $validated['event_name'];
+        $event->event_date = $validated['event_date'];
+        $event->location = $validated['location'];
+        $event->description = $validated['description'];
+        $event->ticket_link = $validated['ticket_link'];
+        $event->save();
+        return redirect('/admin/dashboard/events/edit/' . $id)->with('success', 'Event updated successfully!');
+        
+    }
 
 }
+
+

@@ -13,7 +13,7 @@
       </h1>
       <p class="text-lg text-neutral-300">
         {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
-        {{ \Carbon\Carbon::parse($event->event_date)->format('h:i A') }}
+        {{ \Carbon\Carbon::parse($event->event_date)->format('H:i ') }}
       </p>
       <p class="mb-8 text-lg text-neutral-300">
         {{ $event->location}}

@@ -78,9 +78,16 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('/admin/dashboard/events/edit/{id}', function ($id) {
-        $event = Event::find($id);
-        return view('events.edit', compact('event'));
+        $event = Event::find($id); // Rename to $event
+        if (!$event) {
+            return redirect('404')->with('error', 'Event not found');
+        }
+        return view('events.edit', compact('event')); // Pass $event instead of $events
+
     });
+
+    Route::patch('/admin/dashboard/events/edit/{id}', [EventController::class, 'update'])->name('events.edit');
+    
 
 
 
