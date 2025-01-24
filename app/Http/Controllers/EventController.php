@@ -25,9 +25,9 @@ class EventController extends Controller
             'event_name' => 'required|string|min: 3|max:255',
             'event_date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'),
             'location' => 'required|string|min:3|max:255',
-            'event_type' => 'required|string|max:255',
+            'event_type' => 'required|string|min:3 |max:255',
             'description' => 'nullable|string|min:20 |max:2000',
-            'ticket_link' => 'required|string|min:10 |max:255',
+            'ticket_link' => 'required|string|min:10 |max:1000',
             'event_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ], [
             'event_date.after_or_equal' => 'The event date must be today or in the future.',
