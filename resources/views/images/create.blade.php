@@ -64,8 +64,14 @@
                                 @csrf
                                 <input type="hidden" name="image_id" value="{{ $image->id }}">
                                 <button type="submit"
-                                    class="mt-2 w-full bg-red-600 text-white font-semibold text-sm rounded-lg py-3 px-10 focus:outline-none hover:bg-red-700">
-                                    Delete
+                                    class="mt-2 w-full bg-red-600 text-white font-semibold text-sm rounded-lg py-3 px-4 focus:outline-none hover:bg-red-700">
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
+                                    </svg>
                                 </button>
                             </form>
 
