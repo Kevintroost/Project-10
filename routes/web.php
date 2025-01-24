@@ -77,6 +77,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+    Route::get('/admin/dashboard/events/edit/{id}', function ($id) {
+        $event = Event::find($id);
+        return view('events.edit', compact('event'));
+    });
 
 
 
