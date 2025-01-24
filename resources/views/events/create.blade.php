@@ -14,20 +14,19 @@
     </div>
   @endif
 
-  <section class="px-6 pt-6 flex flex-wrap gap-6">
+  <section class="px-6 pt-6 flex gap-6">
     <!-- Left: Create Event Form -->
-    <div class="w-full sm:w-1/2 bg-white p-8 border border-gray-200 shadow-md rounded-md flex-shrink-0 h-auto">
+    <div class="w-full sm:w-1/2 bg-white p-8 border border-gray-200 shadow-md rounded-md">
       <h2 class="text-2xl font-semibold mb-4">Create a New Event</h2>
       <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- Event/Artist Name -->
           <div class="flex flex-col">
             <label for="event-name" class="block text-sm font-medium text-gray-700">Event/Artist Name</label>
-            <input type="text" id="event-name" placeholder="Enter event or artist" name="event_name"
-              value="{{ old('event_name') }}"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11"
-              required />
+            <input type="text" id="event-name" placeholder="Enter event or artist" name="event_name" value="{{ old('event_name') }}"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11" required />
             @error('event_name')
               <p class="text-red-500 mt-1 text-sm">{{ $message }}</p>
             @enderror
@@ -37,8 +36,7 @@
           <div class="flex flex-col">
             <label for="event-date" class="block text-sm font-medium text-gray-700">Date</label>
             <input type="datetime-local" name="event_date" id="event-date" value="{{ old('date') }}"
-              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11 text-gray-700 placeholder-gray-700"
-              required />
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6 h-11 text-gray-700 placeholder-gray-700" required />
             @error('event_date')
               <p class="text-red-500 mt-1 text-sm">{{ $message }}</p>
             @enderror
@@ -48,10 +46,8 @@
         <!-- Location -->
         <div class="mt-4 flex flex-col">
           <label for="location" class="block text-sm font-medium text-gray-700">Location <span class="text-red-500">*</span></label>
-          <input type="text" name="location" id="location" placeholder="Enter event location"
-            value="{{ old('location') }}"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6"
-            required />
+          <input type="text" name="location" id="location" placeholder="Enter event location" value="{{ old('location') }}"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6" required />
           @error('location')
             <p class="text-red-500 mt-1 text-sm">{{ $message }}</p>
           @enderror
@@ -59,10 +55,9 @@
 
         <!-- Event Type -->
         <div class="mt-4 flex flex-col">
-          <label for="event-type" class="block text-sm font-medium text-gray-700">Event type</label>
+          <label for="event-type" class="block text-sm font-medium text-gray-700">Event Type</label>
           <select id="event-type" name="event_type"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6"
-            required>
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6" required>
             <option value="" disabled selected class="text-gray-300">Choose event type</option>
             <option value="Concert">Concert</option>
             <option value="Festival">Festival</option>
@@ -86,10 +81,8 @@
 
         <!-- Link to Tickets -->
         <div class="mt-4 flex flex-col">
-          <input type="url" id="ticket-link" name="ticket_link" placeholder="https://example.com"
-            value="{{ old('ticket_link') }}"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6"
-            required />
+          <input type="url" id="ticket-link" name="ticket_link" placeholder="https://example.com" value="{{ old('ticket_link') }}"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 py-3 px-6" required />
           @error('ticket_link')
             <p class="text-red-500 mt-1 text-sm">{{ $message }}</p>
           @enderror
@@ -111,14 +104,13 @@
         <!-- Submit Button -->
         <div class="mt-6">
           <input value="Create event" type="submit"
-            class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-md shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
+            class="w-full bg-blue-600 text-white font-semibold py-2 px-5 rounded-md shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
         </div>
       </form>
     </div>
 
-
     <!-- Right: List of Events -->
-    <div class="w-1/2 bg-white border border-gray-200 rounded-lg shadow-md p-8 flex flex-col h-[46rem]">
+    <div class="w-full sm:w-1/2 bg-white border border-gray-200 rounded-lg shadow-md p-8 flex flex-col h-[46rem">
       <h2 class="text-2xl font-semibold mb-4">Events</h2>
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)
@@ -141,73 +133,82 @@
         @endforeach
       </div>
 
-      <!-- Pagination -->
-      <div class="flex justify-center items-center space-x-2 mt-12">
-        <!-- Previous Button -->
-        @if ($events->onFirstPage())
-          <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-            Previous
-          </button>
-        @else
-          <a href="{{ $events->previousPageUrl() }}"
-            class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-            Previous
-          </a>
-        @endif
-
-        <!-- Page Numbers -->
-        @if ($events->lastPage() > 9)
-          @if ($events->currentPage() > 4)
-            <a href="{{ $events->url(1) }}"
-              class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-              1
-            </a>
-            @if ($events->currentPage() > 5)
-              <span class="px-4 py-2">...</span>
-            @endif
-          @endif
-
-          @for ($i = max(1, $events->currentPage() - 1); $i <= min($events->lastPage(), $events->currentPage() + 1); $i++)
-            @if ($i == $events->currentPage())
-              <button class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">{{ $i }}</button>
+      <div class="flex items-center justify-center space-x-2 mt-7 ">
+            <!-- Previous Button -->
+            @if ($events->onFirstPage())
+                <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                    Previous
+                </button>
             @else
-              <a href="{{ $events->url($i) }}"
-                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">{{ $i }}</a>
+                <a href="{{ $events->previousPageUrl() }}"
+                    class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                    Previous
+                </a>
             @endif
-          @endfor
 
-          @if ($events->currentPage() < $events->lastPage() - 3)
-            @if ($events->currentPage() < $events->lastPage() - 4)
-              <span class="px-4 py-2">...</span>
-            @endif
-            <a href="{{ $events->url($events->lastPage()) }}"
-              class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-              {{ $events->lastPage() }}
-            </a>
-          @endif
-        @else
-          @for ($i = 1; $i <= $events->lastPage(); $i++)
-            @if ($i == $events->currentPage())
-              <button class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">{{ $i }}</button>
+            <!-- Page Numbers -->
+            @if ($events->lastPage() > 9)
+                @if ($events->currentPage() > 4)
+                    <a href="{{ $events->url(1) }}"
+                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        1
+                    </a>
+                    @if ($events->currentPage() > 5)
+                        <span class="px-4 py-2">...</span>
+                    @endif
+                @endif
+
+                @for ($i = max(1, $events->currentPage() - 1); $i <= min($events->lastPage(), $events->currentPage() + 1); $i++)
+                    @if ($i == $events->currentPage())
+                        <button
+                            class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                            {{ $i }}
+                        </button>
+                    @else
+                        <a href="{{ $events->url($i) }}"
+                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            {{ $i }}
+                        </a>
+                    @endif
+                @endfor
+
+                @if ($events->currentPage() < $events->lastPage() - 3)
+                    @if ($events->currentPage() < $events->lastPage() - 4)
+                        <span class="px-4 py-2">...</span>
+                    @endif
+                    <a href="{{ $events->url($events->lastPage()) }}"
+                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        {{ $events->lastPage() }}
+                    </a>
+                @endif
             @else
-              <a href="{{ $events->url($i) }}"
-                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">{{ $i }}</a>
+                @for ($i = 1; $i <= $events->lastPage(); $i++)
+                    @if ($i == $events->currentPage())
+                        <button
+                            class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                            {{ $i }}
+                        </button>
+                    @else
+                        <a href="{{ $events->url($i) }}"
+                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            {{ $i }}
+                        </a>
+                    @endif
+                @endfor
             @endif
-          @endfor
-        @endif
 
-        <!-- Next Button -->
-        @if ($events->hasMorePages())
-          <a href="{{ $events->nextPageUrl() }}"
-            class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-            Next
-          </a>
-        @else
-          <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-            Next
-          </button>
-        @endif
-      </div>
+            <!-- Next Button -->
+            @if ($events->hasMorePages())
+                <a href="{{ $events->nextPageUrl() }}"
+                    class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                    Next
+                </a>
+            @else
+                <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                    Next
+                </button>
+            @endif
+        </div>
     </div>
   </section>
 </x-admin-layout>
