@@ -29,9 +29,8 @@ Route::get('/index', function () {
 
 Route::get('/about-us/create', function () {
 
-    $totalreviews = Review::count();
-    $reviews = Review::all();
-    return view('about-us.create', compact('totalreviews','reviews'));
+
+    return view('about-us.create');
 })->name('aboutus');
 
 
@@ -155,5 +154,5 @@ Route::post('event-request/store', [EventRequestController::class, 'Store'])->na
 Route::get('contact/create', [ContactFormController::class, 'Create'])->name('contact.create');
 Route::post('contact/store', [ContactFormController::class, 'Store'])->name('contact.store');
 
-Route::get('about-us/create', [ReviewController::class, 'Create'])->name('review.create');
-Route::post('about-us/store', [ReviewController::class, 'Store'])->name('review.store');
+Route::get('about-us/create', [ReviewController::class, 'Create'])->name('about-us.create');
+Route::post('about-us/store', [ReviewController::class, 'Store'])->name('about-us.store');
