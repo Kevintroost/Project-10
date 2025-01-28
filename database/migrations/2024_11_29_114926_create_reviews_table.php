@@ -12,8 +12,8 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->text('comment')->nullable();
-            $table->tinyInteger('rating')->default(0);
+            $table->integer('rating'); // Rating out of 5
+            $table->text('review');
             $table->timestamps();
         });
     }
