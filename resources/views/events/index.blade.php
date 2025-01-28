@@ -15,7 +15,7 @@
 
         <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-16">
             <div class="-my-4 divide-y divide-gray-200 dark:divide-neutral-800">
-                @foreach ($events->sortBy('id') as $event)
+                @foreach ($events->sortBy('event_date') as $event)
                     <div class="flex items-center  py-4">
                         <!-- Date on the left -->
                         <div class="flex-shrink-0  p-6 text-center">
