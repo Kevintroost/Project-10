@@ -37,9 +37,13 @@ Route::get('/admin', function () {
 });
 
 Route::get('/events/index', function () {
-    $events = Event::orderBy('event_date', 'asc')->paginate(8); // Order directly in the query
+    $events = Event::whereNotNull('id')  // Only valid dates
+                   ->orderBy('id', 'asc')         // Order by ID
+                   ->paginate(8);                  // Paginate results
     return view('events.index', compact('events'));
 });
+
+
 
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
