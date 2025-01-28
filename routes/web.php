@@ -40,9 +40,14 @@ Route::get('/admin', function () {
 });
 
 Route::get('/events/index', function () {
-    $events = Event::orderBy('event_date', 'asc')->paginate(8); // Order directly in the query
+    $events = Event::whereNotNull('id')  // Only valid dates
+                           // Order by ID
+                   ->orderBy('event_date', 'asc') // Order by date
+                   ->paginate(8);                  // Paginate results
     return view('events.index', compact('events'));
 });
+
+
 
 Route::post('emails/create', [NewsletterSubscriberController::class, 'WelcomeNewsLetter'])->name('email.create');
 
@@ -72,8 +77,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/admin/dashboard/events/destroy', [EventController::class, 'Destroy'])->name('events.destroy');
 
     Route::get('/admin/dashboard/events/create', function () {
-        $events = Event::all();
-        $events = event::orderBy('created_at', 'desc')->paginate(6);
+        $events = Event::whereNotNull('id')  // Only valid dates
+                           // Order by ID
+                   ->orderBy('event_date', 'asc') // Order by date
+                   ->paginate(6);                  // Paginate results
 
         return view('events/create', compact('events'));
 
