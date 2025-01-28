@@ -9,7 +9,7 @@ class ReviewController extends Controller
 {
 
 
-    public function create()
+    public function Create()
     {
 
         return view('review.create');
@@ -17,33 +17,51 @@ class ReviewController extends Controller
 
     }
     // Store a new review
-    public function store(Request $request)
+    public function Store(Request $request)
+{
+    // Validate the incoming request
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'rating' => 'required|integer|between:1,5',
+        'review' => 'required|string|max:1000',
+    ]);
+
+    // Create a new review in the database
+    $review = new Review();
+    $review->name = $validated['name'];
+    $review->email = $validated['email'];
+    $review->rating = $validated['rating'];
+    $review->review = $validated['review'];
+    $review->save();
+
+    // Flash success message
+    session()->flash('success', 'Review submitted successfully!');
+
+    // Return a redirect response to reload the page
+    return redirect()->back();
+}
+
+
+    public function Destroy($id)
     {
-        // Validate the incoming request
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'rating' => 'required|integer|between:1,5',
-            'review' => 'required|string|max:1000',
-        ]);
+        // Find the review
+        $review = Review::find($id);
 
-        // Create a new review in the database
-        $review = new Review();
-        $review->name = $validated['name'];
-        $review->email = $validated['email'];
-        $review->rating = $validated['rating'];
-        $review->review = $validated['review'];
-        $review->save();
+        // Check if the review exists
+        if (!$review) {
+            return response()->json(['message' => 'Review not found!'], 404);
+        }
 
-        // Return a success message
+        // Delete the review
+        $review->delete();
 
-
-        return response()->json(['message' => 'Review submitted successfully!'], 200);
+        return redirect()->back()->with('success', 'Review deleted successfully!');
     }
 
 
-    // Get all reviews (for display)
-    public function index()
+    // Get all reviews 
+    public function Index()
     {
         $reviews = Review::all();
         return response()->json($reviews);

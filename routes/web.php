@@ -28,7 +28,10 @@ Route::get('/index', function () {
 })->name('index');
 
 Route::get('/about-us', function () {
-    return view('about-us');
+
+    $totalreviews = Review::count();
+    $reviews = Review::all();
+    return view('about-us', compact('totalreviews','reviews'));
 })->name('aboutus');
 
 
@@ -77,11 +80,11 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('/admin/dashboard/events/edit/{id}', function ($id) {
-        $event = Event::find($id); // Rename to $event
+        $event = Event::find($id);
         if (!$event) {
             return redirect('404')->with('error', 'Event not found');
         }
-        return view('events.edit', compact('event')); // Pass $event instead of $events
+        return view('events.edit', compact('event'));
 
     });
 
@@ -90,9 +93,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('admin/dashboard/reviews/index', function () {
         $reviews = Review::all();
-        return view('reviews.index', compact('reviews'));
-    })->name('reviews.index');
+        $reviews = Review::orderBy('created_at', 'desc')->paginate(4);
+        return view('review.index', compact('reviews'));
+    })->name('review.index');
 
+    Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('review.destroy');
 
 
 
@@ -112,6 +117,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('Newsletter/create', [NewsletterSubscriberController::class, 'NewsLetterCreate'])->name('newsletter.create');
     Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
 
+
+    
     Route::get('/admin/dashboard/contact/index', function () {
 
         $contacts = ContactForm::all();
@@ -135,8 +142,8 @@ Auth::routes();
 
 // Event Requests 
 // User input 
-Route::get('event-request/create', [EventRequestController::class, 'create'])->name('event-request.create');
-Route::post('event-request/store', [EventRequestController::class, 'store'])->name('event-request.store');
+Route::get('event-request/create', [EventRequestController::class, 'Create'])->name('event-request.create');
+Route::post('event-request/store', [EventRequestController::class, 'Store'])->name('event-request.store');
 
 Route::get('contact/create', [ContactFormController::class, 'Create'])->name('contact.create');
 Route::post('contact/store', [ContactFormController::class, 'Store'])->name('contact.store');

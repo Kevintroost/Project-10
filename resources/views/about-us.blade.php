@@ -143,7 +143,8 @@
           </svg>
         </span>
       </h2>
-      <p class="text-gray-600 text-sm">(4.6) <a href="#" class="text-blue-500 underline">645 Reviews</a></p>
+      <p class="text-gray-600 text-sm">(4.6) <a href="#" class="text-blue-500 underline">{{$totalreviews}} Reviews</a>
+      </p>
     </div>
 
     <!-- pop up form -->
@@ -152,82 +153,45 @@
         <p class="text-4xl font-bold text-gray-800 mb-2">4.65 out of 5</p>
         <!-- <button @click="openModal"
           class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600">Write a review</button> -->
-          <review-form></review-form>
+        <review-form></review-form>
       </div>
       <!-- Modal Component (This will be displayed when the button is clicked) -->
     </div>
 
 
-    <!-- Rating Breakdown -->
-    <!-- <div class="mb-6">
-      <div class="flex items-center mb-1">
-        <p class="text-sm text-gray-600 w-10">5</p>
-        <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
-          <div class="bg-yellow-500 h-3 rounded-full" style="width: 50%;"></div>
-        </div>
-        <p class="text-sm text-gray-600">239 reviews</p>
-      </div>
-      <div class="flex items-center mb-1">
-        <p class="text-sm text-gray-600 w-10">4</p>
-        <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
-          <div class="bg-yellow-500 h-3 rounded-full" style="width: 70%;"></div>
-        </div>
-        <p class="text-sm text-gray-600">432 reviews</p>
-      </div>
-      <div class="flex items-center mb-1">
-        <p class="text-sm text-gray-600 w-10">3</p>
-        <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
-          <div class="bg-yellow-500 h-3 rounded-full" style="width: 10%;"></div>
-        </div>
-        <p class="text-sm text-gray-600">53 reviews</p>
-      </div>
-      <div class="flex items-center mb-1">
-        <p class="text-sm text-gray-600 w-10">2</p>
-        <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
-          <div class="bg-yellow-500 h-3 rounded-full" style="width: 5%;"></div>
-        </div>
-        <p class="text-sm text-gray-600">32 reviews</p>
-      </div>
-      <div class="flex items-center">
-        <p class="text-sm text-gray-600 w-10">1</p>
-        <div class="flex-grow bg-gray-200 rounded-full h-3 mx-3 relative">
-          <div class="bg-yellow-500 h-3 rounded-full" style="width: 2%;"></div>
-        </div>
-        <p class="text-sm text-gray-600">13 reviews</p>
-      </div>
-    </div> -->
-
-    <!-- Review -->
-    <div class="border-t border-gray-200 pt-6">
+    <div>
+      @foreach ($reviews as $review)
+      <!-- Review -->
+      <div class="border-t border-gray-200 pt-6 mb-6">
       <div class="flex items-center mb-2">
         <div class="flex text-yellow-500">
-          <p class=" mr-2 text-gray-800 font-semibold">Micheal Gough</p>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <!-- Repeat the SVG above 4 more times -->
+        <p class="mr-2 text-gray-800 font-semibold">{{ $review->name }}</p>
+
+        <!-- Loop through rating to display stars -->
+        @for ($i = 1; $i <= 5; $i++)
+      @if ($i <= $review->rating)
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+      </svg>
+    @else
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-5 h-5"
+      viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+      </svg>
+    @endif
+    @endfor
         </div>
-
-
-
-
       </div>
-      <p class="text-sm text-gray-600 mb-2">November 18 2023 at 15:35</p>
-      <p class="text-sm text-gray-800 mb-4">My old IMAC was from 2013. This replacement was well needed. Very fast, and
-        the colour matches my office set up perfectly. The display is out of this world and I’m very happy with this
-        purchase.</p>
+      <p class="text-gray-600 text-sm">{{ $review->review }}</p>
+      </div>
+    @endforeach
+
+      @if(session('success'))
+      <script>
+      window.location.reload(); 
+      </script>
+    @endif
+
       <div class="flex items-center text-sm text-gray-600">
       </div>
     </div>
