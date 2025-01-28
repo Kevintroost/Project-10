@@ -156,7 +156,7 @@ export default {
       try {
         // Send POST request to the backend API
         const response = await axios.post(
-          "http://localhost/Project-10/public/review/store",
+          "http://localhost/Project-10/public/about-us/store",
           reviewData
         );
 
