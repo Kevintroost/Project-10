@@ -135,8 +135,8 @@
 
         <div class="relative inline-block text-left">
         <!-- Dropdown Button -->
-        <button id="dropdownButton" class="p-2 rounded-full hover:bg-gray-200 focus:outline-none"
-          onclick="toggleMenu()">
+        <button id="dropdownButton-{{ $event->id }}" class="p-2 rounded-full hover:bg-gray-200 focus:outline-none"
+          onclick="toggleMenu({{ $event->id }})">
           <svg class="w-[31px] h-[31px] text-gray-800 " aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-width="3" d="M6 12h.01m6 0h.01m5.99 0h.01" />
@@ -145,7 +145,7 @@
         </button>
 
         <!-- Dropdown Menu -->
-        <div id="dropdownMenu"
+        <div id="dropdownMenu-{{ $event->id }}"
           class="hidden absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
           <!-- Edit Button -->
           <a href="{{ route('events.edit', ['id' => $event->id]) }}"
@@ -173,6 +173,7 @@
             Delete
           </button>
           </form>
+
         </div>
         </div>
 
@@ -261,18 +262,69 @@
     </div>
   </section>
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById("dropdownMenu");
+    function toggleMenu(id) {
+      const menu = document.getElementById(`dropdownMenu-${id}`);
       menu.classList.toggle("hidden");
-    }
 
-    // Close the menu if clicked outside
-    window.addEventListener("click", (e) => {
-      const button = document.getElementById("dropdownButton");
-      const menu = document.getElementById("dropdownMenu");
-      if (!button.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.add("hidden");
-      }
-    });
+      // Close the menu if clicked outside
+      window.addEventListener("click", (e) => {
+        const button = document.getElementById(`dropdownButton-${id}`);
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add("hidden");
+        }
+      });
+    }
   </script>
+          <script>
+            document.querySelectorAll('form[action="{{ route('events.destroy') }}"]').forEach(form => {
+              form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                confirm('Are you sure you want to delete this event?').then(confirmation => {
+                  if (confirmation) {
+                    form.submit();
+                  }
+                });
+              });
+            });
+
+            function confirm(message) {
+              return new Promise((resolve) => {
+                const modal = document.createElement('div');
+                modal.classList.add('fixed', 'inset-0', 'flex', 'items-center', 'justify-center', 'bg-gray-800', 'bg-opacity-50', 'z-50');
+
+                const modalContent = document.createElement('div');
+                modalContent.classList.add('bg-white', 'p-6', 'rounded-lg', 'shadow-lg', 'text-center');
+
+                const modalMessage = document.createElement('p');
+                modalMessage.classList.add('text-gray-700', 'mb-4');
+                modalMessage.textContent = message;
+
+                const modalButtons = document.createElement('div');
+                modalButtons.classList.add('flex', 'justify-center', 'gap-4');
+
+                const confirmButton = document.createElement('button');
+                confirmButton.classList.add('bg-blue-600', 'text-white', 'font-semibold', 'py-2', 'px-5', 'rounded-md', 'shadow-sm', 'hover:bg-blue-700', 'focus:ring-2', 'focus:ring-blue-500', 'focus:ring-offset-2');
+                confirmButton.textContent = 'Yes';
+                confirmButton.addEventListener('click', () => {
+                  resolve(true);
+                  document.body.removeChild(modal);
+                });
+
+                const cancelButton = document.createElement('button');
+                cancelButton.classList.add('bg-gray-600', 'text-white', 'font-semibold', 'py-2', 'px-5', 'rounded-md', 'shadow-sm', 'hover:bg-gray-700', 'focus:ring-2', 'focus:ring-gray-500', 'focus:ring-offset-2');
+                cancelButton.textContent = 'No';
+                cancelButton.addEventListener('click', () => {
+                  resolve(false);
+                  document.body.removeChild(modal);
+                });
+
+                modalButtons.appendChild(confirmButton);
+                modalButtons.appendChild(cancelButton);
+                modalContent.appendChild(modalMessage);
+                modalContent.appendChild(modalButtons);
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+              });
+            }
+          </script>
 </x-admin-layout>
