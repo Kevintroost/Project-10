@@ -18,12 +18,17 @@ class ReviewController extends Controller
             'review' => 'required|string|max:1000',
         ]);
 
-        // Create a new review
-        $review = Review::create($validated);
+        // Create a new review in the database
+        $review = Review::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'rating' => $validated['rating'],
+            'review' => $validated['review'],
+        ]);
 
-        // Return a response
-        return response()->json(['message' => 'Review submitted successfully!', 'review' => $review], 201);
+        return response()->json(['message' => 'Review submitted successfully!'], 200);
     }
+
 
     // Get all reviews (for display)
     public function index()

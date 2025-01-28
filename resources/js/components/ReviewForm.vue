@@ -117,11 +117,13 @@
   </div>
 </template>
   
-  <script>
+<script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      isModalOpen: false, // Control modal visibility
+      isModalOpen: false,
       review: {
         name: "",
         email: "",
@@ -132,19 +134,16 @@ export default {
   },
 
   methods: {
-    // Open the modal
     openModal() {
       this.isModalOpen = true;
     },
 
-    // Close the modal
     closeModal() {
       this.isModalOpen = false;
     },
 
-    // Submit the review form
-    submitReview() {
-      // Example: Submit form data (You can replace this with your API call)
+    async submitReview() {
+      // Form data
       const reviewData = {
         name: this.review.name,
         email: this.review.email,
@@ -152,21 +151,33 @@ export default {
         review: this.review.review,
       };
 
-      // Simulate a successful review submission
-      console.log("Review submitted:", reviewData);
+      try {
+        // Send POST request to the backend API
+        const response = await axios.post(
+          "http://localhost/Project-10/public/api/review/create",
+          reviewData
+        );
 
-      // Reset the form
-      this.review.name = "";
-      this.review.email = "";
-      this.review.rating = 5;
-      this.review.review = "";
+        // Simulate successful review submission (handle response)
+        console.log("Review submitted:", response.data);
 
-      // Close the modal after submission
-      this.closeModal();
+        // Reset the form
+        this.review.name = "";
+        this.review.email = "";
+        this.review.rating = 5;
+        this.review.review = "";
+
+        // Close the modal after submission
+        this.closeModal();
+      } catch (error) {
+        console.error("Error submitting review:", error);
+        // Handle error (optional)
+      }
     },
   },
 };
 </script>
+
   
   <style scoped>
 /* Add any necessary styles here */
