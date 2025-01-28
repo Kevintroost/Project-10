@@ -11,36 +11,38 @@ class ReviewController extends Controller
 
     public function Create()
     {
+        // Fetch the data for total reviews and all reviews
+        $totalreviews = Review::count();
+        $reviews = Review::all();
 
-        return view('review.create');
-
-
+        // Return the view with the necessary data
+        return view('about-us.create', compact('totalreviews', 'reviews'));
     }
     // Store a new review
     public function Store(Request $request)
-{
-    // Validate the incoming request
-    $validated = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-        'rating' => 'required|integer|between:1,5',
-        'review' => 'required|string|max:1000',
-    ]);
+    {
+        // Validate the incoming request
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'rating' => 'required|integer|between:1,5',
+            'review' => 'required|string|max:1000',
+        ]);
 
-    // Create a new review in the database
-    $review = new Review();
-    $review->name = $validated['name'];
-    $review->email = $validated['email'];
-    $review->rating = $validated['rating'];
-    $review->review = $validated['review'];
-    $review->save();
+        // Create a new review in the database
+        $review = new Review();
+        $review->name = $validated['name'];
+        $review->email = $validated['email'];
+        $review->rating = $validated['rating'];
+        $review->review = $validated['review'];
+        $review->save();
 
-    // Flash success message
-    session()->flash('success', 'Review submitted successfully!');
+        // Flash success message
+        session()->flash('success', 'Review submitted successfully!');
 
-    // Return a redirect response to reload the page
-    return redirect()->back();
-}
+        // Return a redirect response to reload the page
+        return redirect()->back();
+    }
 
 
     public function Destroy($id)
