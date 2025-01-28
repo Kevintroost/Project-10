@@ -27,11 +27,11 @@ Route::get('/index', function () {
     return view('index', compact('fotoGaleries'));
 })->name('index');
 
-Route::get('/about-us', function () {
+Route::get('/about-us/create', function () {
 
     $totalreviews = Review::count();
     $reviews = Review::all();
-    return view('about-us', compact('totalreviews','reviews'));
+    return view('about-us.create', compact('totalreviews','reviews'));
 })->name('aboutus');
 
 
@@ -155,5 +155,5 @@ Route::post('event-request/store', [EventRequestController::class, 'Store'])->na
 Route::get('contact/create', [ContactFormController::class, 'Create'])->name('contact.create');
 Route::post('contact/store', [ContactFormController::class, 'Store'])->name('contact.store');
 
-Route::get('review/create', [ReviewController::class, 'Create'])->name('review.create');
-Route::post('review/store', [ReviewController::class, 'Store'])->name('review.store');
+Route::get('about-us/create', [ReviewController::class, 'Create'])->name('review.create');
+Route::post('about-us/store', [ReviewController::class, 'Store'])->name('review.store');
