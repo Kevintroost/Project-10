@@ -62,9 +62,9 @@ class EventRequestController extends Controller
         $eventrequest = EventRequest::findOrFail($id);
 
         // Validate incoming request data
-        $validatedData = $request->validate([
+        $validateddata = $request->validate([
             'name' => 'required|string| min: 3|max:255',
-            'email' => 'required|email min: 3 |max:255',
+            'email' => 'required|email|min:3|max:255',
             'phone' => 'required|regex:/^[0-9\-\(\)\s]+$/|min:5|max:20',
             'location' => 'required|string| min: 3 |max:255',
             'date' => 'required|date',
@@ -72,7 +72,7 @@ class EventRequestController extends Controller
         ]);
 
         // Update the event request with the validated data
-        $eventrequest->update($validatedData);
+        $eventrequest->update($validateddata);
 
         // Return the updated event request as JSON
         return response()->json($eventrequest);

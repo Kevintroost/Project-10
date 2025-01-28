@@ -9,13 +9,13 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class EventController extends Controller
 {
     public function index()
-{
-    $events = Event::orderBy('event_date', 'asc')->get();
-    return view('events.index', compact('events'));
-}
+    {
+        $events = Event::orderBy('event_date', 'asc')->get();
+        return view('events.index', compact('events'));
+    }
 
 
-    
+
 
     public function Store(Request $request)
     {
@@ -76,65 +76,71 @@ class EventController extends Controller
 
 
     public function Search(Request $request)
-{
-    $query = $request->input('query');
-    $location = $request->input('location');
-    $date = $request->input('date');
+    {
+        $query = $request->input('query');
+        $location = $request->input('location');
+        $date = $request->input('date');
 
-    // Build the query dynamically
-    $events = Event::query();
+        // Build the query dynamically
+        $events = Event::query();
 
-    // Apply filters only if the corresponding field is filled
-    if ($query) {
-        $events->where('event_name', 'LIKE', "%{$query}%");
+        // Apply filters only if the corresponding field is filled
+        if ($query) {
+            $events->where('event_name', 'LIKE', "%{$query}%");
+        }
+
+        // Apply filters only if the corresponding field is filled
+        if ($location) {
+            $events->where('location', 'LIKE', "%{$location}%");
+        }
+
+        if ($date) {
+            $events->whereDate('event_date', $date);
+        }
+
+        // Handle the case where no filters are applied
+        if (empty($query) && empty($location) && empty($date)) {
+            $events->whereRaw('1 = 0'); // Ensures no results are returned
+        }
+
+        // Apply ordering and pagination
+        $events = $events->orderBy('event_date', 'asc')->paginate(8);
+
+        return view('results', compact('events', 'query', 'location', 'date'));
     }
 
-    // Apply filters only if the corresponding field is filled
-    if ($location) {
-        $events->where('location', 'LIKE', "%{$location}%");
-    }
 
-    if ($date) {
-        $events->whereDate('event_date', $date);
-    }
-
-    // Handle the case where no filters are applied
-    if (empty($query) && empty($location) && empty($date)) {
-        $events->whereRaw('1 = 0'); // Ensures no results are returned
-    }
-
-    // Apply ordering and pagination
-    $events = $events->orderBy('event_date', 'asc')->paginate(8);
-
-    return view('results', compact('events', 'query', 'location', 'date'));
-}
     // Update the event
-    public function Update(Request $request, $id){
+    public function Update(Request $request, $id)
+    {
+        // Find the event by its ID
+        $event = Event::find($id);
 
+        // If event does not exist, return a 404 response
+        if (!$event) {
+            return response()->view('errors.404', [], 404); // You can create a custom 404 page
+        }
 
         // Validate the updated event details
         $validated = $request->validate([
-            'event_name' => 'required|string|min: 3|max:255',
+            'event_name' => 'required|string|min:3|max:255',
             'event_date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'),
             'location' => 'required|string|min:3|max:255',
-            'description' => 'nullable|string|min:20 |max:2000',
-            'ticket_link' => 'required|string|min:10 |max:255',
+            'description' => 'nullable|string|min:20|max:2000',
+            'ticket_link' => 'required|string|min:10|max:255',
         ], [
             'event_date.after_or_equal' => 'The event date must be today or in the future.',
         ]);
 
-        // Find the event by its ID and update its details  
-        $event = Event::find($id);
+        // Update the event details
         $event->event_name = $validated['event_name'];
         $event->event_date = $validated['event_date'];
         $event->location = $validated['location'];
         $event->description = $validated['description'];
         $event->ticket_link = $validated['ticket_link'];
         $event->save();
+
+        // Redirect back with a success message
         return redirect('/admin/dashboard/events/edit/' . $id)->with('success', 'Event updated successfully!');
-        
     }
-
 }
-
-
