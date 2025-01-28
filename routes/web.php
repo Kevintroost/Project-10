@@ -12,7 +12,7 @@ use App\Models\FotoGalerie;
 use App\Http\Controllers\NewsletterSubscriberController;
 use App\Models\EventRequest;
 use App\Models\Review;
-use\App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ReviewController;
 
 
 Route::get('/', function () {
@@ -37,8 +37,7 @@ Route::get('/admin', function () {
 });
 
 Route::get('/events/index', function () {
-    $events = Event::all();
-    $events = Event::orderBy('event_date')->paginate(8);
+    $events = Event::orderBy('event_date', 'asc')->paginate(8); // Order directly in the query
     return view('events.index', compact('events'));
 });
 
@@ -141,4 +140,5 @@ Route::post('event-request/store', [EventRequestController::class, 'store'])->na
 Route::get('contact/create', [ContactFormController::class, 'Create'])->name('contact.create');
 Route::post('contact/store', [ContactFormController::class, 'Store'])->name('contact.store');
 
-Route::post('/review/create', [ReviewController::class, 'store']);
+Route::get('review/create', [ReviewController::class, 'Create'])->name('review.create');
+Route::post('review/store', [ReviewController::class, 'Store'])->name('review.store');

@@ -151,10 +151,12 @@ export default {
         review: this.review.review,
       };
 
+      console.log("Data being sent to the backend:", reviewData);
+
       try {
         // Send POST request to the backend API
         const response = await axios.post(
-          "http://localhost/Project-10/public/api/review/create",
+          "http://localhost/Project-10/public/review/store",
           reviewData
         );
 

@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
+
+
+    public function create()
+    {
+
+        return view('review.create');
+
+
+    }
     // Store a new review
     public function store(Request $request)
     {
@@ -19,12 +28,15 @@ class ReviewController extends Controller
         ]);
 
         // Create a new review in the database
-        $review = Review::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'rating' => $validated['rating'],
-            'review' => $validated['review'],
-        ]);
+        $review = new Review();
+        $review->name = $validated['name'];
+        $review->email = $validated['email'];
+        $review->rating = $validated['rating'];
+        $review->review = $validated['review'];
+        $review->save();
+
+        // Return a success message
+
 
         return response()->json(['message' => 'Review submitted successfully!'], 200);
     }

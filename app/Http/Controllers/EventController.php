@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index()
 {
-    $events = Event::orderBy('event_date', 'asc')->get();
+    $events = Event::orderByRaw('STR_TO_DATE(event_date, "%Y-%m-%d") asc')->paginate(8);
     return view('events.index', compact('events'));
 }
 
