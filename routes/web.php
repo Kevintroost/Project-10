@@ -12,7 +12,7 @@ use App\Models\FotoGalerie;
 use App\Http\Controllers\NewsletterSubscriberController;
 use App\Models\EventRequest;
 use App\Models\Review;
-
+use\App\Http\Controllers\ReviewController;
 
 
 Route::get('/', function () {
@@ -141,3 +141,5 @@ Route::post('event-request/store', [EventRequestController::class, 'store'])->na
 
 Route::get('contact/create', [ContactFormController::class, 'Create'])->name('contact.create');
 Route::post('contact/store', [ContactFormController::class, 'Store'])->name('contact.store');
+
+Route::post('/review/create', [ReviewController::class, 'store']);
