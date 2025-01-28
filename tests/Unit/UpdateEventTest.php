@@ -55,7 +55,7 @@ class UpdateEventTest extends TestCase
     /** @test */
     public function Update_Event_Failed()
     {
-
+        // Create a user and authenticate
         $user = User::factory()->create();
         $this->actingAs($user);
         
@@ -67,12 +67,11 @@ class UpdateEventTest extends TestCase
             'description' => 'This is an updated description for the event.',
             'ticket_link' => 'https://example.com/tickets',
         ];
-
+    
         // Perform the update request with an invalid ID
         $response = $this->patch('/admin/dashboard/events/edit/9999', $updatedata);
-
-        // Assert a 404 response
+    
+        // Assert a 404 response (event not found)
         $response->assertStatus(404);
     }
-
-}
+}    
