@@ -89,6 +89,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/admin/dashboard/events/edit/{id}', [EventController::class, 'update'])->name('events.edit');
     
 
+    Route::get('admin/dashboard/reviews/index', function () {
+        $reviews = Review::all();
+        return view('reviews.index', compact('reviews'));
+    })->name('reviews.index');
+
 
 
 
