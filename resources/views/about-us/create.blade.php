@@ -125,32 +125,17 @@
     <div class="mb-6">
       <h2 class="text-2xl font-bold text-gray-800 flex items-center">
         Reviews
-        <span class="ml-2 text-yellow-500 flex">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-          </svg>
-        </span>
+        
       </h2>
-      <p class="text-gray-600 text-sm">(4.6) <a href="#" class="text-blue-500 underline">{{$totalreviews}} Reviews</a>
+      
+      <p class="text-gray-600 text-sm"><a  class="text-blue-500 underline">{{$totalreviews}} Reviews</a>
       </p>
     </div>
 
     <!-- pop up form -->
     <div id="app">
       <div class="mb-6">
-        <p class="text-4xl font-bold text-gray-800 mb-2">4.65 out of 5</p>
+        
         <!-- <button @click="openModal"
           class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600">Write a review</button> -->
         <review-form></review-form>

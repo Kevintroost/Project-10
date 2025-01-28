@@ -171,6 +171,9 @@ export default {
 
         // Close the modal after submission
         this.closeModal();
+
+        // Reload the page
+        window.location.reload();
       } catch (error) {
         console.error("Error submitting review:", error);
         // Handle error (optional)
@@ -179,9 +182,3 @@ export default {
   },
 };
 </script>
-
-  
-  <style scoped>
-/* Add any necessary styles here */
-</style>
-  
