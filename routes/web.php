@@ -115,6 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard/contact/index', function () {
 
         $contacts = ContactForm::all();
+        $contacts = ContactForm::orderBy('created_at', 'desc')->paginate(4);
         return view('contact.index', compact('contacts'));
     })->name('contact.index');
 
