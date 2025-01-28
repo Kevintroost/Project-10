@@ -6,12 +6,15 @@ const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import TaskList from './components/EventRequestTaskList.vue';
+import ReviewForm from './components/ReviewForm.vue';
+
 
 // motion package  
 import { MotionPlugin } from '@vueuse/motion';
 // 
 app.component('example-component', ExampleComponent);
-app.component('task-list', TaskList)
+app.component('task-list', TaskList);
+app.component('review-form', ReviewForm);
 
 
 
