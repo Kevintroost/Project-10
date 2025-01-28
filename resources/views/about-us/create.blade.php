@@ -143,14 +143,14 @@
           </svg>
         </span>
       </h2>
-      <p class="text-gray-600 text-sm">(4.6) <a href="#" class="text-blue-500 underline">{{$totalreviews}} Reviews</a>
+      <p class="text-gray-600 text-sm"><a href="#" class="text-blue-500 underline">{{$totalreviews}} Reviews</a>
       </p>
     </div>
 
     <!-- pop up form -->
     <div id="app">
       <div class="mb-6">
-        <p class="text-4xl font-bold text-gray-800 mb-2">4.65 out of 5</p>
+        
         <!-- <button @click="openModal"
           class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600">Write a review</button> -->
         <review-form></review-form>
