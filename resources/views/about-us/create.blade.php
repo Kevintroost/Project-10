@@ -186,11 +186,84 @@
       </div>
     @endforeach
 
-      @if(session('success'))
-      <script>
-      window.location.reload(); 
-      </script>
-    @endif
+    <div class="flex items-center justify-center space-x-2 mt-4">
+                        <!-- Previous Button -->
+                        @if ($reviews->onFirstPage())
+                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                                Previous
+                            </button>
+                        @else
+                            <a href="{{ $reviews->previousPageUrl() }}"
+                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                Previous
+                            </a>
+                        @endif
+
+                        <!-- Page Numbers -->
+                        @if ($reviews->lastPage() > 9)
+                            @if ($reviews->currentPage() > 4)
+                                <a href="{{ $reviews->url(1) }}"
+                                    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                    1
+                                </a>
+                                @if ($reviews->currentPage() > 5)
+                                    <span class="px-4 py-2">...</span>
+                                @endif
+                            @endif
+
+                            @for ($i = max(1, $reviews->currentPage() - 1); $i <= min($reviews->lastPage(), $reviews->currentPage() + 1); $i++)
+                                @if ($i == $reviews->currentPage())
+                                    <button
+                                        class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                                        {{ $i }}
+                                    </button>
+                                @else
+                                    <a href="{{ $reviews->url($i) }}"
+                                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                        {{ $i }}
+                                    </a>
+                                @endif
+                            @endfor
+
+                            @if ($reviews->currentPage() < $reviews->lastPage() - 3)
+                                @if ($reviews->currentPage() < $reviews->lastPage() - 4)
+                                    <span class="px-4 py-2">...</span>
+                                @endif
+                                <a href="{{ $reviews->url($reviews->lastPage()) }}"
+                                    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                    {{ $reviews->lastPage() }}
+                                </a>
+                            @endif
+                        @else
+                            @for ($i = 1; $i <= $reviews->lastPage(); $i++)
+                                @if ($i == $reviews->currentPage())
+                                    <button
+                                        class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                                        {{ $i }}
+                                    </button>
+                                @else
+                                    <a href="{{ $reviews->url($i) }}"
+                                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                        {{ $i }}
+                                    </a>
+                                @endif
+                            @endfor
+                        @endif
+
+                        <!-- Next Button -->
+                        @if ($reviews->hasMorePages())
+                            <a href="{{ $reviews->nextPageUrl() }}"
+                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                Next
+                            </a>
+                        @else
+                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                                Next
+                            </button>
+                        @endif
+                    </div>
+                </div>
+            </div>
 
       <div class="flex items-center text-sm text-gray-600">
       </div>

@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Unit;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;

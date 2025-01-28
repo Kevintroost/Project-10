@@ -2,9 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Models\EventRequest;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
 
 class StoreEventRequestTest extends TestCase

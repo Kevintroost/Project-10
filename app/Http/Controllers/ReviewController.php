@@ -15,6 +15,8 @@ class ReviewController extends Controller
         $totalreviews = Review::count();
         $reviews = Review::all();
 
+        $reviews = Review::orderBy('created_at', 'desc')->paginate(3);
+
         // Return the view with the necessary data
         return view('about-us.create', compact('totalreviews', 'reviews'));
     }
