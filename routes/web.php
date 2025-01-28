@@ -39,6 +39,7 @@ Route::get('/admin', function () {
 Route::get('/events/index', function () {
     $events = Event::whereNotNull('id')  // Only valid dates
                    ->orderBy('id', 'asc')         // Order by ID
+                   ->orderBy('event_date', 'asc') // Order by date
                    ->paginate(8);                  // Paginate results
     return view('events.index', compact('events'));
 });
