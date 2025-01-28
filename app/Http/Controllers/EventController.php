@@ -89,6 +89,7 @@ class EventController extends Controller
         $events->where('event_name', 'LIKE', "%{$query}%");
     }
 
+    // Apply filters only if the corresponding field is filled
     if ($location) {
         $events->where('location', 'LIKE', "%{$location}%");
     }
