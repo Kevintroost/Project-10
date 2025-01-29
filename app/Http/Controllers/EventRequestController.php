@@ -36,11 +36,11 @@ class EventRequestController extends Controller
         try {
             // Validate the form data 
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'email' => 'required|email|max:255',
+                'name' => 'required|string|min: 3 |max:255',
+                'email' => 'required|email|min: 3 |max:255',
                 'phone' => 'required|regex:/^[0-9\-\(\)\s]+$/|min:5|max:20',
                 'location' => 'required|string|min: 3 |max:255',
-                'date' => 'required|date',
+                'date' => 'required|date|after_or_equal:' . now()->format('Y-m-d'),
                 'details' => 'required|string |min:10 |max:1000',
             ]);
 

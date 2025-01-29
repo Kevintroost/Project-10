@@ -25,10 +25,10 @@ class ReviewController extends Controller
     {
         // Validate the incoming request
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'name' => 'required|string|min: 3 |max:255',
+            'email' => 'required|email|min: 3|max:255',
             'rating' => 'required|integer|between:1,5',
-            'review' => 'required|string|max:1000',
+            'review' => 'required|string|min:10|max:1000',
         ]);
 
         // Create a new review in the database

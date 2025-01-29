@@ -63,6 +63,8 @@ Route::get('/events/show/{id}', function ($id) {
 Route::get('/results', [EventController::class, 'Search'])->name('results');
 
 
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/dashboard', function () {
         $totalevent = Event::count();
@@ -97,13 +99,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/admin/dashboard/events/edit/{id}', [EventController::class, 'update'])->name('events.edit');
     
 
-    Route::get('admin/dashboard/reviews/index', function () {
+    Route::get('admin/dashboard/about-us/index', function () {
         $reviews = Review::all();
         $reviews = Review::orderBy('created_at', 'desc')->paginate(4);
-        return view('review.index', compact('reviews'));
-    })->name('review.index');
+        return view('about-us.index', compact('reviews'));
+    })->name('about-us.index');
 
-    Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('review.destroy');
+    Route::delete('/reviews/{id}', [ReviewController::class, 'Destroy'])->name('review.destroy');
 
 
 
@@ -132,12 +134,9 @@ Route::group(['middleware' => 'auth'], function () {
         return view('contact.index', compact('contacts'));
     })->name('contact.index');
 
-    Route::delete('/contacts/{id}', [ContactFormController::class, 'destroy'])->name('contact.destroy');
+    Route::delete('/contacts/{id}', [ContactFormController::class, 'Destroy'])->name('contact.destroy');
 
 });
-
-
-
 
 
 
