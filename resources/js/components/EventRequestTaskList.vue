@@ -20,7 +20,7 @@
 
   <h1 class="text-4xl font-bold border-b border-gray-300 ml-4 mb-6 pt-6 pb-2 ">Event requests </h1>
   <!-- Containers for each section -->
-  <div v-for="status in statuses" :key="status" class="flex-1 bg-white border border-gray-200 rounded-lg shadow-md p-8 m-4" @dragover.prevent="handleDragOver"
+  <div v-for="status in statuses" :key="status" class="flex-1 bg-white border border-gray-300 rounded-lg shadow-md p-8 m-4" @dragover.prevent="handleDragOver"
     @drop="handleDrop(status)">
     
     <h1 @click="toggleFold(status)"

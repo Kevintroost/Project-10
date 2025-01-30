@@ -22,7 +22,7 @@
             <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-6">Reviews</h1>
 
             @foreach ($reviews as $review)
-                <div class="flex flex-wrap items-center justify-between border rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
+                <div class="flex flex-wrap items-center justify-between border border-gray-300 rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
                     <div class="flex-1 min-w-0 max-w-xs">
                         <p class="text-sm text-gray-700 font-medium break-words mr-2">{{ $review->name }}</p>
                     </div>
