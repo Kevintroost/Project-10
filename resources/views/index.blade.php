@@ -11,7 +11,7 @@
                 <!-- SEO optimized heading -->
                 <h1
                     class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                    Transform Your Events, Elevate Your Experiences
+                    Transform your events, elevate your experiences
                 </h1>
 
                 <!-- SEO optimized paragraph with more details -->
@@ -84,7 +84,7 @@
             <!-- Centered Section Title -->
             <div class="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto">
                 <h2 class="mb-4 text-4xl font-extrabold text-gray-900">
-                    Discover More
+                    Discover more
                 </h2>
             </div>
 
@@ -164,7 +164,7 @@
             <!-- Text Section -->
             <div class="mt-4 md:mt-0">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-                    Discover, Connect, and Celebrate with Us
+                    Discover, connect, and celebrate with us
                 </h2>
                 <p class="mb-2 font-light text-gray-400 md:text-lg dark:text-gray-400">
                     Join us as we explore new ways to make events more engaging and inclusive. With tools that enhance
@@ -189,7 +189,7 @@
             <!-- Text Section -->
             <div class="mt-4 md:mt-0">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-                    Unleash the Power of Events with Unforgettable Experiences
+                    Unleash the power of events with unforgettable experiences
                 </h2>
                 <p class="mb-6 font-light text-gray-400 md:text-lg">
                     Experience the thrill of live music, the joy of celebrations, and the excitement of unique events.
