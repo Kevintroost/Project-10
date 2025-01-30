@@ -13,6 +13,85 @@
 
     <section class="bg-white antialiased">
         <div class="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-16">
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="{{ url('index') }}" class="text-gray-700 hover:text-blue-600">
+
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <a href="{{ url('events/index') }}"
+                                class="ml-1 text-gray-700 hover:text-blue-600 md:ml-2">Events</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-1 text-gray-500 md:ml-2">{{ request('query') ?: 'Results' }}</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav></svg>
+
+            <div class="flex items-center bg-white rounded-lg shadow-lg px-4  mb-16 border border-gray-200 ">
+
+                <form action="{{ route('results') }}" method="GET" class="flex items-center bg-white   p-4">
+
+                    <!-- Search Event Input with placeholder including keywords -->
+                    <div class="flex items-center border-r border-gray-300 pr-4">
+                        <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z" />
+                        </svg>
+                        <input type="text" name="query" placeholder="Search for events"
+                            class="ml-2 focus:outline-none text-gray-600" aria-label="Search for events" />
+                    </div>
+
+                    <!-- Search Location Dropdown with descriptive placeholder -->
+                    <div class="flex items-center border-r border-gray-300 px-4">
+                        <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.8 13.938h-.011a7 7 0 1 0-11.464.144h-.016l.14.171c.1.127.2.251.3.371L12 21l5.13-6.248c.194-.209.374-.429.54-.659l.13-.155Z" />
+                        </svg>
+                        <input type="text" name="location" placeholder="Enter event location"
+                            class="ml-2 focus:outline-none text-gray-600" aria-label="Enter event location" />
+                    </div>
+
+                    <!-- Date picker with a better description -->
+                    <div class="flex items-center px-4">
+                        <input type="date" name="date" class="ml-2 focus:outline-none text-gray-400 bg-transparent"
+                            aria-label="Select event date" />
+                    </div>
+
+                    <!-- Search Button with improved accessibility -->
+                    <button class="ml-4 p-2 bg-blue-600 text-white rounded-full shadow-md"
+                        aria-label="Search for events">
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
             <div class="-my-4 divide-y divide-gray-200 dark:divide-neutral-800">
                 @if ($events->isEmpty())
                     <div class="text-center py-8">
@@ -81,8 +160,7 @@
                         {{ $i }}
                     </button>
                 @else
-                    <a href="{{ $events->url($i) }}"
-                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">
+                    <a href="{{ $events->url($i) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">
                         {{ $i }}
                     </a>
                 @endif
