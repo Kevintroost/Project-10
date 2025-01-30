@@ -35,7 +35,7 @@
 
         <div class="px-4 py-3">
         <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</span>
-        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">OpusEvents</span>
+        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">Event account</span>
         </div>
         <ul class="pt-2 pb-1" aria-labelledby="user-menu-button">
         <li>
