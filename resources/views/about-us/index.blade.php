@@ -1,4 +1,4 @@
-<x-admin-layout :title="'Contact request | Opus Events'">
+<x-admin-layout :title="'Reviews | Opus Events'">
     @if(session('success'))
         <div class="w-full pt-6 px-6 items-center">
             <div class="flex items-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
@@ -19,7 +19,7 @@
 
     <section class="p-6 flex flex-row gap-6 max-w-screen-xl mx-auto">
         <div class="flex flex-col items-stretch w-full">
-            <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-6">Reviews requests</h1>
+            <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-6">Reviews</h1>
 
             @foreach ($reviews as $review)
                 <div class="flex flex-wrap items-center justify-between border rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
