@@ -114,7 +114,7 @@
 
                         <!-- Tickets & Info button on the right -->
                         <a href="{{ route('events.show', ['id' => $event->id]) }}"
-                            class="bg-neutral-800 text-white px-4 py-2 rounded hover:bg-gray-600">
+                            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-400">
                             Tickets & Info
                         </a>
                     </div>
