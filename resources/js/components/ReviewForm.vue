@@ -5,7 +5,7 @@
       @click="openModal"
       class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
     >
-      Write a Review
+      Write a review
     </button>
 
     <!-- Modal -->

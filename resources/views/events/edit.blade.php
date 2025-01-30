@@ -1,4 +1,4 @@
-<x-admin-layout :title="'Create events | Opus Events'">
+<x-admin-layout :title="'Update events | Opus Events'">
     @if(session('success'))
         <div class="w-full pt-6 px-6 items-center">
             <div class="flex items-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
