@@ -145,31 +145,32 @@
 
 
     <div>
-      @foreach ($reviews as $review)
-      <!-- Review -->
-      <div class="border-t border-gray-200 pt-6 mb-6">
-      <div class="flex items-center mb-2">
-        <div class="flex text-yellow-500">
-        <p class="mr-2 text-gray-800 font-semibold">{{ $review->name }}</p>
+    @foreach ($reviews as $review)
+    <!-- Review -->
+    <div class="border-t border-gray-200 pt-6 mb-6">
+        <div class="flex items-center mb-2 space-x-2"> 
+            <p class="text-gray-800 font-semibold break-words max-w-xs">{{ $review->name }}</p> 
 
-        <!-- Loop through rating to display stars -->
-        @for ($i = 1; $i <= 5; $i++)
-      @if ($i <= $review->rating)
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-      </svg>
-    @else
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-5 h-5"
-      viewBox="0 0 24 24">
-      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-      </svg>
-    @endif
-    @endfor
+            
+            <div class="flex text-yellow-500">
+                @for ($i = 1; $i <= 5; $i++)
+                    @if ($i <= $review->rating)
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+                        </svg>
+                    @else
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+                        </svg>
+                    @endif
+                @endfor
+            </div>
         </div>
-      </div>
-      <p class="text-gray-600 text-sm">{{ $review->review }}</p>
-      </div>
-    @endforeach
+        <p class="text-gray-600 text-sm break-words max-w-full">{{ $review->review }}</p> 
+    </div>
+@endforeach
+
+
 
     <div class="flex items-center justify-center space-x-2 mt-4">
                         <!-- Previous Button -->

@@ -24,13 +24,13 @@
             @foreach ($reviews as $review)
                 <div class="flex flex-wrap items-center justify-between border rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
                     <div class="flex-1 min-w-0 max-w-xs">
-                        <p class="text-sm text-gray-700 font-medium break-words">{{ $review->name }}</p>
+                        <p class="text-sm text-gray-700 font-medium break-words mr-2">{{ $review->name }}</p>
                     </div>
                     <div class="flex-1 min-w-0 max-w-xs">
                         <a href="mailto:{{ $review->email }}" class="text-sm text-gray-700 hover:underline break-words">{{ $review->email }}</a>
                     </div>
                     <div class="flex-1 min-w-0 max-w-xs">
-                        <p class="text-sm text-gray-700">{{ $review->rating }}</p>
+                        <p class="text-sm text-gray-700 ml-4">{{ $review->rating }}</p>
                     </div>
                     <div class="flex-1 min-w-0 max-w-xs">
                         <p class="text-sm text-gray-700 break-words">{{ $review->review }}</p>
