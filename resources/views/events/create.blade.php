@@ -19,7 +19,7 @@
 
   <section class="px-6 pt-6 flex gap-6">
     <!-- Left: Create Event Form -->
-    <div class="w-full sm:w-1/2 bg-white p-8 border border-gray-200 shadow-md rounded-md">
+    <div class="w-full sm:w-1/2 bg-white p-8 border border-gray-300 shadow-md rounded-md">
       <h2 class="text-2xl font-semibold mb-4">Create a New Event</h2>
       <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -122,7 +122,7 @@
     </div>
 
     <!-- Right: List of Events -->
-    <div class="w-full sm:w-1/2 bg-white border border-gray-200 rounded-lg shadow-md p-8 flex flex-col max-h-[46rem]">
+    <div class="w-full sm:w-1/2 bg-white border border-gray-300 rounded-lg shadow-md p-8 flex flex-col max-h-[46rem]">
       <h2 class="text-2xl font-semibold mb-4">Events</h2>
       <div class="grid grid-cols-1 gap-6">
         @foreach ($events as $event)

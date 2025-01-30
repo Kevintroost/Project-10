@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 gap-6 bg-gray-50">
+  <div class="grid grid-cols-1 gap-6 ">
     <!-- Success Message (Appears on top of the page) -->
 
 
@@ -18,10 +18,11 @@
     </div>
   </div>
 
-
+  <h1 class="text-4xl font-bold border-b border-gray-300 ml-4 mb-6 pt-6 pb-2 ">Event requests </h1>
   <!-- Containers for each section -->
-  <div v-for="status in statuses" :key="status" class="flex-1 p-4 bg-gray-50" @dragover.prevent="handleDragOver"
+  <div v-for="status in statuses" :key="status" class="flex-1 bg-white border border-gray-300 rounded-lg shadow-md p-8 m-4" @dragover.prevent="handleDragOver"
     @drop="handleDrop(status)">
+    
     <h1 @click="toggleFold(status)"
       class="text-2xl font-semibold border-b border-gray-300 pb-2 mb-6 cursor-pointer flex items-center">
       <span class="mr-2">
@@ -40,7 +41,7 @@
 
     <div v-if="!foldedStatuses[status]" class="space-y-6">
       <div v-for="(element, index) in eventRequests[status]" :key="element.id"
-        class="bg-gray-300 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform cursor-move"
+        class="bg-gray-50 p-6 rounded-lg shadow-md border border-gray-300 hover:shadow-xl transition-all duration-300 ease-in-out transform cursor-move"
         draggable="true" @dragstart="handleDragStart(status, index)">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4 truncate">{{ element.name }}</h2>
         <div class="text-gray-900">
