@@ -226,7 +226,7 @@
                     alt="Sebastiaan Kloos, CEO of NeuroSync Technologies" loading="lazy">
 
                 <!-- Author Info with Link -->
-                <a target="_blank" rel="noopener noreferrer"
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                     class="inline-block font-bold tracking-tight">
                     <p>Elara Voss</p>
                     <p class="font-medium text-black/60">CEO of NeuroSync Technologies</p>
