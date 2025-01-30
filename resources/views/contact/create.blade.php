@@ -39,7 +39,7 @@
         <div class="w-full max-w-6xl flex flex-col md:flex-row items-start space-y-8 md:space-y-0 md:space-x-8">
             <!-- Form Section -->
             <div class="w-full md:w-1/2 bg-white text-gray-800 rounded-lg shadow-lg p-8">
-                <h2 class="text-3xl font-semibold mb-4 text-center md:text-left">Contact Us</h2>
+                <h2 class="text-3xl font-semibold mb-4 text-center md:text-left">Contact us</h2>
                 <p class="text-center md:text-left mb-6 text-gray-600">Use this form for all general inquiries. We
                     monitor these responses constantly during working hours.</p>
                 <form action="{{ route('contact.store') }}" method="POST" id="contactForm">
@@ -47,7 +47,7 @@
                     <div class="grid grid-cols-1 gap-6">
                         <!-- Name Field -->
                         <div>
-                            <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
+                            <label for="name" class="block text-sm font-medium mb-2">Full name</label>
                             <input type="text" name="name" id="name" value="{{ old('name') }}"
                                 class="w-full bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Enter your name" required>
@@ -71,7 +71,7 @@
 
                         <!-- Phone Field -->
                         <div>
-                            <label for="phone" class="block text-sm font-medium mb-2">Phone Number</label>
+                            <label for="phone" class="block text-sm font-medium mb-2">Phone number</label>
                             <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
                                 class="w-full bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Enter your phone number" required>
@@ -106,7 +106,7 @@
                     width="550" height="315" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="w-full bg-white text-gray-800 rounded-lg shadow-lg p-8">
-                    <h1 class="text-2xl font-semibold mb-4">Contact Details</h1>
+                    <h1 class="text-2xl font-semibold mb-4">Contact details</h1>
                     <div class="flex items-center space-x-2 mb-2">
                         <span class="text-red-500">
                             <svg class="w-5 h-5 text-blue-700" aria-hidden="true"
@@ -154,7 +154,7 @@
 
         <!-- FAQ Section -->
         <div class="max-w-3xl mt-20 my-8">
-            <h1 class="text-3xl font-extrabold text-center mb-8">Frequently Asked Questions</h1>
+            <h1 class="text-3xl font-extrabold text-center mb-8">Frequently asked questions</h1>
 
             <!-- FAQ Accordion Container -->
             <div class="space-y-4">
