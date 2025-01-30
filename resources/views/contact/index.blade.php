@@ -19,10 +19,10 @@
             <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-6">Contact requests</h1>
 
             @foreach ($contacts as $contact)
-                <div class="flex flex-row items-center justify-between border rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
-                    <!-- Name field -->
-                    <div class="flex-1 w-1/5 mr-4">
-                        <p class="text-sm text-gray-700 font-medium break-words">{{ $contact->name }}</p>
+                <div
+                    class="flex flex-row items-center justify-between border border-gray-300 rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
+                    <div class="flex-1">
+                        <p class="text-sm text-gray-700 font-medium">{{ $contact->name }}</p>
                     </div>
                     <!-- Email field -->
                     <div class="flex-1 w-1/5 mr-4">
@@ -55,11 +55,12 @@
             <div class="flex items-center justify-center space-x-2 mt-12">
                 <!-- Previous Button -->
                 @if ($contacts->onFirstPage())
-                    <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                    <button class="px-4 py-2 text-gray-500 bg-white rounded-md cursor-not-allowed" disabled>
                         Previous
                     </button>
                 @else
-                    <a href="{{ $contacts->previousPageUrl() }}" class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                    <a href="{{ $contacts->previousPageUrl() }}"
+                        class="px-4 py-2 text-gray-500 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                         Previous
                     </a>
                 @endif
@@ -67,7 +68,8 @@
                 <!-- Page Numbers -->
                 @if ($contacts->lastPage() > 9)
                     @if ($contacts->currentPage() > 4)
-                        <a href="{{ $contacts->url(1) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        <a href="{{ $contacts->url(1) }}"
+                            class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                             1
                         </a>
                         @if ($contacts->currentPage() > 5)
@@ -81,7 +83,8 @@
                                 {{ $i }}
                             </button>
                         @else
-                            <a href="{{ $contacts->url($i) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            <a href="{{ $contacts->url($i) }}"
+                                class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                                 {{ $i }}
                             </a>
                         @endif
@@ -91,7 +94,8 @@
                         @if ($contacts->currentPage() < $contacts->lastPage() - 4)
                             <span class="px-4 py-2">...</span>
                         @endif
-                        <a href="{{ $contacts->url($contacts->lastPage()) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        <a href="{{ $contacts->url($contacts->lastPage()) }}"
+                            class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                             {{ $contacts->lastPage() }}
                         </a>
                     @endif
@@ -102,7 +106,8 @@
                                 {{ $i }}
                             </button>
                         @else
-                            <a href="{{ $contacts->url($i) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            <a href="{{ $contacts->url($i) }}"
+                                class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                                 {{ $i }}
                             </a>
                         @endif
@@ -111,7 +116,8 @@
 
                 <!-- Next Button -->
                 @if ($contacts->hasMorePages())
-                    <a href="{{ $contacts->nextPageUrl() }}" class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                    <a href="{{ $contacts->nextPageUrl() }}"
+                        class="px-4 py-2 text-gray-500 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                         Next
                     </a>
                 @else

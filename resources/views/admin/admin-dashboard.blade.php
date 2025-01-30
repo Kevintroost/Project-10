@@ -3,7 +3,7 @@
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 ">
     <!-- Card 1 -->
-    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between border border-gray-300">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
           <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -21,7 +21,7 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between border border-gray-300">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
           <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -40,7 +40,7 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between border border-gray-300">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
           <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -59,7 +59,7 @@
     </div>
 
     <!-- Card 4 -->
-    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between">
+    <div class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between border border-gray-300">
       <div class="flex items-center">
         <div class="bg-blue-100 p-3 rounded-full">
           <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -79,7 +79,7 @@
   <section class="p-6">
     <div class="flex flex-wrap gap-4">
 
-    <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[49.5%]">
+    <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[49.5%] border border-gray-300">
 
     @if(session('success'))
             <div class="w-full mb-2 max-w-2xl">
@@ -102,7 +102,7 @@
         <h2 class="text-2xl font-semibold mb-4">Create a Newsletter</h2>
         <form action="{{ route('newsletter.create') }}" method="POST" enctype="multipart/form-data">
           @csrf
-          <div class="grid grid-cols-1 gap-4">
+          <div class="grid grid-cols-1 gap-4 ">
 
             <div>
               <label for="event-name" class="block text-sm font-medium text-gray-700">Titel</label>
@@ -148,8 +148,9 @@
           </div>
         </form>
       </div>
+      
 
-      <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[24%]">
+      <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[24%] border border-gray-300">
         <h2 class="text-lg font-semibold text-gray-800">External Links</h2>
         <p class="text-sm text-gray-500 mb-4">Our social media</p>
 
@@ -366,7 +367,7 @@
           </li>
         </ul>
       </div>
-      <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[23.75%]">
+      <div class="bg-white p-6 shadow-md rounded-md w-1/2 max-w-[23.75%] border border-gray-300">
         <h2 class="text-lg font-semibold text-gray-800">Admin Profile</h2>
 
         <div class="p-16 text-center ">

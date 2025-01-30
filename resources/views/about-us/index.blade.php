@@ -53,12 +53,12 @@
             <div class="flex items-center justify-center space-x-2 mt-12">
                 <!-- Previous Button -->
                 @if ($reviews->onFirstPage())
-                    <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                    <button class="px-4 py-2 text-gray-500 bg-white rounded-md cursor-not-allowed" disabled>
                         Previous
                     </button>
                 @else
                     <a href="{{ $reviews->previousPageUrl() }}"
-                        class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        class="px-4 py-2 text-gray-500 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                         Previous
                     </a>
                 @endif
@@ -67,7 +67,7 @@
                 @if ($reviews->lastPage() > 9)
                     @if ($reviews->currentPage() > 4)
                         <a href="{{ $reviews->url(1) }}"
-                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                             1
                         </a>
                         @if ($reviews->currentPage() > 5)
@@ -82,7 +82,7 @@
                             </button>
                         @else
                             <a href="{{ $reviews->url($i) }}"
-                                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                                 {{ $i }}
                             </a>
                         @endif
@@ -93,7 +93,7 @@
                             <span class="px-4 py-2">...</span>
                         @endif
                         <a href="{{ $reviews->url($reviews->lastPage()) }}"
-                            class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                            class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                             {{ $reviews->lastPage() }}
                         </a>
                     @endif
@@ -105,7 +105,7 @@
                             </button>
                         @else
                             <a href="{{ $reviews->url($i) }}"
-                                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                                class="px-4 py-2 text-gray-700 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                                 {{ $i }}
                             </a>
                         @endif
@@ -115,11 +115,11 @@
                 <!-- Next Button -->
                 @if ($reviews->hasMorePages())
                     <a href="{{ $reviews->nextPageUrl() }}"
-                        class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+                        class="px-4 py-2 text-gray-500 bg-white rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                         Next
                     </a>
                 @else
-                    <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+                    <button class="px-4 py-2 text-gray-500 bg-white rounded-md cursor-not-allowed" disabled>
                         Next
                     </button>
                 @endif
