@@ -10,10 +10,4 @@ class FotoGalerie extends Model
     use HasFactory;
 
     protected $fillable = ['foto', 'admin_id'];
-
-    public function event()
-    {
-        return $this->belongsTo(Event::class);
-    }
-
 }
