@@ -27,6 +27,9 @@ The Opus Events platform aims to streamline the process of organizing and managi
 ### Scraper
 https://github.com/PERENSAPP/scraper
 
+### Trello
+https://trello.com/invite/b/673710849fab69db902f2f8e/ATTI606fefb6e4002399cc197dcc9e5497207DC89755/project-event-managment
+
 
 
 [Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
