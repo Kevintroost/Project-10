@@ -132,7 +132,7 @@
 
                             <!-- Tickets & Info button on the right -->
                             <a href="{{ route('events.show', ['id' => $event->id]) }}"
-                                class="bg-neutral-800 text-white px-4 py-2 rounded hover:bg-gray-600">
+                                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-gray-600">
                                 Tickets & Info
                             </a>
                         </div>
@@ -148,7 +148,7 @@
                     Previous
                 </button>
             @else
-                <a href="{{ $events->previousPageUrl() }}"
+                <a href="{{ $events->appends(request()->query())->previousPageUrl() }}"
                     class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
                     Previous
                 </a>
@@ -160,14 +160,14 @@
                         {{ $i }}
                     </button>
                 @else
-                    <a href="{{ $events->url($i) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">
+                    <a href="{{ $events->appends(request()->query())->url($i) }}" class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">
                         {{ $i }}
                     </a>
                 @endif
             @endfor
 
             @if ($events->hasMorePages())
-                <a href="{{ $events->nextPageUrl() }}"
+                <a href="{{ $events->appends(request()->query())->nextPageUrl() }}"
                     class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200">
                     Next
                 </a>
