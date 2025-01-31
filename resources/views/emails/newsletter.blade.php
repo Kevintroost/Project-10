@@ -72,7 +72,7 @@
     .button {
       display: inline-block;
       background-color: #2563EB;
-      color: #ffffff!important;
+      color: #ffffff !important;
       padding: 10px 20px;
       border-radius: 5px;
       text-decoration: none;

@@ -15,40 +15,40 @@ class StoreContactFormTest extends TestCase
 
     /** @test */
     public function Store_Contact_Form_Successfully()
-{
-    // Fake the mailer
-    Mail::fake();
+    {
+        // Fake the mailer
+        Mail::fake();
 
-    // Define valid form data
-    $formdata = [
-        'name' => 'John Doe',
-        'email' => 'johndoe@example.com',
-        'phone' => '1234567890',
-        'details' => 'This is a valid test message with sufficient details.',
-    ];
+        // Define valid form data
+        $formdata = [
+            'name' => 'John Doe',
+            'email' => 'johndoe@example.com',
+            'phone' => '1234567890',
+            'details' => 'This is a valid test message with sufficient details.',
+        ];
 
-    // Simulate a POST request to the store route
-    $response = $this->post(route('contact.store'), $formdata);
+        // Simulate a POST request to the store route
+        $response = $this->post(route('contact.store'), $formdata);
 
-    // Assert that the form data was validated and stored in the database
-    $this->assertDatabaseHas('contact_forms', [
-        'name' => $formdata['name'],
-        'email' => $formdata['email'],
-        'phonenumber' => $formdata['phone'],
-        'message' => $formdata['details'],
-    ]);
+        // Assert that the form data was validated and stored in the database
+        $this->assertDatabaseHas('contact_forms', [
+            'name' => $formdata['name'],
+            'email' => $formdata['email'],
+            'phonenumber' => $formdata['phone'],
+            'message' => $formdata['details'],
+        ]);
 
-    // Assert that an email was queued
-    Mail::assertQueued(ContactMail::class, function ($mail) use ($formdata) {
-        return $mail->hasTo($formdata['email']) &&
-               $mail->getContact()->name === $formdata['name'] &&
-               $mail->getContact()->message === $formdata['details'];
-    });
+        // Assert that an email was queued
+        Mail::assertQueued(ContactMail::class, function ($mail) use ($formdata) {
+            return $mail->hasTo($formdata['email']) &&
+                $mail->getContact()->name === $formdata['name'] &&
+                $mail->getContact()->message === $formdata['details'];
+        });
 
-    // Assert that the response redirects correctly
-    $response->assertRedirect('/contact/create');
-    $response->assertSessionHas('success', 'Your message has been sent!');
-}
+        // Assert that the response redirects correctly
+        $response->assertRedirect('/contact/create');
+        $response->assertSessionHas('success', 'Your message has been sent!');
+    }
 
 
 
@@ -57,10 +57,10 @@ class StoreContactFormTest extends TestCase
     {
         // Define invalid form data
         $formdata = [
-            'name' => 'abc', 
-            'email' => 'invalid-email', 
-            'phone' => 'not-a-number', 
-            'details' => 'short', 
+            'name' => 'abc',
+            'email' => 'invalid-email',
+            'phone' => 'not-a-number',
+            'details' => 'short',
         ];
 
         // Validate the data

@@ -22,17 +22,36 @@
             <h1 class="text-3xl font-bold border-b border-gray-300 pb-2 mb-6">Reviews</h1>
 
             @foreach ($reviews as $review)
-                <div class="flex flex-wrap items-center justify-between border border-gray-300 rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
+                <div
+                    class="flex flex-wrap items-center justify-between border border-gray-300 rounded-lg shadow-lg p-4 mb-4 shadow-sm bg-white">
                     <div class="flex-1 min-w-0 max-w-xs">
                         <p class="text-sm text-gray-700 font-medium break-words mr-2">{{ $review->name }}</p>
                     </div>
                     <div class="flex-1 min-w-0 max-w-xs">
-                        <a href="mailto:{{ $review->email }}" class="text-sm text-gray-700 hover:underline break-words">{{ $review->email }}</a>
+                        <a href="mailto:{{ $review->email }}"
+                            class="text-sm text-gray-700 hover:underline break-words">{{ $review->email }}</a>
                     </div>
                     <div class="flex-1 min-w-0 max-w-xs">
-                        <p class="text-sm text-gray-700 ml-4">{{ $review->rating }}</p>
+                        <div class="flex text-yellow-500">
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <= $review->rating)
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+                                    </svg>
+                                @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-5 h-5"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+                                    </svg>
+                                @endif
+                            @endfor
+                        </div>
+
                     </div>
                     <div class="flex-1 min-w-0 max-w-xs">
+
                         <p class="text-sm text-gray-700 break-words">{{ $review->review }}</p>
                     </div>
                     <div class="flex-none">
@@ -77,7 +96,8 @@
 
                     @for ($i = max(1, $reviews->currentPage() - 1); $i <= min($reviews->lastPage(), $reviews->currentPage() + 1); $i++)
                         @if ($i == $reviews->currentPage())
-                            <button class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                            <button
+                                class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
                                 {{ $i }}
                             </button>
                         @else
@@ -100,7 +120,8 @@
                 @else
                     @for ($i = 1; $i <= $reviews->lastPage(); $i++)
                         @if ($i == $reviews->currentPage())
-                            <button class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+                            <button
+                                class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
                                 {{ $i }}
                             </button>
                         @else
@@ -127,4 +148,3 @@
         </div>
     </section>
 </x-admin-layout>
-

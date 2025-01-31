@@ -32,7 +32,7 @@
                                 class="ml-1 text-gray-400 hover:text-blue-600 md:ml-2">Events</a>
                         </div>
                     </li>
-                    
+
                 </ol>
             </nav></svg>
 

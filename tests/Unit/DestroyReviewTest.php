@@ -29,7 +29,7 @@ class DestroyReviewTest extends TestCase
 
         // Assert the response redirects with a success message
         $response->assertRedirect()
-                 ->assertSessionHas('success', 'Review deleted successfully!');
+            ->assertSessionHas('success', 'Review deleted successfully!');
     }
 
     /** @test */
@@ -37,13 +37,13 @@ class DestroyReviewTest extends TestCase
     {
         $user = User::factory()->create();
         $this->actingAs($user);
-        
+
         // Attempt to delete a review that does not exist (ID 9999)
         $response = $this->delete(route('review.destroy', 9999));
 
         // Assert a 404 Not Found response is returned
         $response->assertStatus(404)
-                 ->assertJson(['message' => 'Review not found!']);
+            ->assertJson(['message' => 'Review not found!']);
     }
 }
 

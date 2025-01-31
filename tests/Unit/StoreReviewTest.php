@@ -37,7 +37,7 @@ class StoreReviewTest extends TestCase
             ->assertSessionHas('success', 'Review submitted successfully!');
     }
 
-    
+
     /** @test */
     public function Store_Review_Failed()
     {
@@ -45,7 +45,7 @@ class StoreReviewTest extends TestCase
         $invalidReviewData = [
             'name' => '',
             'email' => 'invalid-email',
-            'rating' => 6, 
+            'rating' => 6,
             'review' => ''
         ];
 
@@ -54,12 +54,12 @@ class StoreReviewTest extends TestCase
 
         // Assert the validation errors are returned
         $response->assertSessionHasErrors([
-            'name', 
-            'email', 
-            'rating', 
+            'name',
+            'email',
+            'rating',
             'review'
         ]);
-        
+
         // Optionally, check for a specific error message for the rating
         $response->assertSessionHasErrors(['rating']);
     }

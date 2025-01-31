@@ -119,7 +119,7 @@
                         <p class="text-sm text-gray-700 ">Tickets available at:</p>
                         <a href="{{ $event->ticket_link }}"
                             class="text-blue-600 hover:text-blue-700 underline ">{{ $event->ticket_link }}</a>
-                        
+
 
                 @else
                     <p>No event found.</p>

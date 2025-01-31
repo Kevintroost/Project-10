@@ -1,4 +1,5 @@
-<meta name="description" content="Opus Events offers expert event planning services for concerts, weddings, corporate events, and parties. Discover tailored experiences, submit event requests, and get in touch with our team to create unforgettable moments.">
+<meta name="description"
+    content="Opus Events offers expert event planning services for concerts, weddings, corporate events, and parties. Discover tailored experiences, submit event requests, and get in touch with our team to create unforgettable moments.">
 
 <x-layout :title="'Home | Opus Events'">
     <section class="bg-center bg-no-repeat"
@@ -8,13 +9,13 @@
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
 
-                
+
                 <h1
                     class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                     Transform your events, elevate your experiences
                 </h1>
 
-               
+
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                     Whether you're planning a concert, wedding, corporate event, or party, we handle the details so you
                     can fully enjoy your special moment.
@@ -71,7 +72,7 @@
 
             </div>
 
-            
+
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <img src="{{ Vite::asset('resources/assets/stage.png') }}"
                     alt="Event stage setup for weddings, concerts, and parties" class="max-w-full h-auto">
@@ -225,7 +226,7 @@
                     src="{{ Vite::asset('resources/assets/person1.png') }}"
                     alt="Sebastiaan Kloos, CEO of NeuroSync Technologies" loading="lazy">
 
-                
+
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                     class="inline-block font-bold tracking-tight">
                     <p>Elara Voss</p>
@@ -239,7 +240,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             @foreach ($fotoGaleries as $fotoGalerie)
                 <div class="relative">
-                    
+
                     <img src="{{ asset('images/' . $fotoGalerie->foto) }}"
                         alt="{{ $fotoGalerie->title ?? 'Event Image Gallery' }}" class="w-full h-64 object-cover rounded-lg"
                         loading="lazy">

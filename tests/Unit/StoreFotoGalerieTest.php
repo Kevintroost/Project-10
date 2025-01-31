@@ -41,11 +41,13 @@ class StoreFotoGalerieTest extends TestCase
         // Assertions
         $this->assertTrue(file_exists(public_path('images/' . $imagename)), 'File was not saved in public/images.');
 
+        // Assert that the image was stored in the database
         $this->assertDatabaseHas('foto_galeries', [
             'foto' => $imagename,
             'user_id' => $user->id,
         ]);
 
+        // Assert the redirection with the success message 
         $response->assertRedirect('admin/dashboard/image/create');
         $response->assertSessionHas('success', 'Image uploaded successfully');
 
