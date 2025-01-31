@@ -76,9 +76,9 @@ class DestroyFotoGalerieTest extends TestCase
     {
         // Create a test user with a unique email
         $user = User::factory()->create([
-            'email' => fake()->unique()->safeEmail(), 
+            'email' => fake()->unique()->safeEmail(),
         ]);
-        $this->actingAs($user);  
+        $this->actingAs($user);
 
         return $user;
     }

@@ -40,9 +40,9 @@ Route::get('/admin', function () {
 
 Route::get('/events/index', function () {
     $events = Event::whereNotNull('id')  // Only valid dates
-                           // Order by ID
-                   ->orderBy('event_date', 'asc') // Order by date
-                   ->paginate(8);                  // Paginate results
+        // Order by ID
+        ->orderBy('event_date', 'asc') // Order by date
+        ->paginate(8);                  // Paginate results
     return view('events.index', compact('events'));
 });
 
@@ -79,9 +79,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin/dashboard/events/create', function () {
         $events = Event::whereNotNull('id')  // Only valid dates
-                           // Order by ID
-                   ->orderBy('event_date', 'asc') // Order by date
-                   ->paginate(6);                  // Paginate results
+            // Order by ID
+            ->orderBy('event_date', 'asc') // Order by date
+            ->paginate(6);                  // Paginate results
 
         return view('events/create', compact('events'));
 
@@ -97,7 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::patch('/admin/dashboard/events/edit/{id}', [EventController::class, 'update'])->name('events.edit');
-    
+
 
     Route::get('admin/dashboard/about-us/index', function () {
         $reviews = Review::all();
@@ -126,7 +126,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('events/store', [EventController::class, 'Store'])->name('events.store');
 
 
-    
+
     Route::get('/admin/dashboard/contact/index', function () {
 
         $contacts = ContactForm::all();

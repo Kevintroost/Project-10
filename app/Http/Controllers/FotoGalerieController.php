@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\FotoGalerie;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-
-use Illuminate\Support\Facades\Storage;
 
 class FotoGalerieController extends Controller
 {

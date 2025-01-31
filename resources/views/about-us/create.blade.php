@@ -125,17 +125,17 @@
     <div class="mb-6">
       <h2 class="text-2xl font-bold text-gray-800 flex items-center">
         Reviews
-        
+
       </h2>
-      
-      <p class="text-gray-600 text-sm"><a  class="text-blue-500 underline">{{$totalreviews}} Reviews</a>
+
+      <p class="text-gray-600 text-sm"><a class="text-blue-500 underline">{{$totalreviews}} Reviews</a>
       </p>
     </div>
 
     <!-- pop up form -->
     <div id="app">
       <div class="mb-6">
-        
+
         <!-- <button @click="openModal"
           class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600">Write a review</button> -->
         <review-form></review-form>
@@ -145,114 +145,115 @@
 
 
     <div>
-    @foreach ($reviews as $review)
-    <!-- Review -->
-    <div class="border-t border-gray-200 pt-6 mb-6">
-        <div class="flex items-center mb-2 space-x-2"> 
-            <p class="text-gray-800 font-semibold break-words max-w-xs">{{ $review->name }}</p> 
+      @foreach ($reviews as $review)
+      <!-- Review -->
+      <div class="border-t border-gray-200 pt-6 mb-6">
+      <div class="flex items-center mb-2 space-x-2">
+        <p class="text-gray-800 font-semibold break-words max-w-xs">{{ $review->name }}</p>
 
-            
-            <div class="flex text-yellow-500">
-                @for ($i = 1; $i <= 5; $i++)
-                    @if ($i <= $review->rating)
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-                        </svg>
-                    @else
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
-                        </svg>
-                    @endif
-                @endfor
-            </div>
+
+        <div class="flex text-yellow-500">
+        @for ($i = 1; $i <= 5; $i++)
+      @if ($i <= $review->rating)
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+      </svg>
+    @else
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-5 h-5"
+      viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+      </svg>
+    @endif
+    @endfor
         </div>
-        <p class="text-gray-600 text-sm break-words max-w-full">{{ $review->review }}</p> 
-    </div>
-@endforeach
+      </div>
+      <p class="text-gray-600 text-sm break-words max-w-full">{{ $review->review }}</p>
+      </div>
+    @endforeach
 
 
 
-    <div class="flex items-center justify-center space-x-2 mt-4">
-                        <!-- Previous Button -->
-                        @if ($reviews->onFirstPage())
-                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-                                Previous
-                            </button>
-                        @else
-                            <a href="{{ $reviews->previousPageUrl() }}"
-                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                Previous
-                            </a>
-                        @endif
+      <div class="flex items-center justify-center space-x-2 mt-4">
+        <!-- Previous Button -->
+        @if ($reviews->onFirstPage())
+      <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+        Previous
+      </button>
+    @else
+    <a href="{{ $reviews->previousPageUrl() }}"
+      class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+      Previous
+    </a>
+  @endif
 
-                        <!-- Page Numbers -->
-                        @if ($reviews->lastPage() > 9)
-                            @if ($reviews->currentPage() > 4)
-                                <a href="{{ $reviews->url(1) }}"
-                                    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                    1
-                                </a>
-                                @if ($reviews->currentPage() > 5)
-                                    <span class="px-4 py-2">...</span>
-                                @endif
-                            @endif
+        <!-- Page Numbers -->
+        @if ($reviews->lastPage() > 9)
+      @if ($reviews->currentPage() > 4)
+      <a href="{{ $reviews->url(1) }}"
+      class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+      1
+      </a>
+      @if ($reviews->currentPage() > 5)
+      <span class="px-4 py-2">...</span>
+    @endif
+    @endif
 
-                            @for ($i = max(1, $reviews->currentPage() - 1); $i <= min($reviews->lastPage(), $reviews->currentPage() + 1); $i++)
-                                @if ($i == $reviews->currentPage())
-                                    <button
-                                        class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
-                                        {{ $i }}
-                                    </button>
-                                @else
-                                    <a href="{{ $reviews->url($i) }}"
-                                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                        {{ $i }}
-                                    </a>
-                                @endif
-                            @endfor
+      @for ($i = max(1, $reviews->currentPage() - 1); $i <= min($reviews->lastPage(), $reviews->currentPage() + 1); $i++)
+      @if ($i == $reviews->currentPage())
+      <button
+      class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+      {{ $i }}
+      </button>
+    @else
+      <a href="{{ $reviews->url($i) }}"
+      class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+      {{ $i }}
+      </a>
+    @endif
+    @endfor
 
-                            @if ($reviews->currentPage() < $reviews->lastPage() - 3)
-                                @if ($reviews->currentPage() < $reviews->lastPage() - 4)
-                                    <span class="px-4 py-2">...</span>
-                                @endif
-                                <a href="{{ $reviews->url($reviews->lastPage()) }}"
-                                    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                    {{ $reviews->lastPage() }}
-                                </a>
-                            @endif
-                        @else
-                            @for ($i = 1; $i <= $reviews->lastPage(); $i++)
-                                @if ($i == $reviews->currentPage())
-                                    <button
-                                        class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
-                                        {{ $i }}
-                                    </button>
-                                @else
-                                    <a href="{{ $reviews->url($i) }}"
-                                        class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                        {{ $i }}
-                                    </a>
-                                @endif
-                            @endfor
-                        @endif
+      @if ($reviews->currentPage() < $reviews->lastPage() - 3)
+      @if ($reviews->currentPage() < $reviews->lastPage() - 4)
+      <span class="px-4 py-2">...</span>
+    @endif
+      <a href="{{ $reviews->url($reviews->lastPage()) }}"
+      class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+      {{ $reviews->lastPage() }}
+      </a>
+    @endif
+    @else
+    @for ($i = 1; $i <= $reviews->lastPage(); $i++)
+    @if ($i == $reviews->currentPage())
+    <button
+      class="px-4 py-2 text-white bg-neutral-800 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring focus:ring-neutral-300">
+      {{ $i }}
+    </button>
+  @else
+  <a href="{{ $reviews->url($i) }}"
+    class="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+    {{ $i }}
+  </a>
+@endif
+  @endfor
+  @endif
 
-                        <!-- Next Button -->
-                        @if ($reviews->hasMorePages())
-                            <a href="{{ $reviews->nextPageUrl() }}"
-                                class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
-                                Next
-                            </a>
-                        @else
-                            <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
-                                Next
-                            </button>
-                        @endif
-                    </div>
-                </div>
-            </div>
-
-      <div class="flex items-center text-sm text-gray-600">
+        <!-- Next Button -->
+        @if ($reviews->hasMorePages())
+      <a href="{{ $reviews->nextPageUrl() }}"
+        class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300">
+        Next
+      </a>
+    @else
+    <button class="px-4 py-2 text-gray-500 bg-gray-100 rounded-md cursor-not-allowed" disabled>
+      Next
+    </button>
+  @endif
       </div>
     </div>
+  </div>
+
+  <div class="flex items-center text-sm text-gray-600">
+  </div>
+  </div>
   </div>
 </x-layout>
